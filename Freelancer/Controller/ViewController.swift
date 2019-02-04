@@ -10,10 +10,15 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    @IBOutlet weak var lblAutoStart: NSTextField!
+    var prefs = Preferences()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        lblAutoStart.stringValue = String(prefs.autoStart)
     }
 
     override var representedObject: Any? {

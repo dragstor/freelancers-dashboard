@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.55" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.55"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -21,7 +23,11 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                            <connections>
+                                                <segue destination="D97-BJ-rfA" kind="show" id="fz2-34-i2A"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -673,19 +679,40 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Freelancer" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="-1503" y="-269"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="EMR-wn-sol">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="D97-BJ-rfA" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="pxh-zi-RhS">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="412" height="200"/>
+                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
+                        <value key="minSize" type="size" width="412" height="200"/>
+                        <value key="maxSize" type="size" width="412" height="200"/>
+                        <connections>
+                            <outlet property="delegate" destination="D97-BJ-rfA" id="08H-62-c2x"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="xHc-ab-cGl" kind="relationship" relationship="window.shadowedContentViewController" id="a3O-Ng-k2y"/>
+                    </connections>
+                </windowController>
+                <customObject id="9kA-9I-9yb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-913" y="-236"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                    <window key="window" title="Freelancer's Dashboard" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
@@ -698,20 +725,475 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="235"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="434" height="253"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box autoresizesSubviews="NO" borderType="line" title="Time Sheet" translatesAutoresizingMaskIntoConstraints="NO" id="cxN-eE-im3">
+                                <rect key="frame" x="17" y="16" width="196" height="200"/>
+                                <view key="contentView" id="LcM-1a-x37">
+                                    <rect key="frame" x="3" y="3" width="190" height="182"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="cov-TR-tCz">
+                                            <rect key="frame" x="20" y="20" width="150" height="48"/>
+                                            <buttonCell key="cell" type="square" title="Month" bezelStyle="shadowlessSquare" image="icons8-month_view" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="dq5-0b-ROH">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="6rZ-Da-7dl" kind="show" id="y0Q-eh-hDa"/>
+                                            </connections>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="nvm-DH-zgJ">
+                                            <rect key="frame" x="20" y="114" width="150" height="48"/>
+                                            <buttonCell key="cell" type="square" title="Today" bezelStyle="shadowlessSquare" image="icons8-day_view" imagePosition="leading" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fRl-7A-Xz3">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="Uuh-zO-ewP" kind="show" id="nA7-yV-U9f"/>
+                                            </connections>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="ZrG-7D-Lf4">
+                                            <rect key="frame" x="20" y="67" width="150" height="48"/>
+                                            <buttonCell key="cell" type="square" title="Week" bezelStyle="shadowlessSquare" image="icons8-week_view" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Rcl-NC-83O">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="AOK-Mz-94f" kind="show" id="fpF-0F-xYe"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="top" secondItem="LcM-1a-x37" secondAttribute="top" constant="20" symbolic="YES" id="8xb-wK-tBU"/>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="leading" secondItem="LcM-1a-x37" secondAttribute="leading" constant="20" symbolic="YES" id="GKS-b7-ypR"/>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="trailing" secondItem="ZrG-7D-Lf4" secondAttribute="trailing" id="Twh-W8-rTv"/>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="leading" secondItem="ZrG-7D-Lf4" secondAttribute="leading" id="Zll-Az-59J"/>
+                                        <constraint firstItem="cov-TR-tCz" firstAttribute="top" secondItem="ZrG-7D-Lf4" secondAttribute="bottom" constant="-1" id="g6u-vB-Jk8"/>
+                                        <constraint firstItem="ZrG-7D-Lf4" firstAttribute="top" secondItem="nvm-DH-zgJ" secondAttribute="bottom" constant="-1" id="hwv-6n-j2u"/>
+                                        <constraint firstItem="ZrG-7D-Lf4" firstAttribute="leading" secondItem="cov-TR-tCz" secondAttribute="leading" id="pvr-nZ-Z26"/>
+                                        <constraint firstItem="ZrG-7D-Lf4" firstAttribute="trailing" secondItem="cov-TR-tCz" secondAttribute="trailing" id="wjB-0V-rKm"/>
+                                        <constraint firstAttribute="trailing" secondItem="nvm-DH-zgJ" secondAttribute="trailing" constant="20" symbolic="YES" id="xa8-9e-7ax"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <box autoresizesSubviews="NO" borderType="line" title="Tools" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-jZ-7Js">
+                                <rect key="frame" x="221" y="16" width="196" height="200"/>
+                                <view key="contentView" id="Qug-qg-4dn">
+                                    <rect key="frame" x="3" y="3" width="190" height="182"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="DvR-f0-2fo">
+                                            <rect key="frame" x="20" y="20" width="150" height="48"/>
+                                            <buttonCell key="cell" type="square" title="Preferences" bezelStyle="shadowlessSquare" image="icons8-settings" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kiR-lr-l7N">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="D97-BJ-rfA" kind="modal" id="Bx7-c7-oNr"/>
+                                            </connections>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="MRg-HF-NmB">
+                                            <rect key="frame" x="20" y="114" width="150" height="48"/>
+                                            <buttonCell key="cell" type="square" title="Time Calculator" bezelStyle="shadowlessSquare" image="icons8-overtime" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="oTW-h7-vSF">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="Anf-r3-hui" kind="show" id="tTe-nq-jst"/>
+                                            </connections>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="GeQ-x8-QhW">
+                                            <rect key="frame" x="20" y="67" width="150" height="48"/>
+                                            <buttonCell key="cell" type="square" title="Earnings" bezelStyle="shadowlessSquare" image="icons8-split_payment_copy_2" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="cwm-Mt-mHh">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="S3b-JM-fHt" kind="show" id="QZR-9b-taP"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="DvR-f0-2fo" firstAttribute="top" secondItem="GeQ-x8-QhW" secondAttribute="bottom" constant="-1" id="3B7-67-Hhw"/>
+                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="top" secondItem="Qug-qg-4dn" secondAttribute="top" constant="20" symbolic="YES" id="4fP-Pi-GyQ"/>
+                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="trailing" secondItem="GeQ-x8-QhW" secondAttribute="trailing" id="GCz-UW-97c"/>
+                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="top" secondItem="MRg-HF-NmB" secondAttribute="bottom" constant="-1" id="Lwc-yO-JSr"/>
+                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="leading" secondItem="Qug-qg-4dn" secondAttribute="leading" constant="20" symbolic="YES" id="QKf-OL-Jn5"/>
+                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="leading" secondItem="DvR-f0-2fo" secondAttribute="leading" id="UrJ-Mz-LmL"/>
+                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="trailing" secondItem="DvR-f0-2fo" secondAttribute="trailing" id="VaK-CS-Svh"/>
+                                        <constraint firstAttribute="trailing" secondItem="MRg-HF-NmB" secondAttribute="trailing" constant="20" symbolic="YES" id="fCl-Hl-q9g"/>
+                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="leading" secondItem="GeQ-x8-QhW" secondAttribute="leading" id="rdJ-Ct-Meo"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0be-83-laz">
+                                <rect key="frame" x="18" y="224" width="398" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="6RE-Tp-OoV">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Yb5-jZ-7Js" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="224" id="0f5-f0-7VX"/>
+                            <constraint firstItem="0be-83-laz" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="4G1-bg-eIj"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="37" id="6Ph-eq-JEH"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="Yb5-jZ-7Js" secondAttribute="top" id="9Gx-LE-fZT"/>
+                            <constraint firstAttribute="bottom" secondItem="cxN-eE-im3" secondAttribute="bottom" constant="20" symbolic="YES" id="IVA-6t-cFg"/>
+                            <constraint firstAttribute="trailing" secondItem="Yb5-jZ-7Js" secondAttribute="trailing" constant="20" symbolic="YES" id="ORo-f6-hlU"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="0be-83-laz" secondAttribute="bottom" constant="8" id="YOX-qE-e7W"/>
+                            <constraint firstAttribute="trailing" secondItem="0be-83-laz" secondAttribute="trailing" constant="20" id="dEr-tz-3sQ"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="gVG-uA-l4P"/>
+                            <constraint firstItem="0be-83-laz" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="12" id="n6J-Ib-Ado"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="baseline" secondItem="Yb5-jZ-7Js" secondAttribute="baseline" id="tjV-LV-mFL"/>
+                            <constraint firstItem="Yb5-jZ-7Js" firstAttribute="leading" secondItem="cxN-eE-im3" secondAttribute="trailing" constant="14" id="vIv-j5-77t"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblAutoStart" destination="0be-83-laz" id="xZo-bs-yeb"/>
+                    </connections>
+                </viewController>
+                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="636.5"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="gJ2-dg-mH0">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="Anf-r3-hui" sceneMemberID="viewController">
+                    <window key="window" title="Time Calculator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="1Ix-sJ-xpR">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="Anf-r3-hui" id="q1h-Y9-wg0"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="hTh-hQ-MDh" kind="relationship" relationship="window.shadowedContentViewController" id="u9N-gi-7ld"/>
+                    </connections>
+                </windowController>
+                <customObject id="zev-7S-ZuL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="719" y="304"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="hYS-zJ-c4j">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="S3b-JM-fHt" sceneMemberID="viewController">
+                    <window key="window" title="Earnings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="lRb-QC-MyN">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="S3b-JM-fHt" id="4EY-F3-fW2"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="01R-PQ-wSd" kind="relationship" relationship="window.shadowedContentViewController" id="PET-Jo-J3Q"/>
+                    </connections>
+                </windowController>
+                <customObject id="FEu-jh-8b2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="719" y="645"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="YkE-bv-olG">
+            <objects>
+                <viewController id="01R-PQ-wSd" sceneMemberID="viewController">
+                    <view key="view" id="DDN-e9-Knn">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="gPP-yU-H3q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="1276" y="645"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="a0W-W2-7OO">
+            <objects>
+                <viewController id="hTh-hQ-MDh" sceneMemberID="viewController">
+                    <view key="view" id="e4s-NP-RyS">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="RzS-tZ-Otz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1276" y="310"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="647-4A-BR9">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="Uuh-zO-ewP" sceneMemberID="viewController">
+                    <window key="window" title="Today's Time Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="wpP-Dr-vUZ">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="Uuh-zO-ewP" id="Tk8-Nr-UYN"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="d5A-su-o6k" kind="relationship" relationship="window.shadowedContentViewController" id="olA-zA-DMA"/>
+                    </connections>
+                </windowController>
+                <customObject id="jgp-9t-CmG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1072" y="1150"/>
+        </scene>
+        <!--Today's Time Sheet-->
+        <scene sceneID="NiA-Np-d81">
+            <objects>
+                <viewController title="Today's Time Sheet" storyboardIdentifier="TodayTS" showSeguePresentationStyle="single" id="d5A-su-o6k" customClass="TodayTimeSheetViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="aMJ-pW-1nP">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="4J9-Bx-m13" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="jCO-g9-tRd">
+                    <allowedToolbarItems>
+                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="dbb-w7-EsZ"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="MoO-3t-NGZ"/>
+                        <toolbarItem implicitItemIdentifier="350415BA-2312-4107-87CF-157826BA9618" label="Remove entry" paletteLabel="Remove entry" tag="-1" image="icons8-cancel" id="brc-BX-SMl">
+                            <size key="minSize" width="48" height="48"/>
+                            <size key="maxSize" width="48" height="48"/>
+                        </toolbarItem>
+                        <toolbarItem implicitItemIdentifier="C11A44F0-34FD-4175-9A2F-6D70EB5BFF8A" label="Confirm entry" paletteLabel="Confirm entry" tag="-1" image="icons8-verified_account" id="mQl-wz-HX9">
+                            <size key="minSize" width="48" height="48"/>
+                            <size key="maxSize" width="48" height="48"/>
+                        </toolbarItem>
+                    </allowedToolbarItems>
+                    <defaultToolbarItems>
+                        <toolbarItem reference="mQl-wz-HX9"/>
+                        <toolbarItem reference="brc-BX-SMl"/>
+                        <toolbarItem reference="MoO-3t-NGZ"/>
+                    </defaultToolbarItems>
+                </toolbar>
+            </objects>
+            <point key="canvasLocation" x="-1072" y="1565"/>
+        </scene>
+        <!--This Week's Time Sheet-->
+        <scene sceneID="RcA-Dn-loh">
+            <objects>
+                <viewController title="This Week's Time Sheet" storyboardIdentifier="WeekTS" showSeguePresentationStyle="single" id="DeF-PG-cRw" customClass="WeekTimeSheetViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="4HB-AW-kpd">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="q9o-S2-ZiO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="fbm-WZ-6y1">
+                    <allowedToolbarItems>
+                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="wZP-b4-Qai"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="I6b-3L-332"/>
+                        <toolbarItem implicitItemIdentifier="350415BA-2312-4107-87CF-157826BA9618" label="Remove entry" paletteLabel="Remove entry" tag="-1" image="icons8-cancel" id="rEE-x8-8VI">
+                            <size key="minSize" width="48" height="48"/>
+                            <size key="maxSize" width="48" height="48"/>
+                        </toolbarItem>
+                        <toolbarItem implicitItemIdentifier="C11A44F0-34FD-4175-9A2F-6D70EB5BFF8A" label="Confirm entry" paletteLabel="Confirm entry" tag="-1" image="icons8-verified_account" id="eKn-m4-2Cr">
+                            <size key="minSize" width="48" height="48"/>
+                            <size key="maxSize" width="48" height="48"/>
+                        </toolbarItem>
+                    </allowedToolbarItems>
+                    <defaultToolbarItems>
+                        <toolbarItem reference="eKn-m4-2Cr"/>
+                        <toolbarItem reference="rEE-x8-8VI"/>
+                        <toolbarItem reference="I6b-3L-332"/>
+                    </defaultToolbarItems>
+                </toolbar>
+            </objects>
+            <point key="canvasLocation" x="-536" y="1565"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="TuV-F7-RPj">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="AOK-Mz-94f" sceneMemberID="viewController">
+                    <window key="window" title="This Week's Time Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="wub-58-EAT">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="AOK-Mz-94f" id="BaU-z5-kbE"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="DeF-PG-cRw" kind="relationship" relationship="window.shadowedContentViewController" id="APl-L5-agY"/>
+                    </connections>
+                </windowController>
+                <customObject id="b8g-CA-XF7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-536" y="1150"/>
+        </scene>
+        <!--This Week's Time Sheet-->
+        <scene sceneID="x6h-2P-VpB">
+            <objects>
+                <viewController title="This Week's Time Sheet" storyboardIdentifier="WeekTS" showSeguePresentationStyle="single" id="bRp-hB-JGi" customClass="MonthTimeSheetViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Mly-v8-U5r">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="hnL-WV-okG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="ANS-g7-BOo">
+                    <allowedToolbarItems>
+                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="vsB-Ht-Kmb"/>
+                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="8VF-2m-GFR"/>
+                        <toolbarItem implicitItemIdentifier="350415BA-2312-4107-87CF-157826BA9618" label="Remove entry" paletteLabel="Remove entry" tag="-1" image="icons8-cancel" id="fET-kC-2NJ">
+                            <size key="minSize" width="48" height="48"/>
+                            <size key="maxSize" width="48" height="48"/>
+                        </toolbarItem>
+                        <toolbarItem implicitItemIdentifier="C11A44F0-34FD-4175-9A2F-6D70EB5BFF8A" label="Confirm entry" paletteLabel="Confirm entry" tag="-1" image="icons8-verified_account" id="Dpj-Mi-kgo">
+                            <size key="minSize" width="48" height="48"/>
+                            <size key="maxSize" width="48" height="48"/>
+                        </toolbarItem>
+                    </allowedToolbarItems>
+                    <defaultToolbarItems>
+                        <toolbarItem reference="Dpj-Mi-kgo"/>
+                        <toolbarItem reference="fET-kC-2NJ"/>
+                        <toolbarItem reference="8VF-2m-GFR"/>
+                    </defaultToolbarItems>
+                </toolbar>
+            </objects>
+            <point key="canvasLocation" x="6" y="1565"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="B2h-Se-UiX">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="6rZ-Da-7dl" sceneMemberID="viewController">
+                    <window key="window" title="This Month's Time Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="DEv-Is-hoG">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="6rZ-Da-7dl" id="7Wf-w2-mIm"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="bRp-hB-JGi" kind="relationship" relationship="window.shadowedContentViewController" id="o0n-Dv-066"/>
+                    </connections>
+                </windowController>
+                <customObject id="4Vn-6J-6in" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6" y="1150"/>
+        </scene>
+        <!--General Preferences-->
+        <scene sceneID="vJt-9E-D5I">
+            <objects>
+                <viewController title="General Preferences" showSeguePresentationStyle="single" id="xHc-ab-cGl" customClass="GeneralPreferencesViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="TvY-xE-Aw3">
+                        <rect key="frame" x="0.0" y="0.0" width="412" height="168"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-X5-RXA">
+                                <rect key="frame" x="94" y="67" width="206" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Launch app at system start up" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VhO-j3-mOL">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="laW-19-V2J">
+                                <rect key="frame" x="253" y="126" width="64" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="mZY-yb-ERs">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBh-fT-SoU">
+                                <rect key="frame" x="253" y="94" width="64" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="uPK-KY-5Tz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVc-L2-KzF">
+                                <rect key="frame" x="20" y="100" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icons8-settings" id="6wH-PI-E9b"/>
+                            </imageView>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yv-5s-mIW">
+                                <rect key="frame" x="153" y="1" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-verified_account" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="941-9A-ei6">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnSave:" target="xHc-ab-cGl" id="IAV-8O-i2I"/>
+                                </connections>
+                            </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCy-kw-FtA">
+                                <rect key="frame" x="211" y="1" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-cancel" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3jw-s4-Mqt">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="btnCancel:" target="xHc-ab-cGl" id="5rl-oa-Qcu"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-q7-792">
+                                <rect key="frame" x="94" y="129" width="146" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Maximum weekly hours" id="pNj-ls-gRV">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHX-ky-qeB">
+                                <rect key="frame" x="94" y="97" width="159" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Hourly charge client for $" id="PsH-3N-arg">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="autoStart" destination="zBe-X5-RXA" id="TJx-Yj-CRV"/>
+                        <outlet property="btnCancel" destination="GCy-kw-FtA" id="CWi-K3-7Zd"/>
+                        <outlet property="btnSave" destination="0yv-5s-mIW" id="ilZ-0I-TNB"/>
+                        <outlet property="txtHours" destination="laW-19-V2J" id="wNo-M7-5jj"/>
+                        <outlet property="txtRPH" destination="mBh-fT-SoU" id="DjE-oA-FLO"/>
+                    </connections>
+                </viewController>
+                <customObject id="YIE-pa-EcO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-913" y="82"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-cancel" width="48" height="48"/>
+        <image name="icons8-day_view" width="48" height="48"/>
+        <image name="icons8-month_view" width="48" height="48"/>
+        <image name="icons8-overtime" width="48" height="48"/>
+        <image name="icons8-settings" width="48" height="48"/>
+        <image name="icons8-split_payment_copy_2" width="48" height="48"/>
+        <image name="icons8-verified_account" width="48" height="48"/>
+        <image name="icons8-week_view" width="48" height="48"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fz2-34-i2A"/>
+    </inferredMetricsTieBreakers>
 </document>

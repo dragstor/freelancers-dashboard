@@ -12,7 +12,30 @@
 		9332043D2207C1DF0098632C /* Freelancer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9332043B2207C1DF0098632C /* Freelancer.xcdatamodeld */; };
 		9332043F2207C1E10098632C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9332043E2207C1E10098632C /* Assets.xcassets */; };
 		933204422207C1E10098632C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933204402207C1E10098632C /* Main.storyboard */; };
+		9332044D2207C22D0098632C /* build_number.sh in Resources */ = {isa = PBXBuildFile; fileRef = 9332044C2207C22D0098632C /* build_number.sh */; };
+		9332044F2207C5F10098632C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332044E2207C5F10098632C /* Extensions.swift */; };
+		933204512207C61F0098632C /* Timer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 933204502207C61F0098632C /* Timer.storyboard */; };
+		933204532207C6370098632C /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933204522207C6370098632C /* EventMonitor.swift */; };
+		933204552207C6B40098632C /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933204542207C6B40098632C /* TimerController.swift */; };
+		9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */; };
+		934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */; };
+		934AEB3E220800CB005CCEBD /* MonthTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3D220800CB005CCEBD /* MonthTimeSheetViewController.swift */; };
+		934AEB43220804BF005CCEBD /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */; };
+		934AEB52220807A6005CCEBD /* General.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934AEB51220807A6005CCEBD /* General.xib */; };
+		934AEB5522081057005CCEBD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5422081057005CCEBD /* Preferences.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXBuildRule section */
+		9332044A2207C1F90098632C /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+/* End PBXBuildRule section */
 
 /* Begin PBXFileReference section */
 		933204342207C1DF0098632C /* Freelancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freelancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +46,17 @@
 		933204412207C1E10098632C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		933204432207C1E10098632C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		933204442207C1E10098632C /* Freelancer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Freelancer.entitlements; sourceTree = "<group>"; };
+		9332044C2207C22D0098632C /* build_number.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_number.sh; sourceTree = "<group>"; };
+		9332044E2207C5F10098632C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		933204502207C61F0098632C /* Timer.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Timer.storyboard; sourceTree = "<group>"; };
+		933204522207C6370098632C /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		933204542207C6B40098632C /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
+		9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTimeSheetViewController.swift; sourceTree = "<group>"; };
+		934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTimeSheetViewController.swift; sourceTree = "<group>"; };
+		934AEB3D220800CB005CCEBD /* MonthTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTimeSheetViewController.swift; sourceTree = "<group>"; };
+		934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
+		934AEB51220807A6005CCEBD /* General.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = General.xib; path = Preferences/General.xib; sourceTree = "<group>"; };
+		934AEB5422081057005CCEBD /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +73,8 @@
 		9332042B2207C1DF0098632C = {
 			isa = PBXGroup;
 			children = (
+				934AEB51220807A6005CCEBD /* General.xib */,
+				9332044C2207C22D0098632C /* build_number.sh */,
 				933204362207C1DF0098632C /* Freelancer */,
 				933204352207C1DF0098632C /* Products */,
 			);
@@ -55,15 +91,64 @@
 		933204362207C1DF0098632C /* Freelancer */ = {
 			isa = PBXGroup;
 			children = (
+				934AEB5322081043005CCEBD /* Model */,
+				933204572207E6090098632C /* Storyboard */,
+				933204562207E5E40098632C /* Controller */,
 				933204372207C1DF0098632C /* AppDelegate.swift */,
-				933204392207C1DF0098632C /* ViewController.swift */,
 				9332043E2207C1E10098632C /* Assets.xcassets */,
-				933204402207C1E10098632C /* Main.storyboard */,
 				933204432207C1E10098632C /* Info.plist */,
 				933204442207C1E10098632C /* Freelancer.entitlements */,
 				9332043B2207C1DF0098632C /* Freelancer.xcdatamodeld */,
 			);
 			path = Freelancer;
+			sourceTree = "<group>";
+		};
+		933204562207E5E40098632C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				934AEB41220804AE005CCEBD /* Preferences */,
+				9332045B2207F9FC0098632C /* Time Sheets */,
+				9332044E2207C5F10098632C /* Extensions.swift */,
+				933204392207C1DF0098632C /* ViewController.swift */,
+				933204522207C6370098632C /* EventMonitor.swift */,
+				933204542207C6B40098632C /* TimerController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		933204572207E6090098632C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				933204402207C1E10098632C /* Main.storyboard */,
+				933204502207C61F0098632C /* Timer.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9332045B2207F9FC0098632C /* Time Sheets */ = {
+			isa = PBXGroup;
+			children = (
+				9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */,
+				934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */,
+				934AEB3D220800CB005CCEBD /* MonthTimeSheetViewController.swift */,
+			);
+			path = "Time Sheets";
+			sourceTree = "<group>";
+		};
+		934AEB41220804AE005CCEBD /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		934AEB5322081043005CCEBD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				934AEB5422081057005CCEBD /* Preferences.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -76,8 +161,10 @@
 				933204302207C1DF0098632C /* Sources */,
 				933204312207C1DF0098632C /* Frameworks */,
 				933204322207C1DF0098632C /* Resources */,
+				9332044B2207C2090098632C /* ShellScript */,
 			);
 			buildRules = (
+				9332044A2207C1F90098632C /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -98,6 +185,11 @@
 				TargetAttributes = {
 					933204332207C1DF0098632C = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -124,21 +216,52 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934AEB52220807A6005CCEBD /* General.xib in Resources */,
+				933204512207C61F0098632C /* Timer.storyboard in Resources */,
 				9332043F2207C1E10098632C /* Assets.xcassets in Resources */,
 				933204422207C1E10098632C /* Main.storyboard in Resources */,
+				9332044D2207C22D0098632C /* build_number.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9332044B2207C2090098632C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsh \"${SRCROOT}/build_number.sh\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		933204302207C1DF0098632C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934AEB43220804BF005CCEBD /* GeneralPreferenceViewController.swift in Sources */,
 				9332043D2207C1DF0098632C /* Freelancer.xcdatamodeld in Sources */,
+				933204532207C6370098632C /* EventMonitor.swift in Sources */,
 				9332043A2207C1DF0098632C /* ViewController.swift in Sources */,
 				933204382207C1DF0098632C /* AppDelegate.swift in Sources */,
+				934AEB3E220800CB005CCEBD /* MonthTimeSheetViewController.swift in Sources */,
+				9332044F2207C5F10098632C /* Extensions.swift in Sources */,
+				934AEB5522081057005CCEBD /* Preferences.swift in Sources */,
+				934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */,
+				933204552207C6B40098632C /* TimerController.swift in Sources */,
+				9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,11 +402,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = JW47XGYL6N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = biz.stojkovic.Freelancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -298,11 +426,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = JW47XGYL6N;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = biz.stojkovic.Freelancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
