@@ -1711,33 +1711,11 @@
             <objects>
                 <viewController title="GNU Affero General Public License v3.0" showSeguePresentationStyle="single" id="Xnu-m1-et5" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" id="zjx-Rq-W2X">
-                        <rect key="frame" x="0.0" y="0.0" width="505" height="143"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="143"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="FH8-rJ-ivP">
-                                <rect key="frame" x="20" y="82" width="467" height="41"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="center" title="This software is released under the Affero GPL v3.0 License.  For more info, pease visit the following link:" id="ZVP-EA-ywp">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ViF-XR-dQo" customClass="HyperlinkTextField" customModule="Freelancer" customModuleProvider="target">
-                                <rect key="frame" x="130" y="63" width="245" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="INd-a2-b2H"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="center" title="https://www.tldrlegal.com/l/agpl3" id="dWW-xO-x1P">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://www.tldrlegal.com/l/agpl3"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KVu-5Z-yb4">
-                                <rect key="frame" x="183" y="13" width="139" height="32"/>
+                                <rect key="frame" x="171" y="13" width="139" height="32"/>
                                 <buttonCell key="cell" type="push" title="I understand 👍" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Wk-FK-LfM">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1746,23 +1724,42 @@
                                     <action selector="dismissController:" target="Xnu-m1-et5" id="lJz-oI-7SL"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViF-XR-dQo" customClass="HyperlinkTextField" customModule="Freelancer" customModuleProvider="target">
+                                <rect key="frame" x="135" y="63" width="210" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" alignment="center" title="https://www.tldrlegal.com/l/agpl3" id="dWW-xO-x1P">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://www.tldrlegal.com/l/agpl3"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="FH8-rJ-ivP">
+                                <rect key="frame" x="53" y="82" width="374" height="41"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" title="This software is released under the Affero GPL v3.0 License.  For more info, pease visit the following link:" id="ZVP-EA-ywp">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="KVu-5Z-yb4" firstAttribute="top" secondItem="ViF-XR-dQo" secondAttribute="bottom" constant="22" id="3i2-37-4Mk"/>
-                            <constraint firstItem="ViF-XR-dQo" firstAttribute="top" secondItem="FH8-rJ-ivP" secondAttribute="bottom" constant="2" id="5LH-CS-npS"/>
-                            <constraint firstAttribute="trailing" secondItem="FH8-rJ-ivP" secondAttribute="trailing" constant="20" symbolic="YES" id="8Sp-Pb-Trv"/>
-                            <constraint firstItem="ViF-XR-dQo" firstAttribute="centerY" secondItem="zjx-Rq-W2X" secondAttribute="centerY" id="A8X-Mh-8Tm"/>
-                            <constraint firstItem="ViF-XR-dQo" firstAttribute="centerX" secondItem="KVu-5Z-yb4" secondAttribute="centerX" id="BIQ-Kj-nCs"/>
-                            <constraint firstAttribute="bottom" secondItem="KVu-5Z-yb4" secondAttribute="bottom" constant="20" symbolic="YES" id="Fki-rJ-3kh"/>
-                            <constraint firstItem="FH8-rJ-ivP" firstAttribute="top" secondItem="zjx-Rq-W2X" secondAttribute="top" constant="20" symbolic="YES" id="TjE-6n-vQA"/>
-                            <constraint firstItem="ViF-XR-dQo" firstAttribute="centerX" secondItem="zjx-Rq-W2X" secondAttribute="centerX" id="kle-ZS-Fae"/>
-                            <constraint firstItem="FH8-rJ-ivP" firstAttribute="leading" secondItem="zjx-Rq-W2X" secondAttribute="leading" constant="22" id="naO-TY-7IN"/>
+                            <constraint firstItem="FH8-rJ-ivP" firstAttribute="centerX" secondItem="ViF-XR-dQo" secondAttribute="centerX" id="1bX-wg-BCm"/>
+                            <constraint firstItem="ViF-XR-dQo" firstAttribute="centerX" secondItem="KVu-5Z-yb4" secondAttribute="centerX" id="Q0V-nV-t0v"/>
+                            <constraint firstAttribute="bottom" secondItem="KVu-5Z-yb4" secondAttribute="bottom" constant="20" symbolic="YES" id="TEy-Ma-TsC"/>
+                            <constraint firstItem="FH8-rJ-ivP" firstAttribute="top" secondItem="zjx-Rq-W2X" secondAttribute="top" constant="20" symbolic="YES" id="itc-q8-16y"/>
+                            <constraint firstItem="KVu-5Z-yb4" firstAttribute="top" secondItem="ViF-XR-dQo" secondAttribute="bottom" constant="22" id="qpq-MS-liI"/>
+                            <constraint firstItem="FH8-rJ-ivP" firstAttribute="leading" secondItem="zjx-Rq-W2X" secondAttribute="leading" constant="55" id="sVW-mQ-JK9"/>
+                            <constraint firstItem="ViF-XR-dQo" firstAttribute="centerY" secondItem="zjx-Rq-W2X" secondAttribute="centerY" id="v3w-xT-Ran"/>
+                            <constraint firstItem="ViF-XR-dQo" firstAttribute="top" secondItem="FH8-rJ-ivP" secondAttribute="bottom" constant="2" id="xS0-TH-sY2"/>
+                            <constraint firstItem="FH8-rJ-ivP" firstAttribute="centerX" secondItem="zjx-Rq-W2X" secondAttribute="centerX" id="zNA-ob-EhM"/>
                         </constraints>
                     </view>
                 </viewController>
                 <customObject id="ntt-hY-kmN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2039" y="-498"/>
+            <point key="canvasLocation" x="1999" y="-497.5"/>
         </scene>
     </scenes>
     <resources>
