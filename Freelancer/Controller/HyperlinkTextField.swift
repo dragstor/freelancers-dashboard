@@ -2,8 +2,10 @@
 //  HyperlinkTextField.swift
 //  Freelancer
 //
-//  Created by Nikola on 2/4/19.
-//  Copyright © 2019 Stojković. All rights reserved.
+//  Modified by Nikola on 2/4/19.
+//  Copyright © 2017 StackOverflow user "jeremyforan" (https://stackoverflow.com/users/749730/jeremyforan). All rights reserved.
+//  Original source:
+//  https://stackoverflow.com/a/46897824/414187
 //
 //  Hyperlink text field (clickable & handled by default browser)
 
@@ -14,7 +16,7 @@ class HyperlinkTextField: NSTextField {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-
+        
         // Drawing code here.
     }
     @IBInspectable var href: String = ""

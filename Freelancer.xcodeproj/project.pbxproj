@@ -20,6 +20,7 @@
 		9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */; };
 		93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; };
 		93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93449F7E220A2F3E008BCC01 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93449F7D220A2F3E008BCC01 /* AboutViewController.swift */; };
 		934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */; };
 		934AEB43220804BF005CCEBD /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */; };
 		934AEB5522081057005CCEBD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5422081057005CCEBD /* Preferences.swift */; };
@@ -69,6 +70,7 @@
 		933204522207C6370098632C /* EventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		933204542207C6B40098632C /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTimeSheetViewController.swift; sourceTree = "<group>"; };
+		93449F7D220A2F3E008BCC01 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTimeSheetViewController.swift; sourceTree = "<group>"; };
 		934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
 		934AEB5422081057005CCEBD /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				933204392207C1DF0098632C /* ViewController.swift */,
 				933204522207C6370098632C /* EventMonitor.swift */,
 				934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */,
+				93449F7D220A2F3E008BCC01 /* AboutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				9332044F2207C5F10098632C /* Extensions.swift in Sources */,
 				934AEB5522081057005CCEBD /* Preferences.swift in Sources */,
 				934AEB592208D5CC005CCEBD /* HyperlinkTextField.swift in Sources */,
+				93449F7E220A2F3E008BCC01 /* AboutViewController.swift in Sources */,
 				934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */,
 				933204552207C6B40098632C /* TimerController.swift in Sources */,
 				9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */,
