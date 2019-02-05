@@ -19,10 +19,11 @@
 		933204552207C6B40098632C /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933204542207C6B40098632C /* TimerController.swift */; };
 		9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */; };
 		934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */; };
-		934AEB3E220800CB005CCEBD /* MonthTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3D220800CB005CCEBD /* MonthTimeSheetViewController.swift */; };
 		934AEB43220804BF005CCEBD /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */; };
-		934AEB52220807A6005CCEBD /* General.xib in Resources */ = {isa = PBXBuildFile; fileRef = 934AEB51220807A6005CCEBD /* General.xib */; };
 		934AEB5522081057005CCEBD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5422081057005CCEBD /* Preferences.swift */; };
+		934AEB572208D126005CCEBD /* AcknowledgmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB562208D126005CCEBD /* AcknowledgmentsViewController.swift */; };
+		934AEB592208D5CC005CCEBD /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */; };
+		934AEB5C220905E6005CCEBD /* FLTimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5B220905E6005CCEBD /* FLTimerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -53,10 +54,11 @@
 		933204542207C6B40098632C /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTimeSheetViewController.swift; sourceTree = "<group>"; };
 		934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTimeSheetViewController.swift; sourceTree = "<group>"; };
-		934AEB3D220800CB005CCEBD /* MonthTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTimeSheetViewController.swift; sourceTree = "<group>"; };
 		934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
-		934AEB51220807A6005CCEBD /* General.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = General.xib; path = Preferences/General.xib; sourceTree = "<group>"; };
 		934AEB5422081057005CCEBD /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		934AEB562208D126005CCEBD /* AcknowledgmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsViewController.swift; sourceTree = "<group>"; };
+		934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
+		934AEB5B220905E6005CCEBD /* FLTimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLTimerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +75,6 @@
 		9332042B2207C1DF0098632C = {
 			isa = PBXGroup;
 			children = (
-				934AEB51220807A6005CCEBD /* General.xib */,
 				9332044C2207C22D0098632C /* build_number.sh */,
 				933204362207C1DF0098632C /* Freelancer */,
 				933204352207C1DF0098632C /* Products */,
@@ -106,12 +107,13 @@
 		933204562207E5E40098632C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				934AEB5A220905B2005CCEBD /* Timer */,
 				934AEB41220804AE005CCEBD /* Preferences */,
 				9332045B2207F9FC0098632C /* Time Sheets */,
 				9332044E2207C5F10098632C /* Extensions.swift */,
 				933204392207C1DF0098632C /* ViewController.swift */,
 				933204522207C6370098632C /* EventMonitor.swift */,
-				933204542207C6B40098632C /* TimerController.swift */,
+				934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,7 +132,6 @@
 			children = (
 				9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */,
 				934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */,
-				934AEB3D220800CB005CCEBD /* MonthTimeSheetViewController.swift */,
 			);
 			path = "Time Sheets";
 			sourceTree = "<group>";
@@ -147,8 +148,18 @@
 			isa = PBXGroup;
 			children = (
 				934AEB5422081057005CCEBD /* Preferences.swift */,
+				934AEB5B220905E6005CCEBD /* FLTimerProtocol.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		934AEB5A220905B2005CCEBD /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				933204542207C6B40098632C /* TimerController.swift */,
+				934AEB562208D126005CCEBD /* AcknowledgmentsViewController.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,12 @@
 					933204332207C1DF0098632C = {
 						CreatedOnToolsVersion = 10.2;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
+							com.apple.HardenedRuntime = {
+								enabled = 0;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -216,7 +233,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				934AEB52220807A6005CCEBD /* General.xib in Resources */,
 				933204512207C61F0098632C /* Timer.storyboard in Resources */,
 				9332043F2207C1E10098632C /* Assets.xcassets in Resources */,
 				933204422207C1E10098632C /* Main.storyboard in Resources */,
@@ -256,9 +272,11 @@
 				933204532207C6370098632C /* EventMonitor.swift in Sources */,
 				9332043A2207C1DF0098632C /* ViewController.swift in Sources */,
 				933204382207C1DF0098632C /* AppDelegate.swift in Sources */,
-				934AEB3E220800CB005CCEBD /* MonthTimeSheetViewController.swift in Sources */,
+				934AEB572208D126005CCEBD /* AcknowledgmentsViewController.swift in Sources */,
+				934AEB5C220905E6005CCEBD /* FLTimerProtocol.swift in Sources */,
 				9332044F2207C5F10098632C /* Extensions.swift in Sources */,
 				934AEB5522081057005CCEBD /* Preferences.swift in Sources */,
+				934AEB592208D5CC005CCEBD /* HyperlinkTextField.swift in Sources */,
 				934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */,
 				933204552207C6B40098632C /* TimerController.swift in Sources */,
 				9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */,
@@ -330,7 +348,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -385,7 +403,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -414,7 +432,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = biz.stojkovic.Freelancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -438,7 +456,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = biz.stojkovic.Freelancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

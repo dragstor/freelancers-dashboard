@@ -47,6 +47,17 @@
                                     <action selector="timerStart:" target="MeR-tT-RLm" id="dZe-KR-Cqx"/>
                                 </connections>
                             </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAp-Me-Ie4">
+                                <rect key="frame" x="284" y="0.0" width="23" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" title="❤️" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="2E7-3o-yLR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="eVn-69-uyw" kind="popover" popoverAnchorView="gAp-Me-Ie4" popoverBehavior="t" preferredEdge="maxX" id="9um-VT-nH1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="I0k-u9-PTb" firstAttribute="top" secondItem="R3s-4v-VY6" secondAttribute="bottom" constant="6" id="AdN-i8-iWj"/>
@@ -67,6 +78,39 @@
                 <customObject id="63i-gh-iIC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24.5" y="-29.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="weg-7G-jYh">
+            <objects>
+                <viewController id="eVn-69-uyw" sceneMemberID="viewController">
+                    <view key="view" id="FR5-Gv-6Wl">
+                        <rect key="frame" x="0.0" y="0.0" width="235" height="79"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ga7-tb-LHK">
+                                <rect key="frame" x="35" y="39" width="164" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Made in 🇷🇸 with ❤️" id="eZU-2B-R37">
+                                    <font key="font" metaFont="system" size="18"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Aw-p4M">
+                                <rect key="frame" x="100" y="8" width="35" height="28"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="🤗" id="Ryr-Te-bJM">
+                                    <font key="font" metaFont="system" size="23"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="Lco-t8-RaO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="-30"/>
         </scene>
     </scenes>
     <resources>

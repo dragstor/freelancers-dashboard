@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icons8-serbia-1.png",
+      "filename" : "icons8-save.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-serbia-2.png",
+      "filename" : "icons8-save-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icons8-serbia.png",
+      "filename" : "icons8-save-2.png",
       "scale" : "3x"
     }
   ],

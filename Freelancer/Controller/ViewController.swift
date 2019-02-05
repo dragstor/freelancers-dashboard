@@ -10,7 +10,7 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    @IBOutlet weak var lblAutoStart: NSTextField!
+    @IBOutlet weak var lblTimerRunningStatus: NSTextField!
     var prefs = Preferences()
     
     
@@ -18,7 +18,6 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        lblAutoStart.stringValue = String(prefs.autoStart)
     }
 
     override var representedObject: Any? {

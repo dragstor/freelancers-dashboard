@@ -22,7 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.action = #selector(togglePopover(_:))
             
         }
-        popover.contentViewController = ViewController.freshController()
+        popover.contentViewController = TimerController.freshController()
         
         eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
             if let strongSelf = self, strongSelf.popover.isShown {

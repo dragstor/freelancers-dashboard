@@ -6,6 +6,104 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Window Controller-->
+        <scene sceneID="b9S-u4-POF">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="dZz-IK-dEH" sceneMemberID="viewController">
+                    <window key="window" title="About" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="tLO-Mk-vZt">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="480" height="271"/>
+                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
+                        <connections>
+                            <outlet property="delegate" destination="dZz-IK-dEH" id="Vg8-E4-Klx"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="rgQ-AQ-Yrf" kind="relationship" relationship="window.shadowedContentViewController" id="MhO-OZ-srS"/>
+                    </connections>
+                </windowController>
+                <customObject id="F4G-vT-DhF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1395" y="-928"/>
+        </scene>
+        <!--About-->
+        <scene sceneID="m61-iU-uVe">
+            <objects>
+                <viewController title="About" showSeguePresentationStyle="single" id="rgQ-AQ-Yrf" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" id="umN-ms-HfI">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="276"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Wh-1C-Sl2">
+                                <rect key="frame" x="-2" y="56" width="482" height="220"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" borderStyle="border" drawsBackground="YES" id="aJi-lg-RoL">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xd8-xY-D86">
+                                <rect key="frame" x="217" y="93" width="221" height="11"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="© 2018-2019 Nikola Stojković. All rights reserved" id="egU-lc-deb">
+                                    <font key="font" metaFont="miniSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1gl-2e-Kb5">
+                                <rect key="frame" x="217" y="167" width="221" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="version 1.0 (Build 192)" id="XE7-Gk-HJK">
+                                    <font key="font" metaFont="cellTitle"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gz0-Xi-X3z">
+                                <rect key="frame" x="217" y="183" width="221" height="24"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Freelancer's Dashboard" id="nRo-Uh-C6L">
+                                    <font key="font" metaFont="systemSemibold" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xpD-P7-K0p">
+                                <rect key="frame" x="158" y="13" width="151" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Acknowledgments" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="poG-GQ-VDJ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="IFZ-q4-oBE" kind="popover" popoverAnchorView="xpD-P7-K0p" popoverBehavior="t" preferredEdge="maxY" id="1lx-n4-cT6"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ohw-eO-u43">
+                                <rect key="frame" x="309" y="13" width="157" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="License Agreement" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OzL-Bf-E3L">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="Xnu-m1-et5" kind="sheet" id="ag1-Oq-i2e"/>
+                                </connections>
+                            </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xyk-UZ-Kgh">
+                                <rect key="frame" x="20" y="68" width="175" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="512x512" id="ANs-6p-O0g"/>
+                            </imageView>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="O54-w5-qJT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1395" y="-498"/>
+        </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
@@ -20,6 +118,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
+                                                <segue destination="dZz-IK-dEH" kind="show" id="mFa-Vj-exK"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
@@ -683,18 +782,18 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1503" y="-269"/>
+            <point key="canvasLocation" x="819" y="74"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="EMR-wn-sol">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="D97-BJ-rfA" sceneMemberID="viewController">
-                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="pxh-zi-RhS">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
-                        <rect key="contentRect" x="1974" y="283" width="412" height="200"/>
+                    <window key="window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="pxh-zi-RhS">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="1974" y="283" width="412" height="209"/>
                         <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
-                        <value key="minSize" type="size" width="412" height="200"/>
-                        <value key="maxSize" type="size" width="412" height="200"/>
+                        <value key="minSize" type="size" width="412" height="209"/>
+                        <value key="maxSize" type="size" width="412" height="209"/>
                         <connections>
                             <outlet property="delegate" destination="D97-BJ-rfA" id="08H-62-c2x"/>
                         </connections>
@@ -705,7 +804,7 @@
                 </windowController>
                 <customObject id="9kA-9I-9yb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-913" y="-236"/>
+            <point key="canvasLocation" x="819" y="371"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -725,34 +824,24 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="235"/>
+            <point key="canvasLocation" x="-519" y="625"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="434" height="253"/>
+                        <rect key="frame" x="0.0" y="0.0" width="434" height="241"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box autoresizesSubviews="NO" borderType="line" title="Time Sheet" translatesAutoresizingMaskIntoConstraints="NO" id="cxN-eE-im3">
-                                <rect key="frame" x="17" y="16" width="196" height="200"/>
+                                <rect key="frame" x="17" y="16" width="196" height="164"/>
                                 <view key="contentView" id="LcM-1a-x37">
-                                    <rect key="frame" x="3" y="3" width="190" height="182"/>
+                                    <rect key="frame" x="3" y="3" width="190" height="146"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="cov-TR-tCz">
-                                            <rect key="frame" x="20" y="20" width="150" height="48"/>
-                                            <buttonCell key="cell" type="square" title="Month" bezelStyle="shadowlessSquare" image="icons8-month_view" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="dq5-0b-ROH">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <segue destination="6rZ-Da-7dl" kind="show" id="y0Q-eh-hDa"/>
-                                            </connections>
-                                        </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="nvm-DH-zgJ">
-                                            <rect key="frame" x="20" y="114" width="150" height="48"/>
+                                            <rect key="frame" x="20" y="72" width="150" height="48"/>
                                             <buttonCell key="cell" type="square" title="Today" bezelStyle="shadowlessSquare" image="icons8-day_view" imagePosition="leading" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="fRl-7A-Xz3">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -762,7 +851,7 @@
                                             </connections>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="ZrG-7D-Lf4">
-                                            <rect key="frame" x="20" y="67" width="150" height="48"/>
+                                            <rect key="frame" x="20" y="25" width="150" height="48"/>
                                             <buttonCell key="cell" type="square" title="Week" bezelStyle="shadowlessSquare" image="icons8-week_view" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Rcl-NC-83O">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -773,26 +862,23 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="top" secondItem="LcM-1a-x37" secondAttribute="top" constant="20" symbolic="YES" id="8xb-wK-tBU"/>
-                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="leading" secondItem="LcM-1a-x37" secondAttribute="leading" constant="20" symbolic="YES" id="GKS-b7-ypR"/>
-                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="trailing" secondItem="ZrG-7D-Lf4" secondAttribute="trailing" id="Twh-W8-rTv"/>
-                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="leading" secondItem="ZrG-7D-Lf4" secondAttribute="leading" id="Zll-Az-59J"/>
-                                        <constraint firstItem="cov-TR-tCz" firstAttribute="top" secondItem="ZrG-7D-Lf4" secondAttribute="bottom" constant="-1" id="g6u-vB-Jk8"/>
-                                        <constraint firstItem="ZrG-7D-Lf4" firstAttribute="top" secondItem="nvm-DH-zgJ" secondAttribute="bottom" constant="-1" id="hwv-6n-j2u"/>
-                                        <constraint firstItem="ZrG-7D-Lf4" firstAttribute="leading" secondItem="cov-TR-tCz" secondAttribute="leading" id="pvr-nZ-Z26"/>
-                                        <constraint firstItem="ZrG-7D-Lf4" firstAttribute="trailing" secondItem="cov-TR-tCz" secondAttribute="trailing" id="wjB-0V-rKm"/>
-                                        <constraint firstAttribute="trailing" secondItem="nvm-DH-zgJ" secondAttribute="trailing" constant="20" symbolic="YES" id="xa8-9e-7ax"/>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="top" secondItem="LcM-1a-x37" secondAttribute="top" constant="26" id="6F3-ja-vnQ"/>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="leading" secondItem="ZrG-7D-Lf4" secondAttribute="leading" id="FER-Wb-Jy1"/>
+                                        <constraint firstItem="ZrG-7D-Lf4" firstAttribute="top" secondItem="nvm-DH-zgJ" secondAttribute="bottom" constant="-1" id="PvP-PE-44q"/>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="trailing" secondItem="ZrG-7D-Lf4" secondAttribute="trailing" id="RN5-5a-pAI"/>
+                                        <constraint firstAttribute="trailing" secondItem="nvm-DH-zgJ" secondAttribute="trailing" constant="20" symbolic="YES" id="SW9-UK-CU2"/>
+                                        <constraint firstItem="nvm-DH-zgJ" firstAttribute="leading" secondItem="LcM-1a-x37" secondAttribute="leading" constant="20" symbolic="YES" id="aFa-d0-o09"/>
                                     </constraints>
                                 </view>
                             </box>
                             <box autoresizesSubviews="NO" borderType="line" title="Tools" translatesAutoresizingMaskIntoConstraints="NO" id="Yb5-jZ-7Js">
-                                <rect key="frame" x="221" y="16" width="196" height="200"/>
+                                <rect key="frame" x="221" y="16" width="196" height="164"/>
                                 <view key="contentView" id="Qug-qg-4dn">
-                                    <rect key="frame" x="3" y="3" width="190" height="182"/>
+                                    <rect key="frame" x="3" y="3" width="190" height="146"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="DvR-f0-2fo">
-                                            <rect key="frame" x="20" y="20" width="150" height="48"/>
+                                            <rect key="frame" x="20" y="25" width="150" height="48"/>
                                             <buttonCell key="cell" type="square" title="Preferences" bezelStyle="shadowlessSquare" image="icons8-settings" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="kiR-lr-l7N">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -801,18 +887,8 @@
                                                 <segue destination="D97-BJ-rfA" kind="modal" id="Bx7-c7-oNr"/>
                                             </connections>
                                         </button>
-                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="MRg-HF-NmB">
-                                            <rect key="frame" x="20" y="114" width="150" height="48"/>
-                                            <buttonCell key="cell" type="square" title="Time Calculator" bezelStyle="shadowlessSquare" image="icons8-overtime" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="oTW-h7-vSF">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <segue destination="Anf-r3-hui" kind="show" id="tTe-nq-jst"/>
-                                            </connections>
-                                        </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="GeQ-x8-QhW">
-                                            <rect key="frame" x="20" y="67" width="150" height="48"/>
+                                            <rect key="frame" x="20" y="72" width="150" height="48"/>
                                             <buttonCell key="cell" type="square" title="Earnings" bezelStyle="shadowlessSquare" image="icons8-split_payment_copy_2" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="cwm-Mt-mHh">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -823,69 +899,44 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="DvR-f0-2fo" firstAttribute="top" secondItem="GeQ-x8-QhW" secondAttribute="bottom" constant="-1" id="3B7-67-Hhw"/>
-                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="top" secondItem="Qug-qg-4dn" secondAttribute="top" constant="20" symbolic="YES" id="4fP-Pi-GyQ"/>
-                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="trailing" secondItem="GeQ-x8-QhW" secondAttribute="trailing" id="GCz-UW-97c"/>
-                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="top" secondItem="MRg-HF-NmB" secondAttribute="bottom" constant="-1" id="Lwc-yO-JSr"/>
-                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="leading" secondItem="Qug-qg-4dn" secondAttribute="leading" constant="20" symbolic="YES" id="QKf-OL-Jn5"/>
-                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="leading" secondItem="DvR-f0-2fo" secondAttribute="leading" id="UrJ-Mz-LmL"/>
-                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="trailing" secondItem="DvR-f0-2fo" secondAttribute="trailing" id="VaK-CS-Svh"/>
-                                        <constraint firstAttribute="trailing" secondItem="MRg-HF-NmB" secondAttribute="trailing" constant="20" symbolic="YES" id="fCl-Hl-q9g"/>
-                                        <constraint firstItem="MRg-HF-NmB" firstAttribute="leading" secondItem="GeQ-x8-QhW" secondAttribute="leading" id="rdJ-Ct-Meo"/>
+                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="trailing" secondItem="DvR-f0-2fo" secondAttribute="trailing" id="JIE-eC-0Os"/>
+                                        <constraint firstItem="DvR-f0-2fo" firstAttribute="top" secondItem="GeQ-x8-QhW" secondAttribute="bottom" constant="-1" id="NMY-nw-gf4"/>
+                                        <constraint firstAttribute="trailing" secondItem="GeQ-x8-QhW" secondAttribute="trailing" constant="20" symbolic="YES" id="Z1M-Vl-Uke"/>
+                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="top" secondItem="Qug-qg-4dn" secondAttribute="top" constant="26" id="cuA-8Y-DIe"/>
+                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="leading" secondItem="DvR-f0-2fo" secondAttribute="leading" id="i8t-km-kU5"/>
+                                        <constraint firstItem="GeQ-x8-QhW" firstAttribute="leading" secondItem="Qug-qg-4dn" secondAttribute="leading" constant="20" symbolic="YES" id="yvg-iO-xzg"/>
                                     </constraints>
                                 </view>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0be-83-laz">
-                                <rect key="frame" x="18" y="224" width="398" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="6RE-Tp-OoV">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tve-zC-EbG">
+                                <rect key="frame" x="151" y="188" width="133" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Timer is not running." id="Zxu-yg-VmL">
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Yb5-jZ-7Js" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="224" id="0f5-f0-7VX"/>
-                            <constraint firstItem="0be-83-laz" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="4G1-bg-eIj"/>
-                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="37" id="6Ph-eq-JEH"/>
-                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="Yb5-jZ-7Js" secondAttribute="top" id="9Gx-LE-fZT"/>
-                            <constraint firstAttribute="bottom" secondItem="cxN-eE-im3" secondAttribute="bottom" constant="20" symbolic="YES" id="IVA-6t-cFg"/>
-                            <constraint firstAttribute="trailing" secondItem="Yb5-jZ-7Js" secondAttribute="trailing" constant="20" symbolic="YES" id="ORo-f6-hlU"/>
-                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="0be-83-laz" secondAttribute="bottom" constant="8" id="YOX-qE-e7W"/>
-                            <constraint firstAttribute="trailing" secondItem="0be-83-laz" secondAttribute="trailing" constant="20" id="dEr-tz-3sQ"/>
-                            <constraint firstItem="cxN-eE-im3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="gVG-uA-l4P"/>
-                            <constraint firstItem="0be-83-laz" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="12" id="n6J-Ib-Ado"/>
-                            <constraint firstItem="cxN-eE-im3" firstAttribute="baseline" secondItem="Yb5-jZ-7Js" secondAttribute="baseline" id="tjV-LV-mFL"/>
-                            <constraint firstItem="Yb5-jZ-7Js" firstAttribute="leading" secondItem="cxN-eE-im3" secondAttribute="trailing" constant="14" id="vIv-j5-77t"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="baseline" secondItem="Yb5-jZ-7Js" secondAttribute="baseline" id="1GC-kG-cOf"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="tve-zC-EbG" secondAttribute="bottom" constant="8" symbolic="YES" id="RPL-BO-cwj"/>
+                            <constraint firstAttribute="trailing" secondItem="Yb5-jZ-7Js" secondAttribute="trailing" constant="20" symbolic="YES" id="VhZ-pF-T5J"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="XcV-bG-3IS"/>
+                            <constraint firstItem="Yb5-jZ-7Js" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="224" id="hyb-65-lhj"/>
+                            <constraint firstItem="cxN-eE-im3" firstAttribute="top" secondItem="Yb5-jZ-7Js" secondAttribute="top" id="i8G-yX-g1C"/>
+                            <constraint firstItem="tve-zC-EbG" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="lXJ-ew-ky3"/>
+                            <constraint firstItem="Yb5-jZ-7Js" firstAttribute="leading" secondItem="cxN-eE-im3" secondAttribute="trailing" constant="14" id="qZs-ra-QJD"/>
+                            <constraint firstAttribute="bottom" secondItem="cxN-eE-im3" secondAttribute="bottom" constant="20" symbolic="YES" id="r9Z-x4-BtD"/>
+                            <constraint firstItem="tve-zC-EbG" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="36" id="rwx-Ff-4bk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="lblAutoStart" destination="0be-83-laz" id="xZo-bs-yeb"/>
+                        <outlet property="lblTimerRunningStatus" destination="tve-zC-EbG" id="PVw-i8-yoT"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="636.5"/>
-        </scene>
-        <!--Window Controller-->
-        <scene sceneID="gJ2-dg-mH0">
-            <objects>
-                <windowController showSeguePresentationStyle="single" id="Anf-r3-hui" sceneMemberID="viewController">
-                    <window key="window" title="Time Calculator" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="1Ix-sJ-xpR">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
-                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
-                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
-                        <connections>
-                            <outlet property="delegate" destination="Anf-r3-hui" id="q1h-Y9-wg0"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="hTh-hQ-MDh" kind="relationship" relationship="window.shadowedContentViewController" id="u9N-gi-7ld"/>
-                    </connections>
-                </windowController>
-                <customObject id="zev-7S-ZuL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="719" y="304"/>
+            <point key="canvasLocation" x="75" y="630.5"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="hYS-zJ-c4j">
@@ -893,7 +944,7 @@
                 <windowController showSeguePresentationStyle="single" id="S3b-JM-fHt" sceneMemberID="viewController">
                     <window key="window" title="Earnings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="lRb-QC-MyN">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
-                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="contentRect" x="1974" y="283" width="299" height="259"/>
                         <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
                         <connections>
                             <outlet property="delegate" destination="S3b-JM-fHt" id="4EY-F3-fW2"/>
@@ -905,33 +956,89 @@
                 </windowController>
                 <customObject id="FEu-jh-8b2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="719" y="645"/>
+            <point key="canvasLocation" x="763" y="731"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YkE-bv-olG">
             <objects>
                 <viewController id="01R-PQ-wSd" sceneMemberID="viewController">
                     <view key="view" id="DDN-e9-Knn">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="163" height="259"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IYh-Le-L0g">
+                                <rect key="frame" x="44" y="55" width="75" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="All the time" id="yDJ-7S-h3N">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9j6-J0-IcN">
+                                <rect key="frame" x="25" y="20" width="113" height="27"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="$7,322.19" id="h3c-PC-YuY">
+                                    <font key="font" metaFont="systemBold" size="22"/>
+                                    <color key="textColor" red="0.24551296810000001" green="0.5" blue="0.2122837139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="49k-tg-bfj">
+                                <rect key="frame" x="61" y="201" width="41" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Today" id="wyz-Gt-mb9">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9kc-5g-NKp">
+                                <rect key="frame" x="38" y="126" width="87" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Current week" id="gWk-0u-pvG">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="29p-e8-ybk">
+                                <rect key="frame" x="40" y="166" width="83" height="27"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="$13.47" id="TOp-37-0Ke">
+                                    <font key="font" metaFont="systemBold" size="22"/>
+                                    <color key="textColor" red="0.24551296810000001" green="0.5" blue="0.2122837139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Mi-Qr-9a6">
+                                <rect key="frame" x="32" y="91" width="99" height="27"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="$163.44" id="vYl-Jn-gze">
+                                    <font key="font" metaFont="systemBold" size="22"/>
+                                    <color key="textColor" red="0.24551296810000001" green="0.5" blue="0.2122837139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="IYh-Le-L0g" firstAttribute="top" secondItem="9Mi-Qr-9a6" secondAttribute="bottom" constant="19" id="3d5-iN-b6o"/>
+                            <constraint firstItem="IYh-Le-L0g" firstAttribute="leading" secondItem="DDN-e9-Knn" secondAttribute="leading" constant="46" id="5hg-if-AKA"/>
+                            <constraint firstItem="9Mi-Qr-9a6" firstAttribute="top" secondItem="9kc-5g-NKp" secondAttribute="bottom" constant="8" symbolic="YES" id="7pQ-6J-Kox"/>
+                            <constraint firstItem="IYh-Le-L0g" firstAttribute="centerX" secondItem="9j6-J0-IcN" secondAttribute="centerX" id="CaO-v3-0I8"/>
+                            <constraint firstItem="29p-e8-ybk" firstAttribute="top" secondItem="49k-tg-bfj" secondAttribute="bottom" constant="8" symbolic="YES" id="DCH-4K-xla"/>
+                            <constraint firstItem="9j6-J0-IcN" firstAttribute="top" secondItem="IYh-Le-L0g" secondAttribute="bottom" constant="8" symbolic="YES" id="Fg2-tq-ff1"/>
+                            <constraint firstItem="49k-tg-bfj" firstAttribute="centerX" secondItem="DDN-e9-Knn" secondAttribute="centerX" id="G7E-DQ-61u"/>
+                            <constraint firstItem="29p-e8-ybk" firstAttribute="centerX" secondItem="9kc-5g-NKp" secondAttribute="centerX" id="JVn-yD-Myo"/>
+                            <constraint firstAttribute="bottom" secondItem="9j6-J0-IcN" secondAttribute="bottom" constant="20" symbolic="YES" id="QLV-aa-T6t"/>
+                            <constraint firstItem="49k-tg-bfj" firstAttribute="centerX" secondItem="29p-e8-ybk" secondAttribute="centerX" id="TBQ-VR-OFj"/>
+                            <constraint firstItem="9Mi-Qr-9a6" firstAttribute="leading" secondItem="DDN-e9-Knn" secondAttribute="leading" constant="34" id="VR5-eN-zlP"/>
+                            <constraint firstItem="9kc-5g-NKp" firstAttribute="leading" secondItem="DDN-e9-Knn" secondAttribute="leading" constant="40" id="Vcc-UM-COi"/>
+                            <constraint firstItem="29p-e8-ybk" firstAttribute="leading" secondItem="DDN-e9-Knn" secondAttribute="leading" constant="42" id="bec-7n-cA6"/>
+                            <constraint firstItem="9kc-5g-NKp" firstAttribute="centerX" secondItem="9Mi-Qr-9a6" secondAttribute="centerX" id="fvn-rY-zad"/>
+                            <constraint firstItem="9j6-J0-IcN" firstAttribute="leading" secondItem="DDN-e9-Knn" secondAttribute="leading" constant="27" id="jPp-XF-lXL"/>
+                            <constraint firstItem="9kc-5g-NKp" firstAttribute="top" secondItem="29p-e8-ybk" secondAttribute="bottom" constant="23" id="vqv-Lk-DC2"/>
+                            <constraint firstItem="9Mi-Qr-9a6" firstAttribute="centerX" secondItem="IYh-Le-L0g" secondAttribute="centerX" id="y5V-2l-Dci"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="gPP-yU-H3q" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1276" y="645"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="a0W-W2-7OO">
-            <objects>
-                <viewController id="hTh-hQ-MDh" sceneMemberID="viewController">
-                    <view key="view" id="e4s-NP-RyS">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="RzS-tZ-Otz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1276" y="310"/>
+            <point key="canvasLocation" x="1135.5" y="730.5"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="647-4A-BR9">
@@ -939,7 +1046,7 @@
                 <windowController showSeguePresentationStyle="single" id="Uuh-zO-ewP" sceneMemberID="viewController">
                     <window key="window" title="Today's Time Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="wpP-Dr-vUZ">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
-                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="contentRect" x="1974" y="283" width="282" height="291"/>
                         <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
                         <connections>
                             <outlet property="delegate" destination="Uuh-zO-ewP" id="Tk8-Nr-UYN"/>
@@ -951,71 +1058,368 @@
                 </windowController>
                 <customObject id="jgp-9t-CmG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1072" y="1150"/>
+            <point key="canvasLocation" x="-141" y="1088"/>
         </scene>
         <!--Today's Time Sheet-->
         <scene sceneID="NiA-Np-d81">
             <objects>
                 <viewController title="Today's Time Sheet" storyboardIdentifier="TodayTS" showSeguePresentationStyle="single" id="d5A-su-o6k" customClass="TodayTimeSheetViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="aMJ-pW-1nP">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="311" height="269"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ldx-OT-gpC">
+                                <rect key="frame" x="20" y="20" width="271" height="197"/>
+                                <clipView key="contentView" id="H2n-HK-YMt">
+                                    <rect key="frame" x="1" y="0.0" width="269" height="196"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="f9P-U7-Kgn" viewBased="YES" id="sQu-oK-2dc">
+                                            <rect key="frame" x="0.0" y="0.0" width="269" height="171"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn width="71" minWidth="40" maxWidth="1000" id="y3A-Jk-mTk">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="From">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="9XL-hq-GYg">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="iXx-yr-YnI">
+                                                            <rect key="frame" x="1" y="1" width="71" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="hTg-Qh-XZd">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="71" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="14:15" id="uD7-HA-nQr">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="hTg-Qh-XZd" firstAttribute="leading" secondItem="iXx-yr-YnI" secondAttribute="leading" constant="2" id="1jJ-Zp-MEW"/>
+                                                                <constraint firstItem="hTg-Qh-XZd" firstAttribute="centerX" secondItem="iXx-yr-YnI" secondAttribute="centerX" id="kLN-Fy-6kd"/>
+                                                                <constraint firstItem="hTg-Qh-XZd" firstAttribute="centerY" secondItem="iXx-yr-YnI" secondAttribute="centerY" id="uqd-4C-CEs"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="hTg-Qh-XZd" id="0Ao-FP-7f4"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="62" minWidth="40" maxWidth="1000" id="jyY-8b-Xhd">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="To">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="yhx-rI-7Al">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="eFu-Nf-8WO">
+                                                            <rect key="frame" x="75" y="1" width="62" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Z5y-MO-QgC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="62" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="17:24" id="VPq-Lq-gOt">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Z5y-MO-QgC" firstAttribute="centerX" secondItem="eFu-Nf-8WO" secondAttribute="centerX" id="VH6-04-3R9"/>
+                                                                <constraint firstItem="Z5y-MO-QgC" firstAttribute="centerY" secondItem="eFu-Nf-8WO" secondAttribute="centerY" id="Wej-YH-z2s"/>
+                                                                <constraint firstItem="Z5y-MO-QgC" firstAttribute="leading" secondItem="eFu-Nf-8WO" secondAttribute="leading" constant="2" id="iBg-VC-8uK"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="Z5y-MO-QgC" id="VUb-2e-Y6p"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="127" minWidth="40" maxWidth="1000" id="XAV-mw-DaJ">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Earned">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="u5B-eI-8os">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="D1Y-z8-jf0">
+                                                            <rect key="frame" x="140" y="1" width="127" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="l8U-oi-v9l">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="127" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="15.28" id="BNO-SY-Bys">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="l8U-oi-v9l" firstAttribute="leading" secondItem="D1Y-z8-jf0" secondAttribute="leading" constant="2" id="DNe-6D-McF"/>
+                                                                <constraint firstItem="l8U-oi-v9l" firstAttribute="centerX" secondItem="D1Y-z8-jf0" secondAttribute="centerX" id="Wx6-35-fJY"/>
+                                                                <constraint firstItem="l8U-oi-v9l" firstAttribute="centerY" secondItem="D1Y-z8-jf0" secondAttribute="centerY" id="k04-bh-caK"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="l8U-oi-v9l" id="Xxi-fl-VRV"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="QLe-Qf-PTz">
+                                    <rect key="frame" x="1" y="119" width="448" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="ahh-k0-ADO">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="f9P-U7-Kgn">
+                                    <rect key="frame" x="0.0" y="0.0" width="269" height="25"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ldx-OT-gpC" firstAttribute="top" secondItem="aMJ-pW-1nP" secondAttribute="top" constant="52" id="12i-0q-Mip"/>
+                            <constraint firstAttribute="trailing" secondItem="Ldx-OT-gpC" secondAttribute="trailing" constant="20" symbolic="YES" id="Vig-du-MhV"/>
+                            <constraint firstAttribute="bottom" secondItem="Ldx-OT-gpC" secondAttribute="bottom" constant="20" symbolic="YES" id="rRI-cu-Pgw"/>
+                            <constraint firstItem="Ldx-OT-gpC" firstAttribute="leading" secondItem="aMJ-pW-1nP" secondAttribute="leading" constant="20" symbolic="YES" id="wSR-2b-vF5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="4J9-Bx-m13" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="jCO-g9-tRd">
-                    <allowedToolbarItems>
-                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="dbb-w7-EsZ"/>
-                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="MoO-3t-NGZ"/>
-                        <toolbarItem implicitItemIdentifier="350415BA-2312-4107-87CF-157826BA9618" label="Remove entry" paletteLabel="Remove entry" tag="-1" image="icons8-cancel" id="brc-BX-SMl">
-                            <size key="minSize" width="48" height="48"/>
-                            <size key="maxSize" width="48" height="48"/>
-                        </toolbarItem>
-                        <toolbarItem implicitItemIdentifier="C11A44F0-34FD-4175-9A2F-6D70EB5BFF8A" label="Confirm entry" paletteLabel="Confirm entry" tag="-1" image="icons8-verified_account" id="mQl-wz-HX9">
-                            <size key="minSize" width="48" height="48"/>
-                            <size key="maxSize" width="48" height="48"/>
-                        </toolbarItem>
-                    </allowedToolbarItems>
-                    <defaultToolbarItems>
-                        <toolbarItem reference="mQl-wz-HX9"/>
-                        <toolbarItem reference="brc-BX-SMl"/>
-                        <toolbarItem reference="MoO-3t-NGZ"/>
-                    </defaultToolbarItems>
-                </toolbar>
             </objects>
-            <point key="canvasLocation" x="-1072" y="1565"/>
+            <point key="canvasLocation" x="-142" y="1545"/>
         </scene>
         <!--This Week's Time Sheet-->
         <scene sceneID="RcA-Dn-loh">
             <objects>
                 <viewController title="This Week's Time Sheet" storyboardIdentifier="WeekTS" showSeguePresentationStyle="single" id="DeF-PG-cRw" customClass="WeekTimeSheetViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="4HB-AW-kpd">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="269"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNn-vV-Bwr">
+                                <rect key="frame" x="20" y="20" width="380" height="197"/>
+                                <clipView key="contentView" id="knV-GH-6h6">
+                                    <rect key="frame" x="1" y="0.0" width="378" height="196"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="42" rowSizeStyle="automatic" headerView="ZNQ-bv-rcX" viewBased="YES" id="CBh-QE-8XN">
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="171"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn width="79" minWidth="40" maxWidth="1000" id="O45-IM-T47">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Day">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="fur-A7-RzW">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="F5k-sO-mu8">
+                                                            <rect key="frame" x="1" y="1" width="79" height="42"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xcG-qd-9vU">
+                                                                    <rect key="frame" x="0.0" y="25" width="79" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Monday" id="3AB-pi-bDk">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="xcG-qd-9vU" firstAttribute="top" secondItem="F5k-sO-mu8" secondAttribute="top" id="L9a-8B-gFi"/>
+                                                                <constraint firstItem="xcG-qd-9vU" firstAttribute="centerX" secondItem="F5k-sO-mu8" secondAttribute="centerX" id="Nt1-NX-6ph"/>
+                                                                <constraint firstItem="xcG-qd-9vU" firstAttribute="leading" secondItem="F5k-sO-mu8" secondAttribute="leading" constant="2" id="crj-C4-WwT"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="xcG-qd-9vU" id="sWR-XT-cYh"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="71" minWidth="40" maxWidth="1000" id="05O-bn-bAg">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="From">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="jAH-dy-E74">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="D9p-gQ-ivZ">
+                                                            <rect key="frame" x="83" y="1" width="71" height="42"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="gFA-FU-aQq">
+                                                                    <rect key="frame" x="0.0" y="25" width="71" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="14:15" id="R3v-PE-91N">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="gFA-FU-aQq" firstAttribute="centerX" secondItem="D9p-gQ-ivZ" secondAttribute="centerX" id="Anb-Ko-lnx"/>
+                                                                <constraint firstItem="gFA-FU-aQq" firstAttribute="leading" secondItem="D9p-gQ-ivZ" secondAttribute="leading" constant="2" id="Spg-Zt-FoQ"/>
+                                                                <constraint firstItem="gFA-FU-aQq" firstAttribute="top" secondItem="D9p-gQ-ivZ" secondAttribute="top" id="UOd-pG-Vgh"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="gFA-FU-aQq" id="AGI-PR-j6x"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="62" minWidth="40" maxWidth="1000" id="MlE-gT-LUo">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="To">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Og6-sF-dfy">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="Mw0-xa-gQb">
+                                                            <rect key="frame" x="157" y="1" width="62" height="42"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="tg9-iH-80w">
+                                                                    <rect key="frame" x="0.0" y="25" width="62" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="17:24" id="TzP-On-uzY">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="tg9-iH-80w" firstAttribute="leading" secondItem="Mw0-xa-gQb" secondAttribute="leading" constant="2" id="3t9-YH-zh3"/>
+                                                                <constraint firstItem="tg9-iH-80w" firstAttribute="top" secondItem="Mw0-xa-gQb" secondAttribute="top" id="ecZ-yL-ERP"/>
+                                                                <constraint firstItem="tg9-iH-80w" firstAttribute="centerX" secondItem="Mw0-xa-gQb" secondAttribute="centerX" id="jWe-V2-r3e"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="tg9-iH-80w" id="pEc-Wm-D4d"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn width="154" minWidth="40" maxWidth="1000" id="HBS-5g-lYA">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="Earned">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="SHH-X0-HbG">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="sZq-zH-DoD">
+                                                            <rect key="frame" x="222" y="1" width="154" height="42"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nRm-fX-tdU">
+                                                                    <rect key="frame" x="1" y="25" width="152" height="17"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="15.28" id="SQY-9B-ubh">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="nRm-fX-tdU" firstAttribute="top" secondItem="sZq-zH-DoD" secondAttribute="top" id="AFa-sm-m2f"/>
+                                                                <constraint firstAttribute="trailing" secondItem="nRm-fX-tdU" secondAttribute="trailing" constant="3" id="NMf-o0-jHf"/>
+                                                                <constraint firstItem="nRm-fX-tdU" firstAttribute="centerX" secondItem="sZq-zH-DoD" secondAttribute="centerX" id="wNY-T3-a1Z"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="textField" destination="nRm-fX-tdU" id="oNh-GX-4Jb"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="Luf-fC-mJb">
+                                    <rect key="frame" x="1" y="181" width="378" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Nha-iV-a8u">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="ZNQ-bv-rcX">
+                                    <rect key="frame" x="0.0" y="0.0" width="378" height="25"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KNn-vV-Bwr" secondAttribute="trailing" constant="20" symbolic="YES" id="JLR-MZ-Q51"/>
+                            <constraint firstItem="KNn-vV-Bwr" firstAttribute="top" secondItem="4HB-AW-kpd" secondAttribute="top" constant="52" id="RlO-43-GKB"/>
+                            <constraint firstAttribute="bottom" secondItem="KNn-vV-Bwr" secondAttribute="bottom" constant="20" symbolic="YES" id="WDA-tA-kMy"/>
+                            <constraint firstItem="KNn-vV-Bwr" firstAttribute="leading" secondItem="4HB-AW-kpd" secondAttribute="leading" constant="20" symbolic="YES" id="pIp-iA-kdP"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="q9o-S2-ZiO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="fbm-WZ-6y1">
-                    <allowedToolbarItems>
-                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="wZP-b4-Qai"/>
-                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="I6b-3L-332"/>
-                        <toolbarItem implicitItemIdentifier="350415BA-2312-4107-87CF-157826BA9618" label="Remove entry" paletteLabel="Remove entry" tag="-1" image="icons8-cancel" id="rEE-x8-8VI">
-                            <size key="minSize" width="48" height="48"/>
-                            <size key="maxSize" width="48" height="48"/>
-                        </toolbarItem>
-                        <toolbarItem implicitItemIdentifier="C11A44F0-34FD-4175-9A2F-6D70EB5BFF8A" label="Confirm entry" paletteLabel="Confirm entry" tag="-1" image="icons8-verified_account" id="eKn-m4-2Cr">
-                            <size key="minSize" width="48" height="48"/>
-                            <size key="maxSize" width="48" height="48"/>
-                        </toolbarItem>
-                    </allowedToolbarItems>
-                    <defaultToolbarItems>
-                        <toolbarItem reference="eKn-m4-2Cr"/>
-                        <toolbarItem reference="rEE-x8-8VI"/>
-                        <toolbarItem reference="I6b-3L-332"/>
-                    </defaultToolbarItems>
-                </toolbar>
             </objects>
-            <point key="canvasLocation" x="-536" y="1565"/>
+            <point key="canvasLocation" x="293" y="1545"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="TuV-F7-RPj">
@@ -1023,7 +1427,7 @@
                 <windowController showSeguePresentationStyle="single" id="AOK-Mz-94f" sceneMemberID="viewController">
                     <window key="window" title="This Week's Time Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="wub-58-EAT">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
-                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
+                        <rect key="contentRect" x="1974" y="283" width="304" height="293"/>
                         <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
                         <connections>
                             <outlet property="delegate" destination="AOK-Mz-94f" id="BaU-z5-kbE"/>
@@ -1035,103 +1439,78 @@
                 </windowController>
                 <customObject id="b8g-CA-XF7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-536" y="1150"/>
+            <point key="canvasLocation" x="293" y="1089"/>
         </scene>
-        <!--This Week's Time Sheet-->
-        <scene sceneID="x6h-2P-VpB">
-            <objects>
-                <viewController title="This Week's Time Sheet" storyboardIdentifier="WeekTS" showSeguePresentationStyle="single" id="bRp-hB-JGi" customClass="MonthTimeSheetViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Mly-v8-U5r">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="hnL-WV-okG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <toolbar implicitIdentifier="09D11707-F4A3-4FD5-970E-AC5832E91C2B" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="ANS-g7-BOo">
-                    <allowedToolbarItems>
-                        <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="vsB-Ht-Kmb"/>
-                        <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="8VF-2m-GFR"/>
-                        <toolbarItem implicitItemIdentifier="350415BA-2312-4107-87CF-157826BA9618" label="Remove entry" paletteLabel="Remove entry" tag="-1" image="icons8-cancel" id="fET-kC-2NJ">
-                            <size key="minSize" width="48" height="48"/>
-                            <size key="maxSize" width="48" height="48"/>
-                        </toolbarItem>
-                        <toolbarItem implicitItemIdentifier="C11A44F0-34FD-4175-9A2F-6D70EB5BFF8A" label="Confirm entry" paletteLabel="Confirm entry" tag="-1" image="icons8-verified_account" id="Dpj-Mi-kgo">
-                            <size key="minSize" width="48" height="48"/>
-                            <size key="maxSize" width="48" height="48"/>
-                        </toolbarItem>
-                    </allowedToolbarItems>
-                    <defaultToolbarItems>
-                        <toolbarItem reference="Dpj-Mi-kgo"/>
-                        <toolbarItem reference="fET-kC-2NJ"/>
-                        <toolbarItem reference="8VF-2m-GFR"/>
-                    </defaultToolbarItems>
-                </toolbar>
-            </objects>
-            <point key="canvasLocation" x="6" y="1565"/>
-        </scene>
-        <!--Window Controller-->
-        <scene sceneID="B2h-Se-UiX">
-            <objects>
-                <windowController showSeguePresentationStyle="single" id="6rZ-Da-7dl" sceneMemberID="viewController">
-                    <window key="window" title="This Month's Time Sheet" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" visibleAtLaunch="NO" animationBehavior="utilityWindow" frameAutosaveName="" titlebarAppearsTransparent="YES" id="DEv-Is-hoG">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
-                        <rect key="contentRect" x="1974" y="283" width="480" height="270"/>
-                        <rect key="screenRect" x="1680" y="-30" width="1920" height="1057"/>
-                        <connections>
-                            <outlet property="delegate" destination="6rZ-Da-7dl" id="7Wf-w2-mIm"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="bRp-hB-JGi" kind="relationship" relationship="window.shadowedContentViewController" id="o0n-Dv-066"/>
-                    </connections>
-                </windowController>
-                <customObject id="4Vn-6J-6in" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6" y="1150"/>
-        </scene>
-        <!--General Preferences-->
+        <!--General Preferences View Controller-->
         <scene sceneID="vJt-9E-D5I">
             <objects>
-                <viewController title="General Preferences" showSeguePresentationStyle="single" id="xHc-ab-cGl" customClass="GeneralPreferencesViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController showSeguePresentationStyle="single" id="xHc-ab-cGl" customClass="GeneralPreferencesViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="TvY-xE-Aw3">
-                        <rect key="frame" x="0.0" y="0.0" width="412" height="168"/>
+                        <rect key="frame" x="0.0" y="0.0" width="412" height="254"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-X5-RXA">
-                                <rect key="frame" x="94" y="67" width="206" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zBe-X5-RXA">
+                                <rect key="frame" x="94" y="83" width="206" height="18"/>
                                 <buttonCell key="cell" type="check" title="Launch app at system start up" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VhO-j3-mOL">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="laW-19-V2J">
-                                <rect key="frame" x="253" y="126" width="64" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="mZY-yb-ERs">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-q7-792">
+                                <rect key="frame" x="94" y="149" width="146" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Maximum weekly hours" id="pNj-ls-gRV">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="laW-19-V2J">
+                                <rect key="frame" x="257" y="145" width="64" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" alignment="center" drawsBackground="YES" id="mZY-yb-ERs">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBh-fT-SoU">
-                                <rect key="frame" x="253" y="94" width="64" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="uPK-KY-5Tz">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IHX-ky-qeB">
+                                <rect key="frame" x="94" y="117" width="159" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Hourly charge client for $" id="PsH-3N-arg">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBh-fT-SoU">
+                                <rect key="frame" x="257" y="117" width="64" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="border" alignment="center" drawsBackground="YES" id="uPK-KY-5Tz">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVc-L2-KzF">
-                                <rect key="frame" x="20" y="100" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icons8-settings" id="6wH-PI-E9b"/>
-                            </imageView>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0yv-5s-mIW">
-                                <rect key="frame" x="153" y="1" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-verified_account" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="941-9A-ei6">
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="jCy-Mc-3ZN">
+                                <rect key="frame" x="20" y="202" width="372" height="5"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Rqg-7z-DRn">
+                                <rect key="frame" x="116" y="206" width="181" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="DVe-jM-pJg"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Basic preferences" id="Bes-FU-aMJ">
+                                    <font key="font" metaFont="system" size="23"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="g8E-v8-NAI">
+                                <rect key="frame" x="20" y="51" width="372" height="5"/>
+                            </box>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="0yv-5s-mIW">
+                                <rect key="frame" x="212" y="10" width="94" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="94" id="tJE-Zh-Ypu"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" title="Save" bezelStyle="shadowlessSquare" image="icons8-save" imagePosition="leading" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="941-9A-ei6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1139,10 +1518,12 @@
                                     <action selector="btnSave:" target="xHc-ab-cGl" id="IAV-8O-i2I"/>
                                 </connections>
                             </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GCy-kw-FtA">
-                                <rect key="frame" x="211" y="1" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-cancel" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3jw-s4-Mqt">
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="GCy-kw-FtA">
+                                <rect key="frame" x="108" y="10" width="94" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="9Mr-9T-nq8"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" title="Cancel" bezelStyle="shadowlessSquare" image="icons8-cancel" imagePosition="leading" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3jw-s4-Mqt">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1150,50 +1531,883 @@
                                     <action selector="btnCancel:" target="xHc-ab-cGl" id="5rl-oa-Qcu"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rXY-q7-792">
-                                <rect key="frame" x="94" y="129" width="146" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Maximum weekly hours" id="pNj-ls-gRV">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IHX-ky-qeB">
-                                <rect key="frame" x="94" y="97" width="159" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Hourly charge client for $" id="PsH-3N-arg">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="GCy-kw-FtA" firstAttribute="baseline" secondItem="0yv-5s-mIW" secondAttribute="baseline" id="2iR-AY-2GH"/>
+                            <constraint firstItem="g8E-v8-NAI" firstAttribute="top" secondItem="zBe-X5-RXA" secondAttribute="bottom" constant="31" id="4SA-Zt-Tev"/>
+                            <constraint firstItem="GCy-kw-FtA" firstAttribute="firstBaseline" secondItem="0yv-5s-mIW" secondAttribute="firstBaseline" id="9L9-qp-Nfs"/>
+                            <constraint firstItem="jCy-Mc-3ZN" firstAttribute="top" secondItem="Rqg-7z-DRn" secondAttribute="bottom" constant="1" id="C48-k0-SaO"/>
+                            <constraint firstItem="mBh-fT-SoU" firstAttribute="leading" secondItem="IHX-ky-qeB" secondAttribute="trailing" constant="6" id="CrU-px-Kzc"/>
+                            <constraint firstItem="mBh-fT-SoU" firstAttribute="top" secondItem="laW-19-V2J" secondAttribute="bottom" constant="7" id="DSN-F4-cnp"/>
+                            <constraint firstAttribute="trailing" secondItem="jCy-Mc-3ZN" secondAttribute="trailing" constant="20" symbolic="YES" id="HaO-SQ-BdO"/>
+                            <constraint firstAttribute="trailing" secondItem="laW-19-V2J" secondAttribute="trailing" constant="91" id="JSq-LK-glN"/>
+                            <constraint firstItem="jCy-Mc-3ZN" firstAttribute="leading" secondItem="TvY-xE-Aw3" secondAttribute="leading" constant="20" symbolic="YES" id="JiX-VD-vbk"/>
+                            <constraint firstItem="zBe-X5-RXA" firstAttribute="top" secondItem="IHX-ky-qeB" secondAttribute="bottom" constant="18" id="Oe3-9r-rUF"/>
+                            <constraint firstItem="rXY-q7-792" firstAttribute="leading" secondItem="IHX-ky-qeB" secondAttribute="leading" id="Ogx-kU-rhj"/>
+                            <constraint firstItem="IHX-ky-qeB" firstAttribute="top" secondItem="rXY-q7-792" secondAttribute="bottom" constant="15" id="Oj2-Oa-mht"/>
+                            <constraint firstItem="GCy-kw-FtA" firstAttribute="leading" secondItem="TvY-xE-Aw3" secondAttribute="leading" constant="108" id="Okz-B9-tZk"/>
+                            <constraint firstItem="Rqg-7z-DRn" firstAttribute="centerX" secondItem="jCy-Mc-3ZN" secondAttribute="centerX" id="S0K-nN-Abt"/>
+                            <constraint firstAttribute="bottom" secondItem="GCy-kw-FtA" secondAttribute="bottom" constant="10" id="SMe-Dt-z6x"/>
+                            <constraint firstItem="jCy-Mc-3ZN" firstAttribute="trailing" secondItem="g8E-v8-NAI" secondAttribute="trailing" id="Y4M-c6-hXr"/>
+                            <constraint firstItem="rXY-q7-792" firstAttribute="leading" secondItem="TvY-xE-Aw3" secondAttribute="leading" constant="96" id="YvA-TY-8gh"/>
+                            <constraint firstItem="jCy-Mc-3ZN" firstAttribute="leading" secondItem="g8E-v8-NAI" secondAttribute="leading" id="cIz-vv-Tre"/>
+                            <constraint firstItem="GCy-kw-FtA" firstAttribute="top" secondItem="g8E-v8-NAI" secondAttribute="bottom" constant="8" symbolic="YES" id="g7B-pQ-QNT"/>
+                            <constraint firstItem="IHX-ky-qeB" firstAttribute="leading" secondItem="zBe-X5-RXA" secondAttribute="leading" id="kFJ-Kk-vah"/>
+                            <constraint firstItem="0yv-5s-mIW" firstAttribute="leading" secondItem="GCy-kw-FtA" secondAttribute="trailing" constant="10" symbolic="YES" id="ktg-ag-AjJ"/>
+                            <constraint firstItem="laW-19-V2J" firstAttribute="trailing" secondItem="mBh-fT-SoU" secondAttribute="trailing" id="mhx-zN-cu3"/>
+                            <constraint firstItem="IHX-ky-qeB" firstAttribute="bottom" secondItem="mBh-fT-SoU" secondAttribute="bottom" id="ti6-EJ-NE5"/>
+                            <constraint firstItem="laW-19-V2J" firstAttribute="leading" secondItem="mBh-fT-SoU" secondAttribute="leading" id="tvU-ea-Sfb"/>
+                            <constraint firstItem="Rqg-7z-DRn" firstAttribute="top" secondItem="TvY-xE-Aw3" secondAttribute="top" constant="20" symbolic="YES" id="txO-6T-g5s"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="autoStart" destination="zBe-X5-RXA" id="TJx-Yj-CRV"/>
                         <outlet property="btnCancel" destination="GCy-kw-FtA" id="CWi-K3-7Zd"/>
-                        <outlet property="btnSave" destination="0yv-5s-mIW" id="ilZ-0I-TNB"/>
+                        <outlet property="btnSave" destination="0yv-5s-mIW" id="ssU-zT-OHM"/>
                         <outlet property="txtHours" destination="laW-19-V2J" id="wNo-M7-5jj"/>
                         <outlet property="txtRPH" destination="mBh-fT-SoU" id="DjE-oA-FLO"/>
                     </connections>
                 </viewController>
                 <customObject id="YIE-pa-EcO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-913" y="82"/>
+            <point key="canvasLocation" x="1387" y="370"/>
+        </scene>
+        <!--Acknowledgments View Controller-->
+        <scene sceneID="swf-Wb-VOM">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="IFZ-q4-oBE" customClass="AcknowledgmentsViewController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" id="X4D-lt-4ep">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="174"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gdv-Qz-E9I">
+                                <rect key="frame" x="141" y="128" width="169" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Icons8 - Adorable UI icons" id="JMl-74-Noq">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="2ZH-pW-ieo" customClass="HyperlinkTextField" customModule="Freelancer" customModuleProvider="target">
+                                <rect key="frame" x="164" y="103" width="122" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="https://icons8.com" allowsEditingTextAttributes="YES" id="wcN-vk-H9C">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="windowFrameTextColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://icons8.com"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LAK-cz-Fae">
+                                <rect key="frame" x="97" y="53" width="257" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Ray Wenderlich - The Best Swift Courses" id="wLP-QF-lVh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uqr-Fo-CJN" customClass="HyperlinkTextField" customModule="Freelancer" customModuleProvider="target">
+                                <rect key="frame" x="126" y="28" width="199" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="https://www.raywenderlich.com" allowsEditingTextAttributes="YES" id="SD7-2G-flJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="linkColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="windowFrameTextColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="href" value="https://www.raywenderlich.com"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <box verticalHuggingPriority="751" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="e57-Sg-lec">
+                                <rect key="frame" x="128" y="85" width="80" height="5"/>
+                            </box>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="ztI-bJ-RuB">
+                                <rect key="frame" x="238" y="84" width="80" height="5"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xKO-Nc-XYP">
+                                <rect key="frame" x="214" y="78" width="23" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="🎈" id="Bri-Lc-glh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="uqr-Fo-CJN" firstAttribute="centerX" secondItem="X4D-lt-4ep" secondAttribute="centerX" id="13D-Hh-k7D"/>
+                            <constraint firstItem="uqr-Fo-CJN" firstAttribute="top" secondItem="LAK-cz-Fae" secondAttribute="bottom" constant="8" id="1Pu-nb-RfY"/>
+                            <constraint firstAttribute="trailing" secondItem="e57-Sg-lec" secondAttribute="trailing" constant="242" id="8yG-1X-UyW"/>
+                            <constraint firstItem="2ZH-pW-ieo" firstAttribute="centerX" secondItem="X4D-lt-4ep" secondAttribute="centerX" id="9Dw-Dv-ZUv"/>
+                            <constraint firstItem="LAK-cz-Fae" firstAttribute="top" secondItem="e57-Sg-lec" secondAttribute="bottom" constant="17" id="Aea-ci-LJE"/>
+                            <constraint firstItem="e57-Sg-lec" firstAttribute="top" secondItem="2ZH-pW-ieo" secondAttribute="bottom" constant="15" id="Bnn-oU-o5s"/>
+                            <constraint firstItem="xKO-Nc-XYP" firstAttribute="centerX" secondItem="X4D-lt-4ep" secondAttribute="centerX" id="CmB-RJ-fqF"/>
+                            <constraint firstAttribute="trailing" secondItem="LAK-cz-Fae" secondAttribute="trailing" constant="98" id="HQO-kc-DdU"/>
+                            <constraint firstAttribute="trailing" secondItem="Gdv-Qz-E9I" secondAttribute="trailing" constant="142" id="KBY-6S-27n"/>
+                            <constraint firstItem="LAK-cz-Fae" firstAttribute="top" secondItem="xKO-Nc-XYP" secondAttribute="bottom" constant="8" id="Kff-m5-tcQ"/>
+                            <constraint firstItem="ztI-bJ-RuB" firstAttribute="top" secondItem="2ZH-pW-ieo" secondAttribute="bottom" constant="16" id="NgA-j3-37h"/>
+                            <constraint firstItem="LAK-cz-Fae" firstAttribute="top" secondItem="ztI-bJ-RuB" secondAttribute="bottom" constant="16" id="Rp9-DP-imq"/>
+                            <constraint firstItem="Gdv-Qz-E9I" firstAttribute="leading" secondItem="X4D-lt-4ep" secondAttribute="leading" constant="143" id="Vgu-ge-vCK"/>
+                            <constraint firstItem="e57-Sg-lec" firstAttribute="leading" secondItem="X4D-lt-4ep" secondAttribute="leading" constant="128" id="ZFr-cQ-Bd1"/>
+                            <constraint firstAttribute="trailing" secondItem="ztI-bJ-RuB" secondAttribute="trailing" constant="132" id="cMB-rM-3Jg"/>
+                            <constraint firstItem="Gdv-Qz-E9I" firstAttribute="top" secondItem="X4D-lt-4ep" secondAttribute="top" constant="29" id="ebX-DC-7VR"/>
+                            <constraint firstItem="2ZH-pW-ieo" firstAttribute="top" secondItem="Gdv-Qz-E9I" secondAttribute="bottom" constant="8" id="fqX-Ci-LVP"/>
+                            <constraint firstItem="ztI-bJ-RuB" firstAttribute="leading" secondItem="X4D-lt-4ep" secondAttribute="leading" constant="238" id="rBi-Eh-GnR"/>
+                            <constraint firstItem="LAK-cz-Fae" firstAttribute="leading" secondItem="X4D-lt-4ep" secondAttribute="leading" constant="99" id="rys-0H-QYA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="linkIcon8" destination="2ZH-pW-ieo" id="GTP-hX-1JI"/>
+                    </connections>
+                </viewController>
+                <customObject id="1at-5p-Nga" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1395" y="-147"/>
+        </scene>
+        <!--GNU Affero General Public License v3.0-->
+        <scene sceneID="doX-Zr-juN">
+            <objects>
+                <viewController title="GNU Affero General Public License v3.0" showSeguePresentationStyle="single" id="Xnu-m1-et5" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" id="zjx-Rq-W2X">
+                        <rect key="frame" x="0.0" y="0.0" width="505" height="407"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" allowsMagnification="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9hE-je-SVY">
+                                <rect key="frame" x="0.0" y="36" width="505" height="371"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="Ki5-Qw-OX1">
+                                    <rect key="frame" x="0.0" y="0.0" width="490" height="371"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" baseWritingDirection="leftToRight" findStyle="bar" textCompletion="NO" id="QxY-ix-onr">
+                                            <rect key="frame" x="0.0" y="-17" width="490" height="10319"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" red="0.36077999999999999" green="0.34510000000000002" blue="0.33333000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="490" height="371"/>
+                                            <size key="maxSize" width="572" height="10000000"/>
+                                            <attributedString key="textStorage">
+                                                <fragment>
+                                                    <mutableString key="content">                    GNU AFFERO GENERAL PUBLIC LICENSE
+                       Version 3, 19 November 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. &lt;https://fsf.org/&gt;
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU Affero General Public License is a free, copyleft license for
+software and other kinds of works, specifically designed to ensure
+cooperation with the community in the case of network server software.
+
+  The licenses for most software and other practical works are designed
+to take away your freedom to share and change the works.  By contrast,
+our General Public Licenses are intended to guarantee your freedom to
+share and change all versions of a program--to make sure it remains free
+software for all its users.
+
+  When we speak of free software, we are referring to freedom, not
+price.  Our General Public Licenses are designed to make sure that you
+have the freedom to distribute copies of free software (and charge for
+them if you wish), that you receive source code or can get it if you
+want it, that you can change the software or use pieces of it in new
+free programs, and that you know you can do these things.
+
+  Developers that use our General Public Licenses protect your rights
+with two steps: (1) assert copyright on the software, and (2) offer
+you this License which gives you legal permission to copy, distribute
+and/or modify the software.
+
+  A secondary benefit of defending all users' freedom is that
+improvements made in alternate versions of the program, if they
+receive widespread use, become available for other developers to
+incorporate.  Many developers of free software are heartened and
+encouraged by the resulting cooperation.  However, in the case of
+software used on network servers, this result may fail to come about.
+The GNU General Public License permits making a modified version and
+letting the public access it on a server without ever releasing its
+source code to the public.
+
+  The GNU Affero General Public License is designed specifically to
+ensure that, in such cases, the modified source code becomes available
+to the community.  It requires the operator of a network server to
+provide the source code of the modified version running there to the
+users of that server.  Therefore, public use of a modified version, on
+a publicly accessible server, gives the public access to the source
+code of the modified version.
+
+  An older license, called the Affero General Public License and
+published by Affero, was designed to accomplish similar goals.  This is
+a different license, not a version of the Affero GPL, but Affero has
+released a new version of the Affero GPL which permits relicensing under
+this license.
+
+  The precise terms and conditions for copying, distribution and
+modification follow.
+
+                       TERMS AND CONDITIONS
+
+  0. Definitions.
+
+  "This License" refers to version 3 of the GNU Affero General Public License.
+
+  "Copyright" also means copyright-like laws that apply to other kinds of
+works, such as semiconductor masks.
+
+  "The Program" refers to any copyrightable work licensed under this
+License.  Each licensee is addressed as "you".  "Licensees" and
+"recipients" may be individuals or organizations.
+
+  To "modify" a work means to copy from or adapt all or part of the work
+in a fashion requiring copyright permission, other than the making of an
+exact copy.  The resulting work is called a "modified version" of the
+earlier work or a work "based on" the earlier work.
+
+  A "covered work" means either the unmodified Program or a work based
+on the Program.
+
+  To "propagate" a work means to do anything with it that, without
+permission, would make you directly or secondarily liable for
+infringement under applicable copyright law, except executing it on a
+computer or modifying a private copy.  Propagation includes copying,
+distribution (with or without modification), making available to the
+public, and in some countries other activities as well.
+
+  To "convey" a work means any kind of propagation that enables other
+parties to make or receive copies.  Mere interaction with a user through
+a computer network, with no transfer of a copy, is not conveying.
+
+  An interactive user interface displays "Appropriate Legal Notices"
+to the extent that it includes a convenient and prominently visible
+feature that (1) displays an appropriate copyright notice, and (2)
+tells the user that there is no warranty for the work (except to the
+extent that warranties are provided), that licensees may convey the
+work under this License, and how to view a copy of this License.  If
+the interface presents a list of user commands or options, such as a
+menu, a prominent item in the list meets this criterion.
+
+  1. Source Code.
+
+  The "source code" for a work means the preferred form of the work
+for making modifications to it.  "Object code" means any non-source
+form of a work.
+
+  A "Standard Interface" means an interface that either is an official
+standard defined by a recognized standards body, or, in the case of
+interfaces specified for a particular programming language, one that
+is widely used among developers working in that language.
+
+  The "System Libraries" of an executable work include anything, other
+than the work as a whole, that (a) is included in the normal form of
+packaging a Major Component, but which is not part of that Major
+Component, and (b) serves only to enable use of the work with that
+Major Component, or to implement a Standard Interface for which an
+implementation is available to the public in source code form.  A
+"Major Component", in this context, means a major essential component
+(kernel, window system, and so on) of the specific operating system
+(if any) on which the executable work runs, or a compiler used to
+produce the work, or an object code interpreter used to run it.
+
+  The "Corresponding Source" for a work in object code form means all
+the source code needed to generate, install, and (for an executable
+work) run the object code and to modify the work, including scripts to
+control those activities.  However, it does not include the work's
+System Libraries, or general-purpose tools or generally available free
+programs which are used unmodified in performing those activities but
+which are not part of the work.  For example, Corresponding Source
+includes interface definition files associated with source files for
+the work, and the source code for shared libraries and dynamically
+linked subprograms that the work is specifically designed to require,
+such as by intimate data communication or control flow between those
+subprograms and other parts of the work.
+
+  The Corresponding Source need not include anything that users
+can regenerate automatically from other parts of the Corresponding
+Source.
+
+  The Corresponding Source for a work in source code form is that
+same work.
+
+  2. Basic Permissions.
+
+  All rights granted under this License are granted for the term of
+copyright on the Program, and are irrevocable provided the stated
+conditions are met.  This License explicitly affirms your unlimited
+permission to run the unmodified Program.  The output from running a
+covered work is covered by this License only if the output, given its
+content, constitutes a covered work.  This License acknowledges your
+rights of fair use or other equivalent, as provided by copyright law.
+
+  You may make, run and propagate covered works that you do not
+convey, without conditions so long as your license otherwise remains
+in force.  You may convey covered works to others for the sole purpose
+of having them make modifications exclusively for you, or provide you
+with facilities for running those works, provided that you comply with
+the terms of this License in conveying all material for which you do
+not control copyright.  Those thus making or running the covered works
+for you must do so exclusively on your behalf, under your direction
+and control, on terms that prohibit them from making any copies of
+your copyrighted material outside their relationship with you.
+
+  Conveying under any other circumstances is permitted solely under
+the conditions stated below.  Sublicensing is not allowed; section 10
+makes it unnecessary.
+
+  3. Protecting Users' Legal Rights From Anti-Circumvention Law.
+
+  No covered work shall be deemed part of an effective technological
+measure under any applicable law fulfilling obligations under article
+11 of the WIPO copyright treaty adopted on 20 December 1996, or
+similar laws prohibiting or restricting circumvention of such
+measures.
+
+  When you convey a covered work, you waive any legal power to forbid
+circumvention of technological measures to the extent such circumvention
+is effected by exercising rights under this License with respect to
+the covered work, and you disclaim any intention to limit operation or
+modification of the work as a means of enforcing, against the work's
+users, your or third parties' legal rights to forbid circumvention of
+technological measures.
+
+  4. Conveying Verbatim Copies.
+
+  You may convey verbatim copies of the Program's source code as you
+receive it, in any medium, provided that you conspicuously and
+appropriately publish on each copy an appropriate copyright notice;
+keep intact all notices stating that this License and any
+non-permissive terms added in accord with section 7 apply to the code;
+keep intact all notices of the absence of any warranty; and give all
+recipients a copy of this License along with the Program.
+
+  You may charge any price or no price for each copy that you convey,
+and you may offer support or warranty protection for a fee.
+
+  5. Conveying Modified Source Versions.
+
+  You may convey a work based on the Program, or the modifications to
+produce it from the Program, in the form of source code under the
+terms of section 4, provided that you also meet all of these conditions:
+
+    a) The work must carry prominent notices stating that you modified
+    it, and giving a relevant date.
+
+    b) The work must carry prominent notices stating that it is
+    released under this License and any conditions added under section
+    7.  This requirement modifies the requirement in section 4 to
+    "keep intact all notices".
+
+    c) You must license the entire work, as a whole, under this
+    License to anyone who comes into possession of a copy.  This
+    License will therefore apply, along with any applicable section 7
+    additional terms, to the whole of the work, and all its parts,
+    regardless of how they are packaged.  This License gives no
+    permission to license the work in any other way, but it does not
+    invalidate such permission if you have separately received it.
+
+    d) If the work has interactive user interfaces, each must display
+    Appropriate Legal Notices; however, if the Program has interactive
+    interfaces that do not display Appropriate Legal Notices, your
+    work need not make them do so.
+
+  A compilation of a covered work with other separate and independent
+works, which are not by their nature extensions of the covered work,
+and which are not combined with it such as to form a larger program,
+in or on a volume of a storage or distribution medium, is called an
+"aggregate" if the compilation and its resulting copyright are not
+used to limit the access or legal rights of the compilation's users
+beyond what the individual works permit.  Inclusion of a covered work
+in an aggregate does not cause this License to apply to the other
+parts of the aggregate.
+
+  6. Conveying Non-Source Forms.
+
+  You may convey a covered work in object code form under the terms
+of sections 4 and 5, provided that you also convey the
+machine-readable Corresponding Source under the terms of this License,
+in one of these ways:
+
+    a) Convey the object code in, or embodied in, a physical product
+    (including a physical distribution medium), accompanied by the
+    Corresponding Source fixed on a durable physical medium
+    customarily used for software interchange.
+
+    b) Convey the object code in, or embodied in, a physical product
+    (including a physical distribution medium), accompanied by a
+    written offer, valid for at least three years and valid for as
+    long as you offer spare parts or customer support for that product
+    model, to give anyone who possesses the object code either (1) a
+    copy of the Corresponding Source for all the software in the
+    product that is covered by this License, on a durable physical
+    medium customarily used for software interchange, for a price no
+    more than your reasonable cost of physically performing this
+    conveying of source, or (2) access to copy the
+    Corresponding Source from a network server at no charge.
+
+    c) Convey individual copies of the object code with a copy of the
+    written offer to provide the Corresponding Source.  This
+    alternative is allowed only occasionally and noncommercially, and
+    only if you received the object code with such an offer, in accord
+    with subsection 6b.
+
+    d) Convey the object code by offering access from a designated
+    place (gratis or for a charge), and offer equivalent access to the
+    Corresponding Source in the same way through the same place at no
+    further charge.  You need not require recipients to copy the
+    Corresponding Source along with the object code.  If the place to
+    copy the object code is a network server, the Corresponding Source
+    may be on a different server (operated by you or a third party)
+    that supports equivalent copying facilities, provided you maintain
+    clear directions next to the object code saying where to find the
+    Corresponding Source.  Regardless of what server hosts the
+    Corresponding Source, you remain obligated to ensure that it is
+    available for as long as needed to satisfy these requirements.
+
+    e) Convey the object code using peer-to-peer transmission, provided
+    you inform other peers where the object code and Corresponding
+    Source of the work are being offered to the general public at no
+    charge under subsection 6d.
+
+  A separable portion of the object code, whose source code is excluded
+from the Corresponding Source as a System Library, need not be
+included in conveying the object code work.
+
+  A "User Product" is either (1) a "consumer product", which means any
+tangible personal property which is normally used for personal, family,
+or household purposes, or (2) anything designed or sold for incorporation
+into a dwelling.  In determining whether a product is a consumer product,
+doubtful cases shall be resolved in favor of coverage.  For a particular
+product received by a particular user, "normally used" refers to a
+typical or common use of that class of product, regardless of the status
+of the particular user or of the way in which the particular user
+actually uses, or expects or is expected to use, the product.  A product
+is a consumer product regardless of whether the product has substantial
+commercial, industrial or non-consumer uses, unless such uses represent
+the only significant mode of use of the product.
+
+  "Installation Information" for a User Product means any methods,
+procedures, authorization keys, or other information required to install
+and execute modified versions of a covered work in that User Product from
+a modified version of its Corresponding Source.  The information must
+suffice to ensure that the continued functioning of the modified object
+code is in no case prevented or interfered with solely because
+modification has been made.
+
+  If you convey an object code work under this section in, or with, or
+specifically for use in, a User Product, and the conveying occurs as
+part of a transaction in which the right of possession and use of the
+User Product is transferred to the recipient in perpetuity or for a
+fixed term (regardless of how the transaction is characterized), the
+Corresponding Source conveyed under this section must be accompanied
+by the Installation Information.  But this requirement does not apply
+if neither you nor any third party retains the ability to install
+modified object code on the User Product (for example, the work has
+been installed in ROM).
+
+  The requirement to provide Installation Information does not include a
+requirement to continue to provide support service, warranty, or updates
+for a work that has been modified or installed by the recipient, or for
+the User Product in which it has been modified or installed.  Access to a
+network may be denied when the modification itself materially and
+adversely affects the operation of the network or violates the rules and
+protocols for communication across the network.
+
+  Corresponding Source conveyed, and Installation Information provided,
+in accord with this section must be in a format that is publicly
+documented (and with an implementation available to the public in
+source code form), and must require no special password or key for
+unpacking, reading or copying.
+
+  7. Additional Terms.
+
+  "Additional permissions" are terms that supplement the terms of this
+License by making exceptions from one or more of its conditions.
+Additional permissions that are applicable to the entire Program shall
+be treated as though they were included in this License, to the extent
+that they are valid under applicable law.  If additional permissions
+apply only to part of the Program, that part may be used separately
+under those permissions, but the entire Program remains governed by
+this License without regard to the additional permissions.
+
+  When you convey a copy of a covered work, you may at your option
+remove any additional permissions from that copy, or from any part of
+it.  (Additional permissions may be written to require their own
+removal in certain cases when you modify the work.)  You may place
+additional permissions on material, added by you to a covered work,
+for which you have or can give appropriate copyright permission.
+
+  Notwithstanding any other provision of this License, for material you
+add to a covered work, you may (if authorized by the copyright holders of
+that material) supplement the terms of this License with terms:
+
+    a) Disclaiming warranty or limiting liability differently from the
+    terms of sections 15 and 16 of this License; or
+
+    b) Requiring preservation of specified reasonable legal notices or
+    author attributions in that material or in the Appropriate Legal
+    Notices displayed by works containing it; or
+
+    c) Prohibiting misrepresentation of the origin of that material, or
+    requiring that modified versions of such material be marked in
+    reasonable ways as different from the original version; or
+
+    d) Limiting the use for publicity purposes of names of licensors or
+    authors of the material; or
+
+    e) Declining to grant rights under trademark law for use of some
+    trade names, trademarks, or service marks; or
+
+    f) Requiring indemnification of licensors and authors of that
+    material by anyone who conveys the material (or modified versions of
+    it) with contractual assumptions of liability to the recipient, for
+    any liability that these contractual assumptions directly impose on
+    those licensors and authors.
+
+  All other non-permissive additional terms are considered "further
+restrictions" within the meaning of section 10.  If the Program as you
+received it, or any part of it, contains a notice stating that it is
+governed by this License along with a term that is a further
+restriction, you may remove that term.  If a license document contains
+a further restriction but permits relicensing or conveying under this
+License, you may add to a covered work material governed by the terms
+of that license document, provided that the further restriction does
+not survive such relicensing or conveying.
+
+  If you add terms to a covered work in accord with this section, you
+must place, in the relevant source files, a statement of the
+additional terms that apply to those files, or a notice indicating
+where to find the applicable terms.
+
+  Additional terms, permissive or non-permissive, may be stated in the
+form of a separately written license, or stated as exceptions;
+the above requirements apply either way.
+
+  8. Termination.
+
+  You may not propagate or modify a covered work except as expressly
+provided under this License.  Any attempt otherwise to propagate or
+modify it is void, and will automatically terminate your rights under
+this License (including any patent licenses granted under the third
+paragraph of section 11).
+
+  However, if you cease all violation of this License, then your
+license from a particular copyright holder is reinstated (a)
+provisionally, unless and until the copyright holder explicitly and
+finally terminates your license, and (b) permanently, if the copyright
+holder fails to notify you of the violation by some reasonable means
+prior to 60 days after the cessation.
+
+  Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.
+
+  Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, you do not qualify to receive new licenses for the same
+material under section 10.
+
+  9. Acceptance Not Required for Having Copies.
+
+  You are not required to accept this License in order to receive or
+run a copy of the Program.  Ancillary propagation of a covered work
+occurring solely as a consequence of using peer-to-peer transmission
+to receive a copy likewise does not require acceptance.  However,
+nothing other than this License grants you permission to propagate or
+modify any covered work.  These actions infringe copyright if you do
+not accept this License.  Therefore, by modifying or propagating a
+covered work, you indicate your acceptance of this License to do so.
+
+  10. Automatic Licensing of Downstream Recipients.
+
+  Each time you convey a covered work, the recipient automatically
+receives a license from the original licensors, to run, modify and
+propagate that work, subject to this License.  You are not responsible
+for enforcing compliance by third parties with this License.
+
+  An "entity transaction" is a transaction transferring control of an
+organization, or substantially all assets of one, or subdividing an
+organization, or merging organizations.  If propagation of a covered
+work results from an entity transaction, each party to that
+transaction who receives a copy of the work also receives whatever
+licenses to the work the party's predecessor in interest had or could
+give under the previous paragraph, plus a right to possession of the
+Corresponding Source of the work from the predecessor in interest, if
+the predecessor has it or can get it with reasonable efforts.
+
+  You may not impose any further restrictions on the exercise of the
+rights granted or affirmed under this License.  For example, you may
+not impose a license fee, royalty, or other charge for exercise of
+rights granted under this License, and you may not initiate litigation
+(including a cross-claim or counterclaim in a lawsuit) alleging that
+any patent claim is infringed by making, using, selling, offering for
+sale, or importing the Program or any portion of it.
+
+  11. Patents.
+
+  A "contributor" is a copyright holder who authorizes use under this
+License of the Program or a work on which the Program is based.  The
+work thus licensed is called the contributor's "contributor version".
+
+  A contributor's "essential patent claims" are all patent claims
+owned or controlled by the contributor, whether already acquired or
+hereafter acquired, that would be infringed by some manner, permitted
+by this License, of making, using, or selling its contributor version,
+but do not include claims that would be infringed only as a
+consequence of further modification of the contributor version.  For
+purposes of this definition, "control" includes the right to grant
+patent sublicenses in a manner consistent with the requirements of
+this License.
+
+  Each contributor grants you a non-exclusive, worldwide, royalty-free
+patent license under the contributor's essential patent claims, to
+make, use, sell, offer for sale, import and otherwise run, modify and
+propagate the contents of its contributor version.
+
+  In the following three paragraphs, a "patent license" is any express
+agreement or commitment, however denominated, not to enforce a patent
+(such as an express permission to practice a patent or covenant not to
+sue for patent infringement).  To "grant" such a patent license to a
+party means to make such an agreement or commitment not to enforce a
+patent against the party.
+
+  If you convey a covered work, knowingly relying on a patent license,
+and the Corresponding Source of the work is not available for anyone
+to copy, free of charge and under the terms of this License, through a
+publicly available network server or other readily accessible means,
+then you must either (1) cause the Corresponding Source to be so
+available, or (2) arrange to deprive yourself of the benefit of the
+patent license for this particular work, or (3) arrange, in a manner
+consistent with the requirements of this License, to extend the patent
+license to downstream recipients.  "Knowingly relying" means you have
+actual knowledge that, but for the patent license, your conveying the
+covered work in a country, or your recipient's use of the covered work
+in a country, would infringe one or more identifiable patents in that
+country that you have reason to believe are valid.
+
+  If, pursuant to or in connection with a single transaction or
+arrangement, you convey, or propagate by procuring conveyance of, a
+covered work, and grant a patent license to some of the parties
+receiving the covered work authorizing them to use, propagate, modify
+or convey a specific copy of the covered work, then the patent license
+you grant is automatically extended to all recipients of the covered
+work and works based on it.
+
+  A patent license is "discriminatory" if it does not include within
+the scope of its coverage, prohibits the exercise of, or is
+conditioned on the non-exercise of one or more of the rights that are
+specifically granted under this License.  You may not convey a covered
+work if you are a party to an arrangement with a third party that is
+in the business of distributing software, under which you make payment
+to the third party based on the extent of your activity of conveying
+the work, and under which the third party grants, to any of the
+parties who would receive the covered work from you, a discriminatory
+patent license (a) in connection with copies of the covered work
+conveyed by you (or copies made from those copies), or (b) primarily
+for and in connection with specific products or compilations that
+contain the covered work, unless you entered into that arrangement,
+or that patent license was granted, prior to 28 March 2007.
+
+  Nothing in this License shall be construed as excluding or limiting
+any implied license or other defenses to infringement that may
+otherwise be available to you under applicable patent law.
+
+  12. No Surrender of Others' Freedom.
+
+  If conditions are imposed on you (whether by court order, agreement or
+otherwise) that contradict the conditions of this License, they do not
+excuse you from the conditions of this License.  If you cannot convey a
+covered work so as to satisfy simultaneously your obligations under this
+License and any other pertinent obligations, then as a consequence you may
+not convey it at all.  For example, if you agree to terms that obligate you
+to collect a royalty for further conveying from those to whom you convey
+the Program, the only way you could satisfy both those terms and this
+License would be to refrain entirely from conveying the Program.
+
+  13. Remote Network Interaction; Use with the GNU General Public License.
+
+  Notwithstanding any other provision of this License, if you modify the
+Program, your modified version must prominently offer all users
+interacting with it remotely through a computer network (if your version
+supports such interaction) an opportunity to receive the Corresponding
+Source of your version by providing access to the Corresponding Source
+from a network server at no charge, through some standard or customary
+means of facilitating copying of software.  This Corresponding Source
+shall include the Corresponding Source for any work covered by version 3
+of the GNU General Public License that is incorporated pursuant to the
+following paragraph.
+
+  Notwithstanding any other provision of this License, you have
+permission to link or combine any covered work with a work licensed
+under version 3 of the GNU General Public License into a single
+combined work, and to convey the resulting work.  The terms of this
+License will continue to apply to the part which is the covered work,
+but the work with which it is combined will remain governed by version
+3 of the GNU General Public License.
+
+  14. Revised Versions of this License.
+
+  The Free Software Foundation may publish revised and/or new versions of
+the GNU Affero General Public License from time to time.  Such new versions
+will be similar in spirit to the present version, but may differ in detail to
+address new problems or concerns.
+
+  Each version is given a distinguishing version number.  If the
+Program specifies that a certain numbered version of the GNU Affero General
+Public License "or any later version" applies to it, you have the
+option of following the terms and conditions either of that numbered
+version or of any later version published by the Free Software
+Foundation.  If the Program does not specify a version number of the
+GNU Affero General Public License, you may choose any version ever published
+by the Free Software Foundation.
+
+  If the Program specifies that a proxy can decide which future
+versions of the GNU Affero General Public License can be used, that proxy's
+public statement of acceptance of a version permanently authorizes you
+to choose that version for the Program.
+
+  Later license versions may give you additional or different
+permissions.  However, no additional obligations are imposed on any
+author or copyright holder as a result of your choosing to follow a
+later version.
+
+  15. Disclaimer of Warranty.
+
+  THERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
+APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
+HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
+OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
+IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
+ALL NECESSARY SERVICING, REPAIR OR CORRECTION.
+
+  16. Limitation of Liability.
+
+  IN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
+WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
+THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
+GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
+USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
+DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
+PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
+EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES.
+
+  17. Interpretation of Sections 15 and 16.
+
+  If the disclaimer of warranty and limitation of liability provided
+above cannot be given local legal effect according to their terms,
+reviewing courts shall apply local law that most closely approximates
+an absolute waiver of all civil liability in connection with the
+Program, unless a warranty or assumption of liability accompanies a
+copy of the Program in return for a fee.
+
+                     END OF TERMS AND CONDITIONS
+
+            How to Apply These Terms to Your New Programs
+
+  If you develop a new program, and you want it to be of the greatest
+possible use to the public, the best way to achieve this is to make it
+free software which everyone can redistribute and change under these terms.
+
+  To do so, attach the following notices to the program.  It is safest
+to attach them to the start of each source file to most effectively
+state the exclusion of warranty; and each file should have at least
+the "copyright" line and a pointer to where the full notice is found.
+
+    &lt;one line to give the program's name and a brief idea of what it does.&gt;
+    Copyright (C) &lt;year&gt;  &lt;name of author&gt;
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as published
+    by the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+
+Also add information on how to contact you by electronic and paper mail.
+
+  If your software can interact with users remotely through a computer
+network, you should also make sure that it provides a way for users to
+get its source.  For example, if your program is a web application, its
+interface could display a "Source" link that leads users to an archive
+of the code.  There are many ways you could offer source, and different
+solutions will be better for different programs; see section 13 for the
+specific requirements.
+
+  You should also get your employer (if you work as a programmer) or school,
+if any, to sign a "copyright disclaimer" for the program, if necessary.
+For more information on this, and how to apply and follow the GNU AGPL, see
+&lt;https://www.gnu.org/licenses/&gt;.</mutableString>
+                                                    <attributes>
+                                                        <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="NSColor" red="0.36077999999999999" green="0.34510000000000002" blue="0.33333000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="11" name="Monaco"/>
+                                                        <real key="NSKern" value="0.0"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                            <tabStops/>
+                                                        </paragraphStyle>
+                                                        <color key="NSStrokeColor" red="0.36077999999999999" green="0.34510000000000002" blue="0.33333000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="QEe-3T-2OF">
+                                    <rect key="frame" x="-100" y="-100" width="410" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="hUx-iq-aLC">
+                                    <rect key="frame" x="490" y="0.0" width="15" height="371"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KVu-5Z-yb4">
+                                <rect key="frame" x="183" y="0.0" width="139" height="32"/>
+                                <buttonCell key="cell" type="push" title="I understand 👍" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Wk-FK-LfM">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="dismissController:" target="Xnu-m1-et5" id="lJz-oI-7SL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="9hE-je-SVY" firstAttribute="top" secondItem="zjx-Rq-W2X" secondAttribute="top" id="3n7-Ov-hRa"/>
+                            <constraint firstAttribute="bottom" secondItem="KVu-5Z-yb4" secondAttribute="bottom" constant="7" id="Uht-cz-euF"/>
+                            <constraint firstItem="KVu-5Z-yb4" firstAttribute="top" secondItem="9hE-je-SVY" secondAttribute="bottom" constant="8" id="fNM-5Z-Tz6"/>
+                            <constraint firstItem="9hE-je-SVY" firstAttribute="leading" secondItem="zjx-Rq-W2X" secondAttribute="leading" id="owX-H9-Efo"/>
+                            <constraint firstItem="9hE-je-SVY" firstAttribute="centerX" secondItem="KVu-5Z-yb4" secondAttribute="centerX" id="wCY-1X-2Gq"/>
+                            <constraint firstAttribute="trailing" secondItem="9hE-je-SVY" secondAttribute="trailing" id="xF0-EW-XgP"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="ntt-hY-kmN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2037.5" y="-497.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="512x512" width="512" height="512"/>
         <image name="icons8-cancel" width="48" height="48"/>
         <image name="icons8-day_view" width="48" height="48"/>
-        <image name="icons8-month_view" width="48" height="48"/>
-        <image name="icons8-overtime" width="48" height="48"/>
+        <image name="icons8-save" width="48" height="48"/>
         <image name="icons8-settings" width="48" height="48"/>
         <image name="icons8-split_payment_copy_2" width="48" height="48"/>
-        <image name="icons8-verified_account" width="48" height="48"/>
         <image name="icons8-week_view" width="48" height="48"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fz2-34-i2A"/>
+        <segue reference="Bx7-c7-oNr"/>
     </inferredMetricsTieBreakers>
 </document>

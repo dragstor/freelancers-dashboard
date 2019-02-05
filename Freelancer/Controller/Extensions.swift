@@ -8,7 +8,7 @@
 
 import Cocoa
 
-extension ViewController {
+extension TimerController {
     // MARK: Storyboard instantiation
     static func freshController() -> TimerController {
         //1.
@@ -17,7 +17,7 @@ extension ViewController {
         let identifier = NSStoryboard.SceneIdentifier("TimerScene")
         //3.
         guard let viewcontroller = storyboard.instantiateController(withIdentifier: identifier) as? TimerController else {
-            fatalError("Why cant i find PopoverTimer? - Check Timer.storyboard")
+            fatalError("Why cant i find Timer popover? - Check Timer.storyboard")
         }
         return viewcontroller
     }

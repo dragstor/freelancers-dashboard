@@ -6,6 +6,8 @@
 //  Copyright © 2019 Stojković. All rights reserved.
 //
 
+//  Used to hangle dismissing the timer popover (status bar)
+
 import Cocoa
 
 public class EventMonitor {

@@ -10,6 +10,7 @@ import Cocoa
 
 class GeneralPreferencesViewController: NSViewController {
     @IBOutlet weak var autoStart: NSButton!
+    
     @IBOutlet weak var txtHours: NSTextField!
     @IBOutlet weak var txtRPH: NSTextField!
     
@@ -50,12 +51,12 @@ class GeneralPreferencesViewController: NSViewController {
     func saveExistingPrefs() {
         if autoStart.state == .on {
             prefs.autoStart = true
-            prefs.maxWeeklyHours = Int16(txtHours.stringValue)!
-            prefs.ratePerHour = Double(txtRPH.stringValue)!
-            NotificationCenter.default.post(name: Notification.Name(rawValue: "PrefsChanged"), object: nil)
         } else {
             prefs.autoStart = false
         }
+        prefs.maxWeeklyHours = Int16(txtHours.stringValue)!
+        prefs.ratePerHour = Double(txtRPH.stringValue)!
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "PrefsChanged"), object: nil)
     }
     
     @IBAction func btnSave(_ sender: NSButton!) {
