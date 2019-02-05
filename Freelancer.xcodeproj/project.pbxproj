@@ -18,6 +18,8 @@
 		933204532207C6370098632C /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933204522207C6370098632C /* EventMonitor.swift */; };
 		933204552207C6B40098632C /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933204542207C6B40098632C /* TimerController.swift */; };
 		9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */; };
+		93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; };
+		93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */; };
 		934AEB43220804BF005CCEBD /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */; };
 		934AEB5522081057005CCEBD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5422081057005CCEBD /* Preferences.swift */; };
@@ -37,6 +39,20 @@
 			script = "# Type a script or drag a script file from your workspace to insert its path.\n";
 		};
 /* End PBXBuildRule section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93449F7C220A29FD008BCC01 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		933204342207C1DF0098632C /* Freelancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Freelancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +75,7 @@
 		934AEB562208D126005CCEBD /* AcknowledgmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsViewController.swift; sourceTree = "<group>"; };
 		934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
 		934AEB5B220905E6005CCEBD /* FLTimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLTimerProtocol.swift; sourceTree = "<group>"; };
+		93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +96,7 @@
 				9332044C2207C22D0098632C /* build_number.sh */,
 				933204362207C1DF0098632C /* Freelancer */,
 				933204352207C1DF0098632C /* Products */,
+				93F38B90220A28F300F099A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -162,6 +181,14 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		93F38B90220A28F300F099A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -173,6 +200,7 @@
 				933204312207C1DF0098632C /* Frameworks */,
 				933204322207C1DF0098632C /* Resources */,
 				9332044B2207C2090098632C /* ShellScript */,
+				93449F7C220A29FD008BCC01 /* Embed Frameworks */,
 			);
 			buildRules = (
 				9332044A2207C1F90098632C /* PBXBuildRule */,
@@ -258,7 +286,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nsh \"${SRCROOT}/build_number.sh\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nzsh \"${SRCROOT}/build_number.sh\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nzsh \"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -423,6 +451,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -447,6 +476,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

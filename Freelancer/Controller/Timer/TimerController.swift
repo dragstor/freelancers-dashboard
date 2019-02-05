@@ -19,7 +19,7 @@ class TimerController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         flTimer.delegate = self
     }
     
@@ -40,6 +40,7 @@ class TimerController: NSViewController {
         let stop = dialogOKCancel(question: "Stop the timer?", text: "Stopping the timer will add currently worked hours to today's time sheet 📆", btnTrue: "Yes", btnFalse: "Continue working")
         if stop {
             flTimer.stopTimer()
+            txtTime.stringValue = "00:00:00"
             btnStart.isEnabled = true
             btnEnd.isEnabled = false
         }
@@ -64,7 +65,7 @@ extension TimerController {
     
     private func textToDisplay(for timeElapsed: TimeInterval) -> String {
         if timeElapsed == -1 {
-            return "Done!"
+            return "00:00:00"
         }
         
         let (h, m, s) = secondsToTime(seconds: Int(timeElapsed))
@@ -72,7 +73,7 @@ extension TimerController {
         return timeElapsedDisplay
     }
     
-    // Parses seconds to hours, minutes and seconds
+    // 
     private func secondsToTime( seconds: Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }

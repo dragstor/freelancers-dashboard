@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import LaunchAtLogin
 
 class GeneralPreferencesViewController: NSViewController {
     @IBOutlet weak var autoStart: NSButton!
@@ -21,8 +22,6 @@ class GeneralPreferencesViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
         
         showExistingPrefs()
     }
@@ -51,8 +50,10 @@ class GeneralPreferencesViewController: NSViewController {
     func saveExistingPrefs() {
         if autoStart.state == .on {
             prefs.autoStart = true
+            LaunchAtLogin.isEnabled = true
         } else {
             prefs.autoStart = false
+            LaunchAtLogin.isEnabled = false
         }
         prefs.maxWeeklyHours = Int16(txtHours.stringValue)!
         prefs.ratePerHour = Double(txtRPH.stringValue)!
