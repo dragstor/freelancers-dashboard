@@ -21,6 +21,8 @@
 		93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; };
 		93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93449F7E220A2F3E008BCC01 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93449F7D220A2F3E008BCC01 /* AboutViewController.swift */; };
+		93449F80220A8D78008BCC01 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93449F7F220A8D78008BCC01 /* SQLite.framework */; };
+		93449F81220A8D78008BCC01 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93449F7F220A8D78008BCC01 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */; };
 		934AEB43220804BF005CCEBD /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */; };
 		934AEB5522081057005CCEBD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5422081057005CCEBD /* Preferences.swift */; };
@@ -48,6 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				93449F81220A8D78008BCC01 /* SQLite.framework in Embed Frameworks */,
 				93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -71,6 +74,7 @@
 		933204542207C6B40098632C /* TimerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerController.swift; sourceTree = "<group>"; };
 		9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayTimeSheetViewController.swift; sourceTree = "<group>"; };
 		93449F7D220A2F3E008BCC01 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		93449F7F220A8D78008BCC01 /* SQLite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SQLite.framework; path = Carthage/Build/Mac/SQLite.framework; sourceTree = "<group>"; };
 		934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTimeSheetViewController.swift; sourceTree = "<group>"; };
 		934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
 		934AEB5422081057005CCEBD /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93449F80220A8D78008BCC01 /* SQLite.framework in Frameworks */,
 				93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +192,7 @@
 		93F38B90220A28F300F099A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93449F7F220A8D78008BCC01 /* SQLite.framework */,
 				93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */,
 			);
 			name = Frameworks;

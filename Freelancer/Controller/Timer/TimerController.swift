@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SQLite
 
 class TimerController: NSViewController {
     
@@ -16,9 +17,28 @@ class TimerController: NSViewController {
     
     var flTimer = FLTimer()
     
+    var t_from: String?    = nil
+    var t_to: String?      = nil
+    var t_total: String?   = nil
+    
+    let ts_date         = Expression<String>("ts_date")
+    let ts_from         = Expression<String>("ts_from")
+    let ts_to           = Expression<String>("ts_to")
+    let ts_total_time   = Expression<String>("ts_total_time")
+    let ts_approved     = Expression<Int64>("ts_approved")
+    
+    let db = try? Connection("\(NSHomeDirectory())/db.sqlite3")
+    let tableTimesheets = Table("timesheets")
+    
+    let fmt = DateFormatter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+//        fmt.dateStyle = .long
+//        fmt.timeStyle = .medium
+        fmt.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
         flTimer.delegate = self
     }
@@ -32,6 +52,8 @@ class TimerController: NSViewController {
     @IBAction func timerStart(_ sender: Any?) {
         flTimer.startTimer()
        
+        t_from = fmt.string(from: Date())
+        
         btnStart.isEnabled = false
         btnEnd.isEnabled = true
     }
@@ -40,7 +62,27 @@ class TimerController: NSViewController {
         let stop = dialogOKCancel(question: "Stop the timer?", text: "Stopping the timer will add currently worked hours to today's time sheet 📆", btnTrue: "Yes", btnFalse: "Continue working")
         if stop {
             flTimer.stopTimer()
+            
+            t_to = fmt.string(from: Date())
+            t_total = txtTime.stringValue
+            
+            do {
+                let rowid = try db?.run(
+                    tableTimesheets.insert(
+                        ts_date <- t_from!,
+                        ts_from <- t_from!,
+                        ts_to <- t_to!,
+                        ts_total_time <- t_total!,
+                        ts_approved <- 0
+                    )
+                )
+                print("inserted id: \(String(describing: rowid))")
+            } catch {
+                print("insertion failed: \(error)")
+            }
+            
             txtTime.stringValue = "00:00:00"
+            
             btnStart.isEnabled = true
             btnEnd.isEnabled = false
         }

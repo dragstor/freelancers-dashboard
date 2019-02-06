@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SQLite
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -29,6 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 strongSelf.closePopover(sender: event)
             }
         }
+        
+        dbConnect()
     }
 
     @objc func togglePopover(_ sender: Any?) {
@@ -152,5 +155,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return .terminateNow
     }
 
+    func dbConnect() {
+        let path = NSHomeDirectory()
+        let db = try? Connection("\(path)/db.sqlite3")
+        let tableTimesheets = Table("timesheets")
+        let id              = Expression<Int64>("id")
+        let ts_date         = Expression<String>("ts_date")
+        let ts_from         = Expression<String>("ts_from")
+        let ts_to           = Expression<String>("ts_to")
+        let ts_total_time   = Expression<String>("ts_total_time")
+        let ts_approved     = Expression<Bool>("ts_approved")
+        
+        let table_status = try? db!.run(tableTimesheets.create { t in
+            t.column(id, primaryKey: true)
+            t.column(ts_date)
+            t.column(ts_from)
+            t.column(ts_to)
+            t.column(ts_total_time)
+            t.column(ts_approved)
+        })
+        if (table_status != nil) {
+            print ("Tabela kreirana")
+        } else {
+            print("Tabela postoji!")
+        }
+    }
+    
+    func dbInitialRun(_ sender: Any?) {
+
+    }
 }
 
