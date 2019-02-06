@@ -18,7 +18,7 @@ This app is a work in progress and it's made for freelancers who need to keep a 
 
 App consists of the popover timer (sits in the status bar) and a main window with few features currently available.
 
-##Main window
+## Main window
 
 ![main window](https://i.imgur.com/LvRVhjH.png)
 
