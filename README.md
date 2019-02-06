@@ -1,10 +1,8 @@
 ![header](https://i.imgur.com/EWlF8V8.png)
 
-# Freelancer's Dashboard
-
 This app is a work in progress and it's made for freelancers who need to keep a simple track of time and earnings. I'm still learning Swift, so bare with me :blush:
 
-![](https://img.shields.io/github/issues/dragstor/freelancers-dashboard.svg?style=flat)![](https://img.shields.io/github/license/dragstor/freelancers-dashboard.svg?style=flat)![](https://img.shields.io/github/commit-activity/m/dragstor/freelancers-dashboard.svg?style=flat)![](https://img.shields.io/github/languages/code-size/dragstor/freelancers-dashboard.svg?style=flat)
+![](https://img.shields.io/github/issues/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/license/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/commit-activity/m/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/languages/code-size/dragstor/freelancers-dashboard.svg?style=flat)
 
 ## Features
 
