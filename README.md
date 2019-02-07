@@ -40,8 +40,9 @@ Perhaps the most useful feature - work timer. It's fully manual, so user has to 
 
 # 3rd party libraries & attributions
 
-- sindresorhus's [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin)
-- Icons & glyphs from https://icons8.com/ App
+- [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) by @sindresorhus
+- [SQLite.swift](https://github.com/stephencelis/SQLite.swift) by @stephencelis
+- Icons & glyphs from [Icons8 App](https://icons8.com/)
 
 # TODO
 
