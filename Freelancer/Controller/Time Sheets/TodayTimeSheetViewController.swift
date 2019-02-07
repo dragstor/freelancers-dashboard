@@ -18,6 +18,7 @@ class TodayTimeSheetViewController: NSViewController {
     @IBOutlet weak var cellFrom: NSTableCellView!
     @IBOutlet weak var cellTo: NSTableCellView!
     @IBOutlet weak var cellTotal: NSTableCellView!
+    @IBOutlet weak var currentDay: NSTextField!
     
     let ts_date         = Expression<String>("ts_date")
     let ts_from         = Expression<String>("ts_from")
@@ -30,18 +31,27 @@ class TodayTimeSheetViewController: NSViewController {
 
     let fmt = DateFormatter()
     
-    var data:[[String: String]] = [[:]]
+    var data:[[String:String]] = [[:]]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fmt.dateFormat = "hh:mma"
+        let today_start: Date = Date().startOfDay
+        let today_end: Date   = Date().endOfDay
+        let today_timesheet   = try! db!.prepare(tableTimesheets.filter(ts_date >= fmt.string(from: today_start) && ts_date <= fmt.string(from: today_end)))
+        
         data.removeAll()
-        for entry in try! db!.prepare(tableTimesheets) {
+        
+        for entry in today_timesheet {
+            let date_from = (try! entry.get(ts_from)).toTime()
+            let date_to   = try! entry.get(ts_to).toTime()
+            
             data.append(
                 [
-                    "CellFrom": try! entry.get(ts_from),
-                    "CellTo": try! entry.get(ts_to),
+                    "CellFrom": (date_from?.toString())!,
+                    "CellTo": (date_to?.toString())!,
                     "CellTotal": try! entry.get(ts_total_time)
                 ]
             )
@@ -51,6 +61,9 @@ class TodayTimeSheetViewController: NSViewController {
         // reload tableview
         tableView.reloadData()
         
+        
+        currentDay.stringValue = Date().getDay()
+        
     }
   
     
@@ -59,10 +72,7 @@ class TodayTimeSheetViewController: NSViewController {
             // Update the view, if already loaded.
         }
     }
-    
-    func getTimesheet() {
-        
-    }
+
 }
 
 extension TodayTimeSheetViewController: NSTableViewDataSource, NSTableViewDelegate {

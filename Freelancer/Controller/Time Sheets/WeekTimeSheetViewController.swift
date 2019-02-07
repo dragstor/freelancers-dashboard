@@ -11,6 +11,8 @@ import Cocoa
 
 class WeekTimeSheetViewController: NSViewController {
     
+    @IBOutlet weak var currentWeek: NSTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
