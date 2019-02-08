@@ -2,7 +2,9 @@
 
 This app is a work in progress and it's made for freelancers who need to keep a simple track of time and earnings. I'm still learning Swift, so bare with me :blush:
 
-![](https://img.shields.io/github/issues/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/license/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/commit-activity/m/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/languages/code-size/dragstor/freelancers-dashboard.svg?style=flat)
+![](https://img.shields.io/github/issues/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/license/dragstor/freelancers-dashboard.svg?style=flat)  
+
+![](https://img.shields.io/github/languages/top/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/commit-activity/m/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/languages/code-size/dragstor/freelancers-dashboard.svg?style=flat)
 
 ## Features
 
@@ -38,16 +40,17 @@ Perhaps the most useful feature - work timer. It's fully manual, so user has to 
 
 # 3rd party libraries & attributions
 
-- sindresorhus's [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin)
-- Icons & glyphs from https://icons8.com/ App
+- [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) by @sindresorhus
+- [SQLite.swift](https://github.com/stephencelis/SQLite.swift) by @stephencelis
+- Icons & glyphs from [Icons8 App](https://icons8.com/)
 
 # TODO
 
-- [ ] Enter worked hours into the timesheet upon stopping the timer
+- [x] Enter worked hours into the timesheet upon stopping the timer
 - [ ] Edit worked hours (from the timesheets)
 - [ ] Implement calendar (extend timesheets)
 - [ ] Automatically calculate earnings (based on timesheets)
-
+- and many more, check the [board](https://github.com/dragstor/freelancers-dashboard/projects/1)
 # License
 
 GPL 3.0
