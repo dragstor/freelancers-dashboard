@@ -40,17 +40,23 @@ class TodayTimeSheetViewController: NSViewController {
         fmt.dateFormat = "hh:mma"
         let today_start: Date = Date().startOfDay
         let today_end: Date   = Date().endOfDay
-        let today_timesheet   = try! db!.prepare(tableTimesheets.filter(ts_date >= fmt.string(from: today_start) && ts_date <= fmt.string(from: today_end)))
+//        let today_timesheet   = try! db!.prepare(tableTimesheets.filter(ts_date >= fmt.string(from: today_start) && ts_date <= fmt.string(from: today_end)))
+//        let today_timesheet   = try! db!.prepare(tableTimesheets)
         
-        print(today_timesheet)
+        let query = tableTimesheets.select(*)
+            .filter(ts_date >= fmt.string(from: today_start) && ts_date <= fmt.string(from: today_end))
+        
+        print(query)
+        
+        let today_timesheet = try! db?.prepare(query)
         
         data.removeAll()
         
         do {
-            for entry in today_timesheet {
+            for entry in today_timesheet! {
                 let date_from = (try! entry.get(ts_from)).toTime()
                 let date_to   = try! entry.get(ts_to).toTime()
-    //            NSAlert.showAlert(title: "Sadrzaj fajla", message: date_from?.toString())
+                NSAlert.showAlert(title: "Sadrzaj fajla", message: date_from?.toString())
                 data.append(
                     [
                         "CellFrom": (date_from?.toString())!,
@@ -59,12 +65,13 @@ class TodayTimeSheetViewController: NSViewController {
                     ]
                 )
             }
-        } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
-            NSAlert.showAlert(title: "constraint failed: \(message)", message: "\(statement)")
-        } catch let error {
-            NSAlert.showAlert(title: "Read FAIL", message: "\(error)")
-                print("insertion failed: \(error)")
         }
+//        catch let Result.error(message, code, statement) where code == SQLITE_ANY {
+//            NSAlert.showAlert(title: "constraint failed: \(message)", message: "\(statement)")
+//        } catch let error {
+//            NSAlert.showAlert(title: "Read FAIL", message: "\(error)")
+//                print("insertion failed: \(error)")
+//        }
         print(data)
         
         // reload tableview
