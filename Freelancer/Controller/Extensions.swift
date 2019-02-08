@@ -112,10 +112,13 @@ extension NSApplication {
          
          
         */
-        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        let fileurl:String = path.appendingPathComponent("FreelancersDashboard").path
+//        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+//        let fileurl:String = path.appendingPathComponent("FreelancersDashboard").path
+        let path = NSSearchPathForDirectoriesInDomains(
+            .applicationSupportDirectory, .userDomainMask, true
+            ).first! + "/" + Bundle.main.bundleIdentifier!
         
-        return fileurl
+        return path
     }
 }
 

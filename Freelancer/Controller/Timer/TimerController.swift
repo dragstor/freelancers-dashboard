@@ -27,7 +27,8 @@ class TimerController: NSViewController {
     let ts_total_time   = Expression<String>("ts_total_time")
     let ts_approved     = Expression<Int64>("ts_approved")
     
-    let db = try? Connection("\( NSApp.supportFolderGet())/db.sqlite3")
+    let db = try? Connection("\(NSApp.supportFolderGet())/db.sqlite3")
+    
     let tableTimesheets = Table("timesheets")
     
     let fmt = DateFormatter()
@@ -66,7 +67,7 @@ class TimerController: NSViewController {
             t_total = txtTime.stringValue
             
             do {
-                let rowid = try! db?.run(
+                let rowid = try db?.run(
                     tableTimesheets.insert(
                         ts_date <- t_from!,
                         ts_from <- t_from!,

@@ -34,6 +34,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         supportFolderCreate()
         dbCreateIfMissing()
         NSAlert.showAlert(title: "Folder", message: NSApp.supportFolderGet())
+        
+        
+//        NSAlert.showAlert(title: "Folder novi metod", message: "\(path)")
     }
 
     @objc func togglePopover(_ sender: Any?) {
@@ -185,10 +188,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func supportFolderCreate() {
-        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        let fileurl =  path.appendingPathComponent("FreelancersDashboard")
+//        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+//        let fileurl =  path.appendingPathComponent("FreelancersDashboard")
+        let path = NSSearchPathForDirectoriesInDomains(
+            .applicationSupportDirectory, .userDomainMask, true
+            ).first! + "/" + Bundle.main.bundleIdentifier!
+        
         do {
-            try FileManager.default.createDirectory(at: fileurl, withIntermediateDirectories: true)
+//            try FileManager.default.createDirectory(at: fileurl, withIntermediateDirectories: true)
+            try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true)
         } catch {
             print(error)
         }
