@@ -26,7 +26,7 @@ class TodayTimeSheetViewController: NSViewController {
     let ts_total_time   = Expression<String>("ts_total_time")
     let ts_approved     = Expression<Int64>("ts_approved")
     
-    let db = try? Connection("\(NSHomeDirectory())/db.sqlite3")
+    let db = try? Connection("\( NSApp.supportFolderGet())/db.sqlite3")
     let tableTimesheets = Table("timesheets")
 
     let fmt = DateFormatter()
@@ -42,19 +42,28 @@ class TodayTimeSheetViewController: NSViewController {
         let today_end: Date   = Date().endOfDay
         let today_timesheet   = try! db!.prepare(tableTimesheets.filter(ts_date >= fmt.string(from: today_start) && ts_date <= fmt.string(from: today_end)))
         
+        print(today_timesheet)
+        
         data.removeAll()
         
-        for entry in today_timesheet {
-            let date_from = (try! entry.get(ts_from)).toTime()
-            let date_to   = try! entry.get(ts_to).toTime()
-            
-            data.append(
-                [
-                    "CellFrom": (date_from?.toString())!,
-                    "CellTo": (date_to?.toString())!,
-                    "CellTotal": try! entry.get(ts_total_time)
-                ]
-            )
+        do {
+            for entry in today_timesheet {
+                let date_from = (try! entry.get(ts_from)).toTime()
+                let date_to   = try! entry.get(ts_to).toTime()
+    //            NSAlert.showAlert(title: "Sadrzaj fajla", message: date_from?.toString())
+                data.append(
+                    [
+                        "CellFrom": (date_from?.toString())!,
+                        "CellTo": (date_to?.toString())!,
+                        "CellTotal": try! entry.get(ts_total_time)
+                    ]
+                )
+            }
+        } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
+            NSAlert.showAlert(title: "constraint failed: \(message)", message: "\(statement)")
+        } catch let error {
+            NSAlert.showAlert(title: "Read FAIL", message: "\(error)")
+                print("insertion failed: \(error)")
         }
         print(data)
         

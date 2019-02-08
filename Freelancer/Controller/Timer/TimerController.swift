@@ -27,7 +27,7 @@ class TimerController: NSViewController {
     let ts_total_time   = Expression<String>("ts_total_time")
     let ts_approved     = Expression<Int64>("ts_approved")
     
-    let db = try? Connection("\(NSHomeDirectory())/db.sqlite3")
+    let db = try? Connection("\( NSApp.supportFolderGet())/db.sqlite3")
     let tableTimesheets = Table("timesheets")
     
     let fmt = DateFormatter()
@@ -35,7 +35,6 @@ class TimerController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
 //        fmt.dateStyle = .long
 //        fmt.timeStyle = .medium
         fmt.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -67,7 +66,7 @@ class TimerController: NSViewController {
             t_total = txtTime.stringValue
             
             do {
-                let rowid = try db?.run(
+                let rowid = try! db?.run(
                     tableTimesheets.insert(
                         ts_date <- t_from!,
                         ts_from <- t_from!,
@@ -76,11 +75,13 @@ class TimerController: NSViewController {
                         ts_approved <- 0
                     )
                 )
-                print("inserted id: \(String(describing: rowid))")
-            } catch {
-                print("insertion failed: \(error)")
+                print("inserted id: \(rowid)")
+            } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
+                NSAlert.showAlert(title: "\(message)", message: "\(statement)")
+            } catch let error {
+                NSAlert.showAlert(title: "ERROR", message: "\(error)")
             }
-            
+        
             txtTime.stringValue = "00:00:00"
             
             btnStart.isEnabled = true

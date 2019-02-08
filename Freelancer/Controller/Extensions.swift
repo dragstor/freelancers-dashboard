@@ -104,3 +104,31 @@ extension String {
         return day
     }
 }
+
+extension NSApplication {
+    func supportFolderGet()-> String {
+        /*
+        .applicationSupportDirectory
+         
+         
+        */
+        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        let fileurl:String = path.appendingPathComponent("FreelancersDashboard").path
+        
+        return fileurl
+    }
+}
+
+extension NSAlert {
+    static func showAlert(title: String?, message: String?, style: NSAlert.Style = .informational) {
+        let alert = NSAlert()
+        if let title = title {
+            alert.messageText = title
+        }
+        if let message = message {
+            alert.informativeText = message
+        }
+        alert.alertStyle = style
+        alert.runModal()
+    }
+}
