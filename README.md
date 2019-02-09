@@ -42,6 +42,7 @@ Perhaps the most useful feature - work timer. It's fully manual, so user has to 
 
 - [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) by @sindresorhus
 - [SQLite.swift](https://github.com/stephencelis/SQLite.swift) by @stephencelis
+- [SwiftDate](https://github.com/malcommac/SwiftDate) by @malcommac
 - Icons & glyphs from [Icons8 App](https://icons8.com/)
 
 # TODO
