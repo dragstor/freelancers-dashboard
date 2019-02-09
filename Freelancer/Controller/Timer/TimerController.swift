@@ -8,6 +8,7 @@
 
 import Cocoa
 import SQLite
+import SwiftDate
 
 class TimerController: NSViewController {
     
@@ -17,9 +18,9 @@ class TimerController: NSViewController {
     
     var flTimer = FLTimer()
     
-    var t_from: String?    = nil
-    var t_to: String?      = nil
-    var t_total: String?   = nil
+    var t_from: Date?
+    var t_to: Date?
+    var t_total: String?
     
     let ts_date         = Expression<String>("ts_date")
     let ts_from         = Expression<String>("ts_from")
@@ -32,13 +33,12 @@ class TimerController: NSViewController {
     let tableTimesheets = Table("timesheets")
     
     let fmt = DateFormatter()
+    let format = "yyyy-MM-dd HH:mm:ss"
+    let format_sec = "HH:mm:ss"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        fmt.dateStyle = .long
-//        fmt.timeStyle = .medium
-        fmt.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
         flTimer.delegate = self
     }
@@ -52,31 +52,39 @@ class TimerController: NSViewController {
     @IBAction func timerStart(_ sender: Any?) {
         flTimer.startTimer()
        
-        t_from = fmt.string(from: Date())
+        fmt.dateFormat = format
+        t_from = Date()
         
         btnStart.isEnabled = false
         btnEnd.isEnabled = true
     }
     
     @IBAction func timerStop(_ sender: Any?) {
-        let stop = dialogOKCancel(question: "Stop the timer?", text: "Stopping the timer will add currently worked hours to today's time sheet 📆", btnTrue: "Yes", btnFalse: "Continue working")
+        let stop = dialogOKCancel(question: "Stop the timer?", text: "Stopping the timer will add currently worked time to today's time sheet.", btnTrue: "Yes", btnFalse: "Continue working")
         if stop {
+            fmt.dateFormat = format
+
+            t_to = DateInRegion().date
+
             flTimer.stopTimer()
-            
-            t_to = fmt.string(from: Date())
+
             t_total = txtTime.stringValue
             
+            fmt.dateFormat = format_sec
+            let total = round(t_to! - t_from!)
+            t_total = textToDisplay(for: total)
+            
             do {
-                let rowid = try db?.run(
+                fmt.dateFormat = format
+                try db?.run(
                     tableTimesheets.insert(
-                        ts_date <- t_from!,
-                        ts_from <- t_from!,
-                        ts_to <- t_to!,
+                        ts_date <- fmt.string(from: t_from!),
+                        ts_from <- fmt.string(from: t_from!),
+                        ts_to <- fmt.string(from: t_to!),
                         ts_total_time <- t_total!,
                         ts_approved <- 0
                     )
                 )
-                print("inserted id: \(rowid)")
             } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
                 NSAlert.showAlert(title: "\(message)", message: "\(statement)")
             } catch let error {

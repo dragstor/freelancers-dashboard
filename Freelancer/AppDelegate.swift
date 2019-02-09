@@ -33,10 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         supportFolderCreate()
         dbCreateIfMissing()
-        NSAlert.showAlert(title: "Folder", message: NSApp.supportFolderGet())
-        
-        
-//        NSAlert.showAlert(title: "Folder novi metod", message: "\(path)")
     }
 
     @objc func togglePopover(_ sender: Any?) {
@@ -178,24 +174,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             t.column(ts_total_time)
             t.column(ts_approved)
         })
-        if (table_status != nil) {
-            print ("Tabela kreirana")
-            NSLog("Tabela kreirana!")
-        } else {
-            print("Tabela postoji!")
-            NSLog("Tabela vec postoji")
-        }
     }
     
     func supportFolderCreate() {
-//        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-//        let fileurl =  path.appendingPathComponent("FreelancersDashboard")
         let path = NSSearchPathForDirectoriesInDomains(
             .applicationSupportDirectory, .userDomainMask, true
             ).first! + "/" + Bundle.main.bundleIdentifier!
         
         do {
-//            try FileManager.default.createDirectory(at: fileurl, withIntermediateDirectories: true)
             try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true)
         } catch {
             print(error)
