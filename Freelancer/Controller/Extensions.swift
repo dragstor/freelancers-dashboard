@@ -45,59 +45,43 @@ extension Bundle {
 }
 
 extension Date {
-    var startOfDay: Date {
-        return Calendar.current.startOfDay(for: self)
-    }
-    
-    var endOfDay: Date {
-        var components = DateComponents()
-        components.day = 1
-        components.second = -1
-        return Calendar.current.date(byAdding: components, to: startOfDay)!
-    }
-    
-    var startOfMonth: Date {
-        let components = Calendar.current.dateComponents([.year, .month], from: startOfDay)
-        return Calendar.current.date(from: components)!
-    }
-    
-    var endOfMonth: Date {
-        var components = DateComponents()
-        components.month = 1
-        components.second = -1
-        return Calendar.current.date(byAdding: components, to: startOfMonth)!
-    }
-    
-    func toString(withFormat format: String = "HH:mm:ss") -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        let strMonth = dateFormatter.string(from: self)
-        
-        return strMonth
-    }
     
     func getDay(withFormat format: String = "EEEE, d MMM yyyy")-> String {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = format
         let day = dateFormatter.string(from: self)
         return day
+    }
+    
+    func getTime(withFormat format: String = "HH:mm:ss")-> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = format
+        let time = dateFormatter.string(from: self)
+        return time
+    }
+    
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
     }
 }
 
 
 extension String {
     
-    func toTime(withFormat format: String = "yyyy-mm-dd HH:mm:ss")-> Date?{
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        let date = dateFormatter.date(from: self)
-        
-        return date
-        
-    }
+//    func toTime(withFormat format: String = "yyyy-mm-dd HH:mm:ss")-> Date?{
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = format
+//        let date = dateFormatter.date(from: self)
+//        
+//        return date
+//        
+//    }
     
     func getDay(withFormat format: String = "yyyy-mm-dd")-> Date?{
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "EEEE, d MMM yyyy"
         let day = dateFormatter.date(from: self)
         
@@ -112,10 +96,13 @@ extension NSApplication {
          
          
         */
-        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        let fileurl:String = path.appendingPathComponent("FreelancersDashboard").path
+//        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+//        let fileurl:String = path.appendingPathComponent("FreelancersDashboard").path
+        let path = NSSearchPathForDirectoriesInDomains(
+            .applicationSupportDirectory, .userDomainMask, true
+            ).first! + "/" + Bundle.main.bundleIdentifier!
         
-        return fileurl
+        return path
     }
 }
 
