@@ -166,7 +166,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let ts_total_time   = Expression<String>("ts_total_time")
         let ts_approved     = Expression<Bool>("ts_approved")
         
-        let table_status = try! db!.run(tableTimesheets.create(ifNotExists: true) { t in
+        try! db!.run(tableTimesheets.create(ifNotExists: true) { t in
             t.column(id, primaryKey: true)
             t.column(ts_date)
             t.column(ts_from)
@@ -184,7 +184,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         do {
             try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true)
         } catch {
-            print(error)
+            NSAlert.showAlert(title: "ERROR", message: "Unable to create Application Support Directory due to:\n\(error)", style: .critical )
         }
     }
 }

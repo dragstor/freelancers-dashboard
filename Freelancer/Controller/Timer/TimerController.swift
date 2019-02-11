@@ -18,8 +18,8 @@ class TimerController: NSViewController {
     
     var flTimer = FLTimer()
     
-    var t_from: Date?
-    var t_to: Date?
+    var t_from: DateInRegion?
+    var t_to: DateInRegion?
     var t_total: String?
     
     let ts_date         = Expression<String>("ts_date")
@@ -53,7 +53,7 @@ class TimerController: NSViewController {
         flTimer.startTimer()
        
         fmt.dateFormat = format
-        t_from = Date()
+        t_from = DateInRegion()
         
         btnStart.isEnabled = false
         btnEnd.isEnabled = true
@@ -64,23 +64,23 @@ class TimerController: NSViewController {
         if stop {
             fmt.dateFormat = format
 
-            t_to = DateInRegion().date
+            t_to = DateInRegion()
 
             flTimer.stopTimer()
 
             t_total = txtTime.stringValue
             
             fmt.dateFormat = format_sec
-            let total = round(t_to! - t_from!)
-            t_total = textToDisplay(for: total)
+            let total = t_to?.timeIntervalSince(t_from!) //round(t_to! - t_from!)
+            t_total = textToDisplay(for: total!)
             
             do {
                 fmt.dateFormat = format
                 try db?.run(
                     tableTimesheets.insert(
-                        ts_date <- fmt.string(from: t_from!),
-                        ts_from <- fmt.string(from: t_from!),
-                        ts_to <- fmt.string(from: t_to!),
+                        ts_date <- fmt.string(from: t_from!.date),
+                        ts_from <- fmt.string(from: t_from!.date),
+                        ts_to <- fmt.string(from: t_to!.date),
                         ts_total_time <- t_total!,
                         ts_approved <- 0
                     )

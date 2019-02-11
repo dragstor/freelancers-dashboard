@@ -91,13 +91,6 @@ extension String {
 
 extension NSApplication {
     func supportFolderGet()-> String {
-        /*
-        .applicationSupportDirectory
-         
-         
-        */
-//        let path = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-//        let fileurl:String = path.appendingPathComponent("FreelancersDashboard").path
         let path = NSSearchPathForDirectoriesInDomains(
             .applicationSupportDirectory, .userDomainMask, true
             ).first! + "/" + Bundle.main.bundleIdentifier!
