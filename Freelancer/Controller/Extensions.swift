@@ -87,6 +87,25 @@ extension String {
         
         return day
     }
+    
+    func getEarnings()-> String {
+        var earnings: Double = 0.0
+        var prefs = Preferences()
+        let rph = prefs.ratePerHour
+        
+        if let time = Date(self) {
+            let h = time.hour * 60
+            let m = time.minute
+            
+            if h == 0 && m == 0 {
+                earnings = 0.0
+            } else {
+                let tmp = h + m
+                earnings = Double(tmp) * (rph/100)
+            }
+        }
+        return String(format:"$%.2f", earnings)
+    }
 }
 
 extension NSApplication {

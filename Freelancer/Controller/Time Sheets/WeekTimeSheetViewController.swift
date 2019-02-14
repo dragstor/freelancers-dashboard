@@ -94,9 +94,6 @@ class WeekTimeSheetViewController: NSViewController {
                 }
             }
             
-
-            var prefs = Preferences()
-            
             for tsDay in dates {
                 let dan = tsDay.toFormat(formatDay)
                 
@@ -104,27 +101,11 @@ class WeekTimeSheetViewController: NSViewController {
                 for ts in timePerDay {
                     
                     if ts.key == dan {
-                        
-                        let rph = prefs.ratePerHour
-                        var earnings: Double = 0.0
-                        
-                        if let time = Date(ts.value) {
-                            let h = time.hour * 60
-                            let m = time.minute
-                            
-                            if h == 0 && m == 0 {
-                                earnings = 0.0
-                            } else {
-                                let tmp = h + m
-                                print("Min: \(tmp)")
-                                earnings = Double(tmp) * (rph/100)
-                            }
-                        }
-                        
+                        let earnings = ts.value.getEarnings()
                         days.append([
                             "CellDay":    ts.key,
                             "CellHours":  ts.value,
-                            "CellEarned": String(format:"$%.2f", earnings)
+                            "CellEarned": earnings
                         ])
                         _ = addTime(timeToAdd: ts.value)
                     }

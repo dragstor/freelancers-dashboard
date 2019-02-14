@@ -20,6 +20,7 @@ class TodayTimeSheetViewController: NSViewController {
     @IBOutlet weak var cellFrom: NSTableCellView!
     @IBOutlet weak var cellTo: NSTableCellView!
     @IBOutlet weak var cellTotal: NSTableCellView!
+    @IBOutlet weak var cellEarned: NSTableCellView!
     @IBOutlet weak var currentDay: NSTextField!
     
     let ts_date         = Expression<String>("ts_date")
@@ -73,7 +74,8 @@ class TodayTimeSheetViewController: NSViewController {
                         [
                             "CellFrom": date_from!,
                             "CellTo": date_to!,
-                            "CellTotal": date_total
+                            "CellTotal": date_total,
+                            "CellEarned": date_total.getEarnings()
                         ]
                     )
                     addTime(timeToAdd: date_total)
