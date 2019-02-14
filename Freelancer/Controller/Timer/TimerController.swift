@@ -86,7 +86,7 @@ class TimerController: NSViewController {
                     )
                 )
             } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
-                NSAlert.showAlert(title: "\(message)", message: "\(statement)")
+                NSAlert.showAlert(title: "\(message)", message: "Error with statement: \(statement)")
             } catch let error {
                 NSAlert.showAlert(title: "ERROR", message: "\(error)")
             }

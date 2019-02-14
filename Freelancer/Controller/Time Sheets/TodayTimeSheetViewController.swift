@@ -45,7 +45,7 @@ class TodayTimeSheetViewController: NSViewController {
         super.viewDidLoad()
 
         do {
-            let db = try? Connection("\( NSApp.supportFolderGet())/db.sqlite3")
+            let db = try Connection("\( NSApp.supportFolderGet())/db.sqlite3")
             let tableTimesheets = Table("timesheets")
             
             let now = DateInRegion()
@@ -58,11 +58,11 @@ class TodayTimeSheetViewController: NSViewController {
                     today_start...today_end ~= ts_date
             )
             
-            let today_timesheet = try! db?.prepare(query)
+            let today_timesheet = try db.prepare(query)
         
             data.removeAll()
         
-            for entry in today_timesheet! {
+            for entry in today_timesheet {
                 do {
                     fmt.dateFormat = format_sec
                     let date_from  = entry[ts_from].toDate()?.toFormat(format_sec)
@@ -82,8 +82,8 @@ class TodayTimeSheetViewController: NSViewController {
             }
 
             tableView.reloadData()
-
-            currentDay.stringValue = now.toFormat("EEEE, MMM mm, YYYY") //.getDay()
+            
+            currentDay.stringValue = now.toFormat("EEEE, MMM dd, YYYY") //.getDay()
         } catch {
             NSAlert.showAlert(title: "Error loading timesheets", message: "Unable to load timesheet!", style: .critical)
         }
@@ -110,6 +110,7 @@ class TodayTimeSheetViewController: NSViewController {
             totalHours = newTime
             lblTotalHours.stringValue = totalHours.toFormat("HH:mm:ss")
         }
+        
     }
 }
 
