@@ -50,7 +50,7 @@ Perhaps the most useful feature - work timer. It's fully manual, so user has to 
 - [x] Enter worked hours into the timesheet upon stopping the timer
 - [ ] Edit worked hours (from the timesheets)
 - [ ] Implement calendar (extend timesheets)
-- [ ] Automatically calculate earnings (based on timesheets)
+- [x] Automatically calculate earnings (based on timesheets)
 - and many more, check the [board](https://github.com/dragstor/freelancers-dashboard/projects/1)
 # License
 
