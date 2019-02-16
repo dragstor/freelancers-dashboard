@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftDate
 
 extension TimerController {
     // MARK: Storyboard instantiation
@@ -89,23 +90,25 @@ extension String {
     }
     
     func getEarnings()-> String {
-        var earnings: Double = 0.0
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "H:m:s"
+        
+        var earnings = 0.0
         var prefs = Preferences()
         let rph = prefs.ratePerHour
         
-        if let time = Date(self) {
-            let h = time.hour * 60
-            let m = time.minute
+        if let time = DateInRegion(self){ //dateFormatter.date(from: self) {
+            let h = Double(time.hour)
+            let m = Double(time.minute) * (1 / 60)
+            let s = Double(time.second) * (1 / 3600 )
             
-            if h == 0 && m == 0 {
-                earnings = 0.0
-            } else {
-                let tmp = h + m
-                earnings = Double(tmp) * (rph/100)
-            }
+            earnings = Double(h + m + s) * rph
         }
         return String(format:"$%.2f", earnings)
     }
+    
+
 }
 
 extension NSApplication {

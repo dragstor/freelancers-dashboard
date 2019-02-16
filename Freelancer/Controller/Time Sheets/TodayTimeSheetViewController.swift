@@ -16,12 +16,14 @@ class TodayTimeSheetViewController: NSViewController {
     
     
     @IBOutlet weak var lblTotalHours: NSTextField!
+    @IBOutlet weak var lblTotalEarnings: NSTextField!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var cellFrom: NSTableCellView!
     @IBOutlet weak var cellTo: NSTableCellView!
     @IBOutlet weak var cellTotal: NSTableCellView!
     @IBOutlet weak var cellEarned: NSTableCellView!
     @IBOutlet weak var currentDay: NSTextField!
+    
     
     let ts_date         = Expression<String>("ts_date")
     let ts_from         = Expression<String>("ts_from")
@@ -86,6 +88,7 @@ class TodayTimeSheetViewController: NSViewController {
             tableView.reloadData()
             
             currentDay.stringValue = now.toFormat("EEEE, MMM dd, YYYY") //.getDay()
+            lblTotalEarnings.stringValue = lblTotalHours.stringValue.getEarnings()
         } catch {
             NSAlert.showAlert(title: "Error loading timesheets", message: "Unable to load timesheet!", style: .critical)
         }

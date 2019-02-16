@@ -21,6 +21,7 @@ class WeekTimeSheetViewController: NSViewController {
     @IBOutlet weak var CellEarned: NSTableCellView!
     
     @IBOutlet weak var lblTotalHours: NSTextField!
+    @IBOutlet weak var lblTotalEarnings: NSTextField!
     
     var currentWeekStart = Date().dateAt(.startOfWeek)
     var currentWeekEnd   = Date().dateAt(.endOfWeek)
@@ -113,6 +114,7 @@ class WeekTimeSheetViewController: NSViewController {
             }
 
             tableView.reloadData()
+            lblTotalEarnings.stringValue = lblTotalHours.stringValue.getEarnings()
         } catch {
             NSAlert.showAlert(title: "ERROR", message: "Error with DB!", style: .critical)
         }
