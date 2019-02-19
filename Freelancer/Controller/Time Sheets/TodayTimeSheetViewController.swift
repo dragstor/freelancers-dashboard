@@ -37,9 +37,10 @@ class TodayTimeSheetViewController: NSViewController {
     let format      = "yyyy-MM-dd HH:mm:ss"
     let format_sec  = "HH:mm:ss"
     
-    var totalHours    = DateInRegion().dateAt(.startOfDay) // dateAtStartOf(.day)
-    var newTime       = DateInRegion().dateAt(.startOfDay) // StartOf(.day)
+    var totalHours: TimeInterval = 0 //DateInRegion().dateAt(.startOfDay) // dateAtStartOf(.day)
+    var newTime: TimeInterval    = 0 //       = DateInRegion().dateAt(.startOfDay) // StartOf(.day)
     
+    var timeClock:TimeInterval = 0
     
     var data:[[String:String]] = [[:]]
     
@@ -56,7 +57,7 @@ class TodayTimeSheetViewController: NSViewController {
             let today_end   = String(now.dateAtEndOf(.day).toFormat(format))
         
             let query = tableTimesheets
-                .select(*)
+                .select(ts_date, ts_from, ts_to, ts_total_time)
                 .filter(
                     today_start...today_end ~= ts_date
             )
@@ -102,18 +103,19 @@ class TodayTimeSheetViewController: NSViewController {
     }
     
     func addTime(timeToAdd: String) -> Void {
-        let fmt = DateFormatter()
-        fmt.dateStyle  = .none
-        fmt.timeStyle  = .medium
-        fmt.dateFormat = "HH:mm:ss"
 
         if let time = DateInRegion(timeToAdd) {
-            let h = time.hour
-            let m = time.minute
+            let h = time.hour * 3600
+            let m = time.minute * 60
             let s = time.second
-            newTime = totalHours + h.hours + m.minutes + s.seconds
+            
+            let sum = h + m + s
+            
+            let previous = totalHours
+            newTime = previous + TimeInterval(sum)
             totalHours = newTime
-            lblTotalHours.stringValue = totalHours.toFormat("HH:mm:ss")
+            
+            lblTotalHours.stringValue = newTime.toClock(zero: .dropAll)
         }
         
     }

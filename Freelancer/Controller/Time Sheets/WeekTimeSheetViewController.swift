@@ -37,17 +37,15 @@ class WeekTimeSheetViewController: NSViewController {
     let formatWeekShort = "yyyy-MM-dd"
     let formatWeekLong  = "yyyy-MM-dd HH:mm:ss"
 
-    var totalHours    = DateInRegion().dateAt(.startOfDay)
-    var newTime       = DateInRegion().dateAt(.startOfDay)
+    var totalHoursDay: TimeInterval = 0
+    var totalHoursWeek: TimeInterval = 0
+    var newTimeDay: TimeInterval    = 0
+    var newTimeWeek: TimeInterval = 0
     
     var days:[[String:String]] = [[:]]
     var timePerDay = [String:(String)]()
     
-    struct TS {
-        let day: String
-        
-    }
-    var dayTotalVar:String? = "00:00:00"
+//    var dayPrevious:TimeInterval = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,49 +64,49 @@ class WeekTimeSheetViewController: NSViewController {
                 .select(ts_id, ts_date, ts_total_time)
                 .filter(dayStart...dayEnd ~= ts_date)
                 .order(ts_id)
-
-            // debug
-//            print(query.asSQL())
             
             let weekTimesheet = try db.prepare(query)
 
             let dates = DateInRegion.enumerateDates(from: DateInRegion(currentWeekStart), to: DateInRegion(currentWeekEnd), increment: 1.days)
             
-            var suma = "00:00:00"
             days.removeAll()
+            
+            fmt.dateFormat = formatWeekLong
+            var sum = ""
             
             for entry in weekTimesheet {
                 for weekDay in dates {
-                    
-                    let dateDay    = entry[ts_date]
-                    let dateTotal  = entry[ts_total_time]
-                    let addToDay   = weekDay.toFormat(formatSec)
-                    let dayTotal   = timePerDay[weekDay.toFormat(formatDay)] ?? "00:00:00"
-                    
-                    if DateInRegion(dateDay)!.isInside(date: weekDay, granularity: .day) {
-                        suma = addTime(timeToAdd: dateTotal, addToDay: addToDay, dailyPrevious: dayTotal)
-                        timePerDay[weekDay.toFormat(formatDay)] = suma
-                    }
+                    let dateDay       = entry[ts_date]
+                    let dateTotalTime = entry[ts_total_time]
 
-                    dayTotalVar = suma
-                    
+                    if DateInRegion(dateDay)!.isInside(date: weekDay, granularity: .day) {
+                        sum = addTime(timeToAdd: dateTotalTime, dailyPrevious: totalHoursDay)
+                        timePerDay[weekDay.toFormat(formatDay)] = sum
+                        
+                        let t = DateInRegion(dateTotalTime)
+                        let h = t!.hour
+                        let m = t!.minute
+                        let s = t!.second
+                        let t1 = h + m + s
+                        
+                        totalHoursDay = TimeInterval(sum)! - TimeInterval(t1)
+                        
+                    }
                 }
+                
             }
-            
+             print(timePerDay)
             for tsDay in dates {
-                let dan = tsDay.toFormat(formatDay)
-                
-                
+                let dayIterator = tsDay.toFormat(formatDay)
+
                 for ts in timePerDay {
-                    
-                    if ts.key == dan {
+                    if ts.key == dayIterator {
                         let earnings = ts.value.getEarnings()
                         days.append([
                             "CellDay":    ts.key,
                             "CellHours":  ts.value,
                             "CellEarned": earnings
                         ])
-                        _ = addTime(timeToAdd: ts.value)
                     }
                 }
             }
@@ -126,50 +124,25 @@ class WeekTimeSheetViewController: NSViewController {
         }
     }
 
-    func addTime(timeToAdd: String, addToDay: String = "", dailyPrevious: String = "")-> String {
-        let fmt = DateFormatter()
-        fmt.dateStyle  = .none
-        fmt.timeStyle  = .medium
-        fmt.dateFormat = "HH:mm:ss"
- 
-        if let time = DateInRegion(timeToAdd) {
-            let h         = time.hour
-            let m         = time.minute
-            let s         = time.second
-
-            if addToDay.isEmpty {
-                // Weekly calculation
-                newTime = totalHours + h.hours + m.minutes + s.seconds
-                totalHours = newTime
-
-                let result = totalHours.toFormat("HH:mm:ss")
-
-                lblTotalHours.stringValue = result
-                return result
-            } else {
-                // One day calculation
-                let result = DateInRegion(dailyPrevious)! + h.hours + m.minutes + s.seconds
-                return result.toFormat("HH:mm:ss")
-            }
-        } else {
-            return ""
-        }
-    }
-    
-    func subtractTime(time: String, fromTime: String)-> String {
-        let fmt = DateFormatter()
-        fmt.dateFormat = "HH:mm:ss"
+    func addTime(timeToAdd: String, dailyPrevious: TimeInterval = 0)-> String {
+        let time = DateInRegion(timeToAdd)
+        let h        = time!.hour * 3600
+        let m        = time!.minute * 60
+        let s        = time!.second
+        let sum      = h + m + s
         
-        if let t = DateInRegion(time) {
-            let h         = t.hour
-            let m         = t.minute
-            let s         = t.second
-            
-            let result = DateInRegion(fromTime)! - h.hours - m.minutes - s.seconds
+        if dailyPrevious.isNaN {
+            // Weekly calculation
+            newTimeDay     = totalHoursDay + TimeInterval(sum)
+            totalHoursDay  = newTimeDay
 
-            return result.toFormat("HH:mm:ss")
+            lblTotalHours.stringValue = totalHoursDay.toClock()
+            return totalHoursWeek.toClock()
         } else {
-            return fromTime
+            // One day calculation
+            let result = TimeInterval(sum) //- dailyPrevious 
+            totalHoursDay = result
+            return String(result)
         }
     }
 }
