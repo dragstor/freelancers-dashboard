@@ -18,24 +18,24 @@ class TimerController: NSViewController {
     
     var flTimer = FLTimer()
     
-    var t_from: DateInRegion?
-    var t_to: DateInRegion?
-    var t_total: String?
+    var t_from: TimeInterval?
+    var t_to: TimeInterval?
+    var t_total: TimeInterval?
     
-    let ts_date         = Expression<String>("ts_date")
-    let ts_from         = Expression<String>("ts_from")
-    let ts_to           = Expression<String>("ts_to")
-    let ts_total_time   = Expression<String>("ts_total_time")
-    let ts_approved     = Expression<Int64>("ts_approved")
+    let ts_date         = Expression<TimeInterval>("ts_date")
+    let ts_from         = Expression<TimeInterval>("ts_from")
+    let ts_to           = Expression<TimeInterval>("ts_to")
+    let ts_total_time   = Expression<TimeInterval>("ts_total_time")
+    let ts_approved     = Expression<Bool>("ts_approved")
     
     let db = try? Connection("\(NSApp.supportFolderGet())/db.sqlite3")
     
-    let tableTimesheets = Table("timesheets")
+    let tableTimesheets = Table("timesheets_interval")
     
     let fmt = DateFormatter()
     let format = "yyyy-MM-dd HH:mm:ss"
-    let format_sec = "HH:mm:ss"
-    
+    let formatSec = "HH:mm:ss"
+    let bgd = Region.current
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class TimerController: NSViewController {
         flTimer.startTimer()
        
         fmt.dateFormat = format
-        t_from = DateInRegion()
+        t_from = DateInRegion().timeIntervalSince1970
         
         btnStart.isEnabled = false
         btnEnd.isEnabled = true
@@ -64,29 +64,29 @@ class TimerController: NSViewController {
         if stop {
             fmt.dateFormat = format
 
-            t_to = DateInRegion()
+            t_to = DateInRegion().timeIntervalSince1970
 
             flTimer.stopTimer()
 
-            t_total = txtTime.stringValue
+            t_total = txtTime.stringValue.toDate()?.timeIntervalSince1970
             
-            fmt.dateFormat = format_sec
-            let total = t_to?.timeIntervalSince(t_from!) //round(t_to! - t_from!)
-            t_total = textToDisplay(for: total!)
+            fmt.dateFormat = formatSec
+            let total = Date(seconds: t_to!).timeIntervalSince(Date(seconds: t_from!))
+            t_total = total
             
             do {
                 fmt.dateFormat = format
                 try db?.run(
                     tableTimesheets.insert(
-                        ts_date <- fmt.string(from: t_from!.date),
-                        ts_from <- fmt.string(from: t_from!.date),
-                        ts_to <- fmt.string(from: t_to!.date),
+                        ts_date <- t_from!,
+                        ts_from <- t_from!,
+                        ts_to <- t_to!,
                         ts_total_time <- t_total!,
-                        ts_approved <- 0
+                        ts_approved <- false
                     )
                 )
             } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
-                NSAlert.showAlert(title: "\(message)", message: "Error with statement: \(statement)")
+                NSAlert.showAlert(title: "\(message)", message: "Error with statement: \(String(describing: statement))")
             } catch let error {
                 NSAlert.showAlert(title: "ERROR", message: "\(error)")
             }

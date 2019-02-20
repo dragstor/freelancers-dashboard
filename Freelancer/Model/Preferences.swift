@@ -52,4 +52,36 @@ struct Preferences {
             UserDefaults.standard.set(newValue, forKey: "ratePerHour")
         }
     }
+    
+    var weekHours: TimeInterval {
+        get {
+            let weekHours = UserDefaults.standard.double(forKey: "weekHours")
+            
+            if weekHours != 0.0 {
+                return TimeInterval(weekHours)
+            }
+            
+            return 0.0
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "weekHours")
+        }
+    }
+    
+    var weekEarnings: Double {
+        get {
+            let weekEarnings = UserDefaults.standard.double(forKey: "weekEarnings")
+            
+            if weekEarnings != 0.0 {
+                return Double(weekEarnings)
+            }
+            
+            return 0.0
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "weekEarnings")
+        }
+    }
 }

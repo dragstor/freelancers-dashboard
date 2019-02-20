@@ -88,7 +88,9 @@ extension String {
         
         return day
     }
-    
+}
+
+extension TimeInterval {
     func getEarnings()-> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -98,17 +100,15 @@ extension String {
         var prefs = Preferences()
         let rph = prefs.ratePerHour
         
-        if let time = DateInRegion(self){ //dateFormatter.date(from: self) {
-            let h = Double(time.hour)
-            let m = Double(time.minute) * (1 / 60)
-            let s = Double(time.second) * (1 / 3600 )
-            
-            earnings = Double(h + m + s) * rph
-        }
-        return String(format:"$%.2f", earnings)
-    }
+        let time = DateInRegion(seconds: self)
+        let h = Double(time.hour)
+        let m = Double(time.minute) * (1 / 60)
+        let s = Double(time.second) * (1 / 3600 )
+        
+        earnings = Double(h + m + s) * rph
     
-
+        return String(format:"%.2f", earnings)
+    }
 }
 
 extension NSApplication {

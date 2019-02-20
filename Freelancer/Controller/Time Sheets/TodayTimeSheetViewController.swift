@@ -25,38 +25,38 @@ class TodayTimeSheetViewController: NSViewController {
     @IBOutlet weak var currentDay: NSTextField!
     
     
-    let ts_date         = Expression<String>("ts_date")
-    let ts_from         = Expression<String>("ts_from")
-    let ts_to           = Expression<String>("ts_to")
-    let ts_total_time   = Expression<String>("ts_total_time")
-    let ts_approved     = Expression<Int64>("ts_approved")
+    let ts_date         = Expression<TimeInterval>("ts_date")
+    let ts_from         = Expression<TimeInterval>("ts_from")
+    let ts_to           = Expression<TimeInterval>("ts_to")
+    let ts_total_time   = Expression<TimeInterval>("ts_total_time")
+    let ts_approved     = Expression<Bool>("ts_approved")
     
     
     
-    let fmt         = DateFormatter()
-    let format      = "yyyy-MM-dd HH:mm:ss"
-    let format_sec  = "HH:mm:ss"
+    let fmt       = DateFormatter()
+    let format    = "yyyy-MM-dd HH:mm:ss"
+    let formatSec = "HH:mm:ss"
     
-    var totalHours    = DateInRegion().dateAt(.startOfDay) // dateAtStartOf(.day)
-    var newTime       = DateInRegion().dateAt(.startOfDay) // StartOf(.day)
-    
-    
-    var data:[[String:String]] = [[:]]
+    var totalHours: TimeInterval = 0
+    var newTime: TimeInterval    = 0
+    var timeClock:TimeInterval   = 0
+    var data:[[String:String]]   = [[:]]
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        SwiftDate.defaultRegion = Region.current
 
         do {
             let db = try Connection("\( NSApp.supportFolderGet())/db.sqlite3")
-            let tableTimesheets = Table("timesheets")
+            let tableTimesheets = Table("timesheets_interval")
             
-            let now = DateInRegion()
-            let today_start = String(now.dateAtStartOf(.day).toFormat(format))
-            let today_end   = String(now.dateAtEndOf(.day).toFormat(format))
+            let now = DateInRegion().convertTo(region: Region.current)
+            let today_start = now.dateAtStartOf(.day).timeIntervalSince1970
+            let today_end   = now.dateAtEndOf(.day).timeIntervalSince1970
         
             let query = tableTimesheets
-                .select(*)
+                .select(ts_date, ts_from, ts_to, ts_total_time)
                 .filter(
                     today_start...today_end ~= ts_date
             )
@@ -65,30 +65,30 @@ class TodayTimeSheetViewController: NSViewController {
         
             data.removeAll()
         
+            var timeTmp:TimeInterval = 0
             for entry in today_timesheet {
                 do {
-                    fmt.dateFormat = format_sec
-                    let date_from  = entry[ts_from].toDate()?.toFormat(format_sec)
-                    let date_to    = entry[ts_to].toDate()?.toFormat(format_sec)
-                    let date_total = entry[ts_total_time]
+                    fmt.dateFormat = formatSec
+                    let date_from  = Date(timeIntervalSince1970: entry[ts_from]).toFormat(formatSec)
+                    let date_to    = Date(timeIntervalSince1970: entry[ts_to]).toFormat(formatSec)
+                    let date_total = entry[ts_total_time].toString()
 
                     data.append(
                         [
-                            "CellFrom": date_from!,
-                            "CellTo": date_to!,
+                            "CellFrom": date_from,
+                            "CellTo": date_to,
                             "CellTotal": date_total,
-                            "CellEarned": date_total.getEarnings()
+                            "CellEarned": entry[ts_total_time].getEarnings()
                         ]
                     )
-                    addTime(timeToAdd: date_total)
-                    
+                    timeTmp = addTime(timeToAdd: entry[ts_total_time])
                 }
             }
 
             tableView.reloadData()
             
             currentDay.stringValue = now.toFormat("EEEE, MMM dd, YYYY") //.getDay()
-            lblTotalEarnings.stringValue = lblTotalHours.stringValue.getEarnings()
+            lblTotalEarnings.stringValue = timeTmp.getEarnings()
         } catch {
             NSAlert.showAlert(title: "Error loading timesheets", message: "Unable to load timesheet!", style: .critical)
         }
@@ -101,21 +101,22 @@ class TodayTimeSheetViewController: NSViewController {
         }
     }
     
-    func addTime(timeToAdd: String) -> Void {
-        let fmt = DateFormatter()
-        fmt.dateStyle  = .none
-        fmt.timeStyle  = .medium
-        fmt.dateFormat = "HH:mm:ss"
+    func addTime(timeToAdd: TimeInterval) -> TimeInterval {
 
-        if let time = DateInRegion(timeToAdd) {
-            let h = time.hour
-            let m = time.minute
-            let s = time.second
-            newTime = totalHours + h.hours + m.minutes + s.seconds
-            totalHours = newTime
-            lblTotalHours.stringValue = totalHours.toFormat("HH:mm:ss")
-        }
+        let time = DateInRegion(seconds: timeToAdd)
+        let h = time.hour * 3600
+        let m = time.minute * 60
+        let s = time.second
         
+        let sum = h + m + s
+        
+        let previous = totalHours
+        newTime = previous + TimeInterval(sum)
+        totalHours = newTime
+        
+        lblTotalHours.stringValue = newTime.toString()
+
+        return newTime
     }
 }
 
