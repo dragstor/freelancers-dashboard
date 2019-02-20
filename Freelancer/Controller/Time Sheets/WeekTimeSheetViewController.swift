@@ -23,12 +23,12 @@ class WeekTimeSheetViewController: NSViewController {
     @IBOutlet weak var lblTotalHours: NSTextField!
     @IBOutlet weak var lblTotalEarnings: NSTextField!
     
-    var currentWeekStart = Date().dateAt(.startOfWeek)
-    var currentWeekEnd   = Date().dateAt(.endOfWeek)
+    var currentWeekStart = Date().dateAt(.startOfWeek).timeIntervalSince1970
+    var currentWeekEnd   = Date().dateAt(.endOfWeek).timeIntervalSince1970
     
-    let ts_id           = Expression<Int>("id")
-    let ts_date         = Expression<String>("ts_date")
-    let ts_total_time   = Expression<String>("ts_total_time")
+    let ts_id           = Expression<TimeInterval>("id")
+    let ts_date         = Expression<TimeInterval>("ts_date")
+    let ts_total_time   = Expression<TimeInterval>("ts_total_time")
     
     let fmt             = DateFormatter()
     let format          = "yyyy-MM-dd HH:mm:ss"
@@ -37,28 +37,25 @@ class WeekTimeSheetViewController: NSViewController {
     let formatWeekShort = "yyyy-MM-dd"
     let formatWeekLong  = "yyyy-MM-dd HH:mm:ss"
 
-    var totalHoursDay: TimeInterval = 0
+    var totalHoursDay: TimeInterval  = 0
     var totalHoursWeek: TimeInterval = 0
-    var newTimeDay: TimeInterval    = 0
-    var newTimeWeek: TimeInterval = 0
     
     var days:[[String:String]] = [[:]]
-    var timePerDay = [String:(String)]()
-    
-//    var dayPrevious:TimeInterval = 0
+    var timePerDay             = [String:(TimeInterval)]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lblCurrentWeek.stringValue = "\(currentWeekStart.toFormat(formatWeekShort)) to \(currentWeekEnd.toFormat(formatWeekShort))"
+        SwiftDate.defaultRegion = Region.current
         
+        lblCurrentWeek.stringValue = "\(DateInRegion(seconds: currentWeekStart).toFormat(formatWeekShort)) to \(DateInRegion(seconds: currentWeekEnd).toFormat(formatWeekShort))"
         
         do{
             let db = try Connection("\( NSApp.supportFolderGet())/db.sqlite3")
-            let tableTimesheets = Table("timesheets")
+            let tableTimesheets = Table("timesheets_interval")
             
-            let dayStart = currentWeekStart.toFormat(formatWeekLong)
-            let dayEnd   = currentWeekEnd.toFormat(formatWeekLong)
+            let dayStart = currentWeekStart
+            let dayEnd   = currentWeekEnd
             
             let query = tableTimesheets
                 .select(ts_id, ts_date, ts_total_time)
@@ -67,52 +64,52 @@ class WeekTimeSheetViewController: NSViewController {
             
             let weekTimesheet = try db.prepare(query)
 
-            let dates = DateInRegion.enumerateDates(from: DateInRegion(currentWeekStart), to: DateInRegion(currentWeekEnd), increment: 1.days)
+            let dates = DateInRegion.enumerateDates(from: DateInRegion(seconds: currentWeekStart), to: DateInRegion(seconds: currentWeekEnd), increment: 1.days)
             
             days.removeAll()
             
             fmt.dateFormat = formatWeekLong
-            var sum = ""
+            
+            var sum:TimeInterval = 0
             
             for entry in weekTimesheet {
+                let dateDay       = entry[ts_date]
+                let dateTotalTime = entry[ts_total_time]
                 for weekDay in dates {
-                    let dateDay       = entry[ts_date]
-                    let dateTotalTime = entry[ts_total_time]
-
-                    if DateInRegion(dateDay)!.isInside(date: weekDay, granularity: .day) {
-                        sum = addTime(timeToAdd: dateTotalTime, dailyPrevious: totalHoursDay)
-                        timePerDay[weekDay.toFormat(formatDay)] = sum
+                    if DateInRegion(seconds: dateDay).isInside(date: weekDay, granularity: .day) {
+                        totalHoursDay += dateTotalTime
+                        sum           += totalHoursDay
+                        let tmp       = TimeInterval(timePerDay[weekDay.toFormat(formatDay)] ?? 0) + totalHoursDay
                         
-                        let t = DateInRegion(dateTotalTime)
-                        let h = t!.hour
-                        let m = t!.minute
-                        let s = t!.second
-                        let t1 = h + m + s
+                        timePerDay[weekDay.toFormat(formatDay)] = tmp
                         
-                        totalHoursDay = TimeInterval(sum)! - TimeInterval(t1)
-                        
+                        totalHoursWeek = sum
+                        totalHoursDay  = 0
                     }
                 }
-                
             }
-             print(timePerDay)
+            
             for tsDay in dates {
                 let dayIterator = tsDay.toFormat(formatDay)
 
                 for ts in timePerDay {
                     if ts.key == dayIterator {
-                        let earnings = ts.value.getEarnings()
+                        let hours    = ts.value
+                        let earnings = hours.getEarnings()
+
                         days.append([
                             "CellDay":    ts.key,
-                            "CellHours":  ts.value,
+                            "CellHours":  hours.toString(),
                             "CellEarned": earnings
                         ])
                     }
                 }
             }
-
+            
+            lblTotalHours.stringValue    = totalHoursWeek.toString()
+            lblTotalEarnings.stringValue = totalHoursWeek.getEarnings()
+            
             tableView.reloadData()
-            lblTotalEarnings.stringValue = lblTotalHours.stringValue.getEarnings()
         } catch {
             NSAlert.showAlert(title: "ERROR", message: "Error with DB!", style: .critical)
         }
@@ -121,28 +118,6 @@ class WeekTimeSheetViewController: NSViewController {
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
-        }
-    }
-
-    func addTime(timeToAdd: String, dailyPrevious: TimeInterval = 0)-> String {
-        let time = DateInRegion(timeToAdd)
-        let h        = time!.hour * 3600
-        let m        = time!.minute * 60
-        let s        = time!.second
-        let sum      = h + m + s
-        
-        if dailyPrevious.isNaN {
-            // Weekly calculation
-            newTimeDay     = totalHoursDay + TimeInterval(sum)
-            totalHoursDay  = newTimeDay
-
-            lblTotalHours.stringValue = totalHoursDay.toClock()
-            return totalHoursWeek.toClock()
-        } else {
-            // One day calculation
-            let result = TimeInterval(sum) //- dailyPrevious 
-            totalHoursDay = result
-            return String(result)
         }
     }
 }
@@ -160,4 +135,3 @@ extension WeekTimeSheetViewController: NSTableViewDataSource, NSTableViewDelegat
         return cell
     }
 }
-
