@@ -11,7 +11,8 @@ import SQLite
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
+    
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     let popover = NSPopover()
     var eventMonitor: EventMonitor?
@@ -31,7 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         
-        dbConnect()
+        supportFolderCreate()
+        dbCreateIfMissing()
     }
 
     @objc func togglePopover(_ sender: Any?) {
@@ -155,18 +157,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return .terminateNow
     }
 
-    func dbConnect() {
-        let path = NSHomeDirectory()
-        let db = try? Connection("\(path)/db.sqlite3")
-        let tableTimesheets = Table("timesheets")
-        let id              = Expression<Int64>("id")
-        let ts_date         = Expression<String>("ts_date")
-        let ts_from         = Expression<String>("ts_from")
-        let ts_to           = Expression<String>("ts_to")
-        let ts_total_time   = Expression<String>("ts_total_time")
+    func dbCreateIfMissing() {
+        let db = try? Connection("\(NSApp.supportFolderGet())/db.sqlite3")
+        let tableTimesheets = Table("timesheets_interval")
+        let id              = Expression<Int>("id")
+        let ts_date         = Expression<Int>("ts_date")
+        let ts_from         = Expression<Int>("ts_from")
+        let ts_to           = Expression<Int>("ts_to")
+        let ts_total_time   = Expression<Int>("ts_total_time")
         let ts_approved     = Expression<Bool>("ts_approved")
         
-        let table_status = try? db!.run(tableTimesheets.create { t in
+        try! db!.run(tableTimesheets.create(ifNotExists: true) { t in
             t.column(id, primaryKey: true)
             t.column(ts_date)
             t.column(ts_from)
@@ -174,15 +175,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             t.column(ts_total_time)
             t.column(ts_approved)
         })
-        if (table_status != nil) {
-            print ("Tabela kreirana")
-        } else {
-            print("Tabela postoji!")
-        }
     }
     
-    func dbInitialRun(_ sender: Any?) {
-
+    func supportFolderCreate() {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .applicationSupportDirectory, .userDomainMask, true
+            ).first! + "/" + Bundle.main.bundleIdentifier!
+        
+        do {
+            try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true)
+        } catch {
+            NSAlert.showAlert(title: "ERROR", message: "Unable to create Application Support Directory due to:\n\(error)", style: .critical )
+        }
     }
 }
 

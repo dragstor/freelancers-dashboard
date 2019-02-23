@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SwiftDate
 
 extension TimerController {
     // MARK: Storyboard instantiation
@@ -43,3 +44,99 @@ extension Bundle {
     }
     
 }
+
+extension Date {
+    
+    func getDay(withFormat format: String = "EEEE, d MMM yyyy")-> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = format
+        let day = dateFormatter.string(from: self)
+        return day
+    }
+    
+    func getTime(withFormat format: String = "HH:mm:ss")-> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = format
+        let time = dateFormatter.string(from: self)
+        return time
+    }
+    
+    static func - (lhs: Date, rhs: Date) -> TimeInterval {
+        return lhs.timeIntervalSinceReferenceDate - rhs.timeIntervalSinceReferenceDate
+    }
+}
+
+
+extension String {
+    
+//    func toTime(withFormat format: String = "yyyy-mm-dd HH:mm:ss")-> Date?{
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = format
+//        let date = dateFormatter.date(from: self)
+//        
+//        return date
+//        
+//    }
+    
+    func getDay(withFormat format: String = "yyyy-mm-dd")-> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "EEEE, d MMM yyyy"
+        let day = dateFormatter.date(from: self)
+        
+        return day
+    }
+}
+
+extension TimeInterval {
+    func getEarnings()-> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "H:m:s"
+        
+        var earnings = 0.0
+        var prefs = Preferences()
+        let rph = prefs.ratePerHour
+        
+        let time = DateInRegion(seconds: self)
+        let h = Double(time.hour)
+        let m = Double(time.minute) * (1 / 60)
+        let s = Double(time.second) * (1 / 3600 )
+        
+        earnings = Double(h + m + s) * rph
+    
+        return String(format:"%.2f", earnings)
+    }
+}
+
+extension NSApplication {
+    func supportFolderGet()-> String {
+        let path = NSSearchPathForDirectoriesInDomains(
+            .applicationSupportDirectory, .userDomainMask, true
+            ).first! + "/" + Bundle.main.bundleIdentifier!
+        
+        return path
+    }
+}
+
+extension NSAlert {
+    static func showAlert(title: String?, message: String?, style: NSAlert.Style = .informational) {
+        let alert = NSAlert()
+        if let title = title {
+            alert.messageText = title
+        }
+        if let message = message {
+            alert.informativeText = message
+        }
+        alert.alertStyle = style
+        alert.runModal()
+    }
+}
+
+
+
+
+
+

@@ -29,6 +29,9 @@
 		934AEB572208D126005CCEBD /* AcknowledgmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB562208D126005CCEBD /* AcknowledgmentsViewController.swift */; };
 		934AEB592208D5CC005CCEBD /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */; };
 		934AEB5C220905E6005CCEBD /* FLTimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5B220905E6005CCEBD /* FLTimerProtocol.swift */; };
+		93908AC122198AE900CC4E11 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93908AC022198AE900CC4E11 /* EarningsViewController.swift */; };
+		93E71E1A220E1E2E00361944 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E71E19220E1E2E00361944 /* SwiftDate.framework */; };
+		93E71E1B220E1E2E00361944 /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93E71E19220E1E2E00361944 /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -51,9 +54,19 @@
 			dstSubfolderSpec = 10;
 			files = (
 				93449F81220A8D78008BCC01 /* SQLite.framework in Embed Frameworks */,
+				93E71E1B220E1E2E00361944 /* SwiftDate.framework in Embed Frameworks */,
 				93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93908AB82218508100CC4E11 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -81,6 +94,8 @@
 		934AEB562208D126005CCEBD /* AcknowledgmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcknowledgmentsViewController.swift; sourceTree = "<group>"; };
 		934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkTextField.swift; sourceTree = "<group>"; };
 		934AEB5B220905E6005CCEBD /* FLTimerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLTimerProtocol.swift; sourceTree = "<group>"; };
+		93908AC022198AE900CC4E11 /* EarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsViewController.swift; sourceTree = "<group>"; };
+		93E71E19220E1E2E00361944 /* SwiftDate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftDate.framework; path = Carthage/Build/Mac/SwiftDate.framework; sourceTree = "<group>"; };
 		93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LaunchAtLogin.framework; path = Carthage/Build/Mac/LaunchAtLogin.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93449F80220A8D78008BCC01 /* SQLite.framework in Frameworks */,
+				93E71E1A220E1E2E00361944 /* SwiftDate.framework in Frameworks */,
 				93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +134,7 @@
 		933204362207C1DF0098632C /* Freelancer */ = {
 			isa = PBXGroup;
 			children = (
+				93E71E1C220E767400361944 /* Helpers */,
 				934AEB5322081043005CCEBD /* Model */,
 				933204572207E6090098632C /* Storyboard */,
 				933204562207E5E40098632C /* Controller */,
@@ -133,6 +150,7 @@
 		933204562207E5E40098632C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				93908ABF22198AA800CC4E11 /* Earnings */,
 				934AEB5A220905B2005CCEBD /* Timer */,
 				934AEB41220804AE005CCEBD /* Preferences */,
 				9332045B2207F9FC0098632C /* Time Sheets */,
@@ -189,9 +207,25 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		93908ABF22198AA800CC4E11 /* Earnings */ = {
+			isa = PBXGroup;
+			children = (
+				93908AC022198AE900CC4E11 /* EarningsViewController.swift */,
+			);
+			path = Earnings;
+			sourceTree = "<group>";
+		};
+		93E71E1C220E767400361944 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		93F38B90220A28F300F099A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				93E71E19220E1E2E00361944 /* SwiftDate.framework */,
 				93449F7F220A8D78008BCC01 /* SQLite.framework */,
 				93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */,
 			);
@@ -210,6 +244,7 @@
 				933204322207C1DF0098632C /* Resources */,
 				9332044B2207C2090098632C /* ShellScript */,
 				93449F7C220A29FD008BCC01 /* Embed Frameworks */,
+				93908AB82218508100CC4E11 /* CopyFiles */,
 			);
 			buildRules = (
 				9332044A2207C1F90098632C /* PBXBuildRule */,
@@ -241,7 +276,7 @@
 								enabled = 0;
 							};
 							com.apple.Sandbox = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -310,6 +345,7 @@
 				9332043A2207C1DF0098632C /* ViewController.swift in Sources */,
 				933204382207C1DF0098632C /* AppDelegate.swift in Sources */,
 				934AEB572208D126005CCEBD /* AcknowledgmentsViewController.swift in Sources */,
+				93908AC122198AE900CC4E11 /* EarningsViewController.swift in Sources */,
 				934AEB5C220905E6005CCEBD /* FLTimerProtocol.swift in Sources */,
 				9332044F2207C5F10098632C /* Extensions.swift in Sources */,
 				934AEB5522081057005CCEBD /* Preferences.swift in Sources */,
@@ -455,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Freelancer/Freelancer.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = JW47XGYL6N;
@@ -462,15 +499,19 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Freelancer",
 				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = biz.stojkovic.Freelancer;
+				PRODUCT_BUNDLE_IDENTIFIER = pro.lingur.Freelancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
@@ -480,6 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Freelancer/Freelancer.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = JW47XGYL6N;
@@ -487,15 +529,18 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
+					"$(PROJECT_DIR)/Freelancer",
 				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = biz.stojkovic.Freelancer;
+				PRODUCT_BUNDLE_IDENTIFIER = pro.lingur.Freelancer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;

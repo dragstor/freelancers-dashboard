@@ -42,6 +42,7 @@ Perhaps the most useful feature - work timer. It's fully manual, so user has to 
 
 - [LaunchAtLogin](https://github.com/sindresorhus/LaunchAtLogin) by @sindresorhus
 - [SQLite.swift](https://github.com/stephencelis/SQLite.swift) by @stephencelis
+- [SwiftDate](https://github.com/malcommac/SwiftDate) by @malcommac
 - Icons & glyphs from [Icons8 App](https://icons8.com/)
 
 # TODO
@@ -49,7 +50,7 @@ Perhaps the most useful feature - work timer. It's fully manual, so user has to 
 - [x] Enter worked hours into the timesheet upon stopping the timer
 - [ ] Edit worked hours (from the timesheets)
 - [ ] Implement calendar (extend timesheets)
-- [ ] Automatically calculate earnings (based on timesheets)
+- [x] Automatically calculate earnings (based on timesheets)
 - and many more, check the [board](https://github.com/dragstor/freelancers-dashboard/projects/1)
 # License
 
