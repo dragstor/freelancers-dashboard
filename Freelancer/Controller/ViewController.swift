@@ -17,7 +17,7 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("Week Hours: \(prefs.weekHours)")
     }
 
     override var representedObject: Any? {

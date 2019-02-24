@@ -15,12 +15,16 @@ class TimerController: NSViewController {
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var btnEnd: NSButton!
     @IBOutlet weak var txtTime: NSTextField!
+    @IBOutlet weak var progress: NSLevelIndicator!
+    @IBOutlet weak var lblProgressValue: NSTextField!
     
     var flTimer = FLTimer()
     
-    var t_from: TimeInterval?
-    var t_to: TimeInterval?
-    var t_total: TimeInterval?
+    var prefs = Preferences()
+    
+    var t_from: TimeInterval = 0
+    var t_to: TimeInterval = 0
+    var t_total: TimeInterval = 0
     
     let ts_date         = Expression<TimeInterval>("ts_date")
     let ts_from         = Expression<TimeInterval>("ts_from")
@@ -41,11 +45,15 @@ class TimerController: NSViewController {
         super.viewDidLoad()
 
         flTimer.delegate = self
+        _ = getRemainingTime(time: 0)
     }
     
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
+            if self.view.isHidden == true {
+                _ = getRemainingTime(time: 0)
+            }
         }
     }
     
@@ -60,28 +68,53 @@ class TimerController: NSViewController {
     }
     
     @IBAction func timerStop(_ sender: Any?) {
+        stopTimer()
+    }
+    
+    func stopTimer(stopNow: Bool = false) {
+        if stopNow == true {
+            storeTime()
+        } else {
+            let ask = askToStop()
+            if ask == true {
+                storeTime()
+            }
+        }
+        
+    }
+    
+    func askToStop()-> Bool {
         let stop = dialogOKCancel(question: "Stop the timer?", text: "Stopping the timer will add currently worked time to today's time sheet.", btnTrue: "Yes", btnFalse: "Continue working")
-        if stop {
-            fmt.dateFormat = format
-
-            t_to = DateInRegion().timeIntervalSince1970
-
-            flTimer.stopTimer()
-
-            t_total = txtTime.stringValue.toDate()?.timeIntervalSince1970
-            
-            fmt.dateFormat = formatSec
-            let total = Date(seconds: t_to!).timeIntervalSince(Date(seconds: t_from!))
+        
+        return stop
+    }
+    
+    func storeTime() {
+        fmt.dateFormat = format
+        
+        t_to = DateInRegion().timeIntervalSince1970
+        
+        flTimer.stopTimer()
+        
+        t_total = txtTime.stringValue.toDate()!.timeIntervalSince1970
+        
+        print("From \(t_from) -  To \(t_to)")
+        
+        fmt.dateFormat = formatSec
+        if t_from == 0 {
+            return
+        } else {
+            let total = Date(seconds: t_to).timeIntervalSince(Date(seconds: t_from))
             t_total = total
             
             do {
                 fmt.dateFormat = format
                 try db?.run(
                     tableTimesheets.insert(
-                        ts_date <- t_from!,
-                        ts_from <- t_from!,
-                        ts_to <- t_to!,
-                        ts_total_time <- t_total!,
+                        ts_date <- t_from,
+                        ts_from <- t_from,
+                        ts_to <- t_to,
+                        ts_total_time <- t_total,
                         ts_approved <- false
                     )
                 )
@@ -90,7 +123,7 @@ class TimerController: NSViewController {
             } catch let error {
                 NSAlert.showAlert(title: "ERROR", message: "\(error)")
             }
-        
+            
             txtTime.stringValue = "00:00:00"
             
             btnStart.isEnabled = true
@@ -112,7 +145,13 @@ class TimerController: NSViewController {
 
 extension TimerController {
     func updateDisplay(for timeElapsed: TimeInterval) {
-        txtTime.stringValue = textToDisplay(for: timeElapsed)
+        txtTime.stringValue   = textToDisplay(for: timeElapsed)
+        let rt = getRemainingTime(time: timeElapsed)
+        if rt ~= 0 {
+            storeTime()
+            NSAlert.showAlert(title: "Time's up!", message: "You've reached maximum billable hours for this week.", style: .warning)
+        }
+        
     }
     
     private func textToDisplay(for timeElapsed: TimeInterval) -> String {
@@ -128,6 +167,35 @@ extension TimerController {
     // 
     private func secondsToTime( seconds: Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func getRemainingTime(time: TimeInterval) -> Int {
+        let maxHr:TimeInterval     = TimeInterval(Int(prefs.maxWeeklyHours) * 3600)
+        let weekHr:TimeInterval    = prefs.weekHours // 3600
+        var currentHr:TimeInterval = 0
+        currentHr = maxHr - weekHr - time
+        
+        if currentHr <= 0 {
+            NSAlert.showAlert(title: "Warning", message: "You don't have any billable hours available for this week!\n\nTime logging has been stopped and your hours have been logged.\n\nIf you need to continue working whatsoever, please increase maximum billable hours in the Preferences.", style: .warning)
+            btnStart.isEnabled = false
+            btnEnd.isEnabled = false
+            stopTimer(stopNow: true)
+            
+            return 0
+        } else {
+            let tStr = currentHr.toString()
+            let pMax = Double(maxHr / 360)
+            
+            progress.maxValue = pMax
+            progress.warningValue = pMax * 7 * 0.1
+            progress.criticalValue = pMax * 9 * 0.1
+            
+            progress.doubleValue = (weekHr + time) / 360
+            
+            lblProgressValue.stringValue = "Remaining billable time: \(tStr)"
+
+            return Int(currentHr)
+        }
     }
 }
 

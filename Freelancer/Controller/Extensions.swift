@@ -71,14 +71,14 @@ extension Date {
 
 extension String {
     
-//    func toTime(withFormat format: String = "yyyy-mm-dd HH:mm:ss")-> Date?{
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = format
-//        let date = dateFormatter.date(from: self)
-//        
-//        return date
-//        
-//    }
+    func toTime(withFormat format: String = "yyyy-mm-dd HH:mm:ss")-> Date?{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        let date = dateFormatter.date(from: self)
+        
+        return date
+        
+    }
     
     func getDay(withFormat format: String = "yyyy-mm-dd")-> Date?{
         let dateFormatter = DateFormatter()

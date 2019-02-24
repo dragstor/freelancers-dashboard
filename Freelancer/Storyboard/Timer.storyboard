@@ -11,14 +11,14 @@
             <objects>
                 <viewController storyboardIdentifier="TimerScene" id="MeR-tT-RLm" customClass="TimerController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Qt9-e4-J6F">
-                        <rect key="frame" x="0.0" y="0.0" width="307" height="175"/>
+                        <rect key="frame" x="0.0" y="0.0" width="307" height="227"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="I0k-u9-PTb">
-                                <rect key="frame" x="20" y="71" width="267" height="5"/>
+                                <rect key="frame" x="20" y="123" width="267" height="5"/>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-4v-VY6">
-                                <rect key="frame" x="-2" y="92" width="311" height="75"/>
+                                <rect key="frame" x="-2" y="144" width="311" height="75"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="00:00:00" id="jOn-NE-Z6v">
                                     <font key="font" size="55" name="AndaleMono"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -37,7 +37,7 @@
                                 </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJw-Ac-xec">
-                                <rect key="frame" x="153" y="12" width="48" height="48"/>
+                                <rect key="frame" x="153" y="20" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-sleep_mode" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyUpOrDown" inset="2" id="zkv-1Q-91z">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -48,7 +48,7 @@
                                 </connections>
                             </button>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-2i-Rso">
-                                <rect key="frame" x="106" y="12" width="48" height="48"/>
+                                <rect key="frame" x="106" y="20" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-play_round" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Pt6-aZ-6JU">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -58,6 +58,23 @@
                                     <action selector="timerStart:" target="MeR-tT-RLm" id="dZe-KR-Cqx"/>
                                 </connections>
                             </button>
+                            <levelIndicator toolTip="Remaining billable hours" focusRingType="exterior" verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" drawsTieredCapacityLevels="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NLk-U8-qMf">
+                                <rect key="frame" x="20" y="98" width="267" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <levelIndicatorCell key="cell" focusRingType="exterior" alignment="left" doubleValue="33" maxValue="40" warningValue="30" criticalValue="35" numberOfMajorTickMarks="1" levelIndicatorStyle="continuousCapacity" id="8rq-aD-qST"/>
+                                <color key="fillColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                <color key="warningFillColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                <color key="criticalFillColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                            </levelIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u04-WN-qCK">
+                                <rect key="frame" x="18" y="73" width="271" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Remaining time" id="OGj-AX-9eM">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="I0k-u9-PTb" firstAttribute="top" secondItem="R3s-4v-VY6" secondAttribute="bottom" constant="18" id="AdN-i8-iWj"/>
@@ -72,12 +89,14 @@
                     <connections>
                         <outlet property="btnEnd" destination="ZJw-Ac-xec" id="zug-2o-tBq"/>
                         <outlet property="btnStart" destination="BKM-2i-Rso" id="vnD-do-f2U"/>
+                        <outlet property="lblProgressValue" destination="u04-WN-qCK" id="AbZ-1m-nAo"/>
+                        <outlet property="progress" destination="NLk-U8-qMf" id="x5M-FO-6PF"/>
                         <outlet property="txtTime" destination="R3s-4v-VY6" id="HVG-rD-qlj"/>
                     </connections>
                 </viewController>
                 <customObject id="63i-gh-iIC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.5" y="-29.5"/>
+            <point key="canvasLocation" x="24.5" y="-3.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="weg-7G-jYh">
@@ -110,11 +129,11 @@
                 </viewController>
                 <customObject id="Lco-t8-RaO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="400" y="-30"/>
+            <point key="canvasLocation" x="402" y="-4"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-play_round" width="48" height="48"/>
-        <image name="icons8-sleep_mode" width="48" height="48"/>
+        <image name="icons8-play_round" width="75" height="75"/>
+        <image name="icons8-sleep_mode" width="75" height="75"/>
     </resources>
 </document>

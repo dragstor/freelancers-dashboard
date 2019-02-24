@@ -43,6 +43,8 @@ class WeekTimeSheetViewController: NSViewController {
     var days:[[String:String]] = [[:]]
     var timePerDay             = [String:(TimeInterval)]()
     
+    var prefs = Preferences()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,6 +110,8 @@ class WeekTimeSheetViewController: NSViewController {
             
             lblTotalHours.stringValue    = totalHoursWeek.toString()
             lblTotalEarnings.stringValue = totalHoursWeek.getEarnings()
+            
+            prefs.weekHours = totalHoursWeek
             
             tableView.reloadData()
         } catch {
