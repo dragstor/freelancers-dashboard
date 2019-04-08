@@ -7,7 +7,10 @@
 //
 import Cocoa
 
+/// Preferences struct
+///   Used to set and get params important to the appß
 struct Preferences {
+    /// Defines if the app will auto start with the system boot (user login)
     var autoStart: Bool {
         get {
             let savedAutoStart = UserDefaults.standard.bool(forKey: "autoStart")
@@ -22,6 +25,22 @@ struct Preferences {
         }
     }
     
+    /// Used to determine if the onboarding screen will appear
+    var firstRun: Bool {
+        get {
+            let isFirstRun = UserDefaults.standard.bool(forKey: "firstRun")
+            if isFirstRun == true {
+                return true
+            }
+            
+            return false
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: "firstRun")
+        }
+    }
+    
+    /// Freelancer's maximum weekly billable hours
     var maxWeeklyHours: Int16 {
         get {
             let maxWHours = UserDefaults.standard.integer(forKey: "maxWeeklyHours")
@@ -37,6 +56,8 @@ struct Preferences {
         }
     }
     
+    
+    /// Freelancer's per hour rate
     var ratePerHour: Double {
         get {
             let ratePH = UserDefaults.standard.double(forKey: "ratePerHour")
@@ -53,6 +74,7 @@ struct Preferences {
         }
     }
     
+    /// Worked hours this week
     var weekHours: TimeInterval {
         get {
             let weekHours = UserDefaults.standard.double(forKey: "weekHours")
@@ -69,6 +91,7 @@ struct Preferences {
         }
     }
     
+    /// Earnings for current week
     var weekEarnings: Double {
         get {
             let weekEarnings = UserDefaults.standard.double(forKey: "weekEarnings")
@@ -82,6 +105,18 @@ struct Preferences {
         
         set {
             UserDefaults.standard.set(newValue, forKey: "weekEarnings")
+        }
+    }
+    
+    var currency: Int {
+        get {
+            let currency = UserDefaults.standard.integer(forKey: "currency")
+            
+            return currency
+        }
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "currency")
         }
     }
 }

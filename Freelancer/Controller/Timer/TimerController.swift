@@ -10,8 +10,10 @@ import Cocoa
 import SQLite
 import SwiftDate
 
-class TimerController: NSViewController {
+class TimerController: NSViewController, NSApplicationDelegate {
     
+    @IBOutlet weak var vev: NSVisualEffectView!
+    @IBOutlet var timerWindow: NSView!
     @IBOutlet weak var btnStart: NSButton!
     @IBOutlet weak var btnEnd: NSButton!
     @IBOutlet weak var txtTime: NSTextField!
@@ -41,13 +43,28 @@ class TimerController: NSViewController {
     let formatSec = "HH:mm:ss"
     let bgd = Region.current
     
+    var em: EventMonitor?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         flTimer.delegate = self
         _ = getRemainingTime(time: 0)
+        vev?.blendingMode = .behindWindow
+
+        self.view.window?.hasShadow = true
+        
+//        if #available(OSX 10.14, *) {
+//             .material = .
+//        } else {
+//            // Fallback on earlier versions
+//            vev.material = .appearanceBased
+//        }
     }
-    
+    override func viewDidAppear() {
+        self.view.window?.isOpaque = false
+        self.view.window?.backgroundColor = .clear
+    }
     override var representedObject: Any? {
         didSet {
             // Update the view, if already loaded.
@@ -58,15 +75,36 @@ class TimerController: NSViewController {
     }
     
     @IBAction func timerStart(_ sender: Any?) {
+//        let n  = NSUserNotification()
+//        let nc = NSUserNotificationCenter.default
+
+
         flTimer.startTimer()
-       
+
         fmt.dateFormat = format
         t_from = DateInRegion().timeIntervalSince1970
-        
+
         btnStart.isEnabled = false
         btnEnd.isEnabled = true
+
+        self.view.window?.close()
+
+//        n.title = "Time Logger"
+//        n.informativeText = "Timer has started logging the time."
+//
+//        n.hasActionButton = true
+//
+//        n.actionButtonTitle = "Stop the timer?"
+//        n.otherButtonTitle  = "👍"
+//
+//        nc.scheduleNotification(n)
+        
+
+        let viewController:NSViewController = NSStoryboard(name: "Notification", bundle: nil).instantiateController(withIdentifier: "notificationSB") as! NSViewController
+        
+        self.presentAsModalWindow(viewController)
     }
-    
+
     @IBAction func timerStop(_ sender: Any?) {
         stopTimer()
     }
@@ -106,7 +144,7 @@ class TimerController: NSViewController {
         } else {
             let total = Date(seconds: t_to).timeIntervalSince(Date(seconds: t_from))
             t_total = total
-            
+
             do {
                 fmt.dateFormat = format
                 try db?.run(
@@ -123,14 +161,14 @@ class TimerController: NSViewController {
             } catch let error {
                 NSAlert.showAlert(title: "ERROR", message: "\(error)")
             }
-            
+
             txtTime.stringValue = "00:00:00"
             
             btnStart.isEnabled = true
             btnEnd.isEnabled = false
         }
     }
-    
+
     func dialogOKCancel(question: String, text: String, btnTrue: String, btnFalse: String) -> Bool {
         let alert = NSAlert()
         alert.messageText = question
@@ -141,6 +179,8 @@ class TimerController: NSViewController {
         return alert.runModal() == .alertFirstButtonReturn
     }
 
+
+    
 }
 
 extension TimerController {

@@ -135,8 +135,32 @@ extension NSAlert {
     }
 }
 
+extension NSView {
+    var isDarkMode: Bool {
+        if #available(OSX 10.14, *) {
+            if effectiveAppearance.name == .darkAqua {
+                return true
+            }
+        }
+        return false
+    }
+}
 
 
+extension NSViewController {
+    func goToScreen(id : String, fromBoard: String) {
+        let viewController:NSViewController = NSStoryboard(name: fromBoard, bundle: Bundle.main).instantiateController(withIdentifier: id) as! NSViewController
+//        self.present(viewController, animator: ReplacePresentationAnimator())
+//        present(viewController, animator: ReplacePresentationAnimator())
+//        viewController.view.window?.styleMask.remove(.fullScreen)
+//        self.view.present(viewController, asPopoverRelativeTo: self, of: sender, preferredEdge: .maxY, behavior: .transient)
+        self.presentAsSheet(viewController)
 
+    }
+}
 
-
+extension Notification.Name {
+    static let didReceiveData = Notification.Name("didReceiveData")
+    static let didCompleteTask = Notification.Name("didCompleteTask")
+    static let completedLengthyDownload = Notification.Name("completedLengthyDownload")
+}

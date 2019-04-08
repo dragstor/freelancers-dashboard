@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="MeR-tT-RLm">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
@@ -9,131 +9,80 @@
         <!--Timer Controller-->
         <scene sceneID="gJF-zf-ctQ">
             <objects>
-                <viewController storyboardIdentifier="TimerScene" id="MeR-tT-RLm" customClass="TimerController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="Qt9-e4-J6F">
-                        <rect key="frame" x="0.0" y="0.0" width="307" height="227"/>
+                <viewController storyboardIdentifier="TimerScene" showSeguePresentationStyle="single" id="MeR-tT-RLm" customClass="TimerController" customModule="Freelancer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="Qt9-e4-J6F">
+                        <rect key="frame" x="0.0" y="0.0" width="307" height="201"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="I0k-u9-PTb">
-                                <rect key="frame" x="20" y="123" width="267" height="5"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="R3s-4v-VY6">
-                                <rect key="frame" x="-2" y="144" width="311" height="75"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="00:00:00" id="jOn-NE-Z6v">
+                            <levelIndicator toolTip="Remaining billable hours" focusRingType="exterior" verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" drawsTieredCapacityLevels="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zar-7g-xPt">
+                                <rect key="frame" x="25" y="18" width="256" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="5">
+                                    <color key="color" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                </shadow>
+                                <levelIndicatorCell key="cell" focusRingType="exterior" alignment="left" maxValue="40" warningValue="30" criticalValue="35" numberOfMajorTickMarks="1" levelIndicatorStyle="continuousCapacity" id="aVx-ul-9EY"/>
+                                <color key="fillColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                <color key="warningFillColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                                <color key="criticalFillColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                            </levelIndicator>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhn-fr-e6Q">
+                                <rect key="frame" x="106" y="44" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-play_round" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="4lB-Pf-06p">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="timerStart:" target="MeR-tT-RLm" id="HjR-g4-oC8"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ugb-ou-W8D">
+                                <rect key="frame" x="23" y="100" width="260" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="remaining time placeholder" id="OkX-ma-lXb">
+                                    <font key="font" metaFont="fixedUser" size="11"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tEP-76-POp">
+                                <rect key="frame" x="153" y="44" width="48" height="48"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-sleep_mode" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyUpOrDown" inset="2" id="e5Q-1L-OlB">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="timerStop:" target="MeR-tT-RLm" id="0dH-LS-P1C"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OOb-uR-O2b">
+                                <rect key="frame" x="-2" y="126" width="311" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="center" title="00:00:00" id="ocb-ji-7tR">
                                     <font key="font" size="55" name="AndaleMono"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAp-Me-Ie4">
-                                <rect key="frame" x="284" y="0.0" width="23" height="23"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="❤️" bezelStyle="shadowlessSquare" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="2E7-3o-yLR">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <segue destination="eVn-69-uyw" kind="popover" popoverAnchorView="gAp-Me-Ie4" popoverBehavior="t" preferredEdge="maxX" id="9um-VT-nH1"/>
-                                </connections>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJw-Ac-xec">
-                                <rect key="frame" x="153" y="20" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-sleep_mode" imagePosition="only" alignment="center" enabled="NO" imageScaling="proportionallyUpOrDown" inset="2" id="zkv-1Q-91z">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="timerStop:" target="MeR-tT-RLm" id="2Ax-0R-7rk"/>
-                                </connections>
-                            </button>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKM-2i-Rso">
-                                <rect key="frame" x="106" y="20" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icons8-play_round" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Pt6-aZ-6JU">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="timerStart:" target="MeR-tT-RLm" id="dZe-KR-Cqx"/>
-                                </connections>
-                            </button>
-                            <levelIndicator toolTip="Remaining billable hours" focusRingType="exterior" verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" drawsTieredCapacityLevels="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NLk-U8-qMf">
-                                <rect key="frame" x="20" y="98" width="267" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <levelIndicatorCell key="cell" focusRingType="exterior" alignment="left" doubleValue="33" maxValue="40" warningValue="30" criticalValue="35" numberOfMajorTickMarks="1" levelIndicatorStyle="continuousCapacity" id="8rq-aD-qST"/>
-                                <color key="fillColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
-                                <color key="warningFillColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
-                                <color key="criticalFillColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
-                            </levelIndicator>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u04-WN-qCK">
-                                <rect key="frame" x="18" y="73" width="271" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Remaining time" id="OGj-AX-9eM">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="I0k-u9-PTb" firstAttribute="top" secondItem="R3s-4v-VY6" secondAttribute="bottom" constant="18" id="AdN-i8-iWj"/>
-                            <constraint firstItem="R3s-4v-VY6" firstAttribute="leading" secondItem="Qt9-e4-J6F" secondAttribute="leading" id="LsC-29-Ybb"/>
-                            <constraint firstAttribute="trailing" secondItem="R3s-4v-VY6" secondAttribute="trailing" id="XTg-Sa-8Mn"/>
-                            <constraint firstAttribute="trailing" secondItem="I0k-u9-PTb" secondAttribute="trailing" constant="20" id="dgY-ch-IUG"/>
-                            <constraint firstItem="R3s-4v-VY6" firstAttribute="top" secondItem="Qt9-e4-J6F" secondAttribute="top" constant="8" id="qrU-qE-6pe"/>
-                            <constraint firstItem="I0k-u9-PTb" firstAttribute="top" secondItem="R3s-4v-VY6" secondAttribute="bottom" constant="18" id="sAI-Lj-qJj"/>
-                            <constraint firstItem="I0k-u9-PTb" firstAttribute="leading" secondItem="Qt9-e4-J6F" secondAttribute="leading" constant="20" id="wXj-lc-vkF"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnEnd" destination="ZJw-Ac-xec" id="zug-2o-tBq"/>
-                        <outlet property="btnStart" destination="BKM-2i-Rso" id="vnD-do-f2U"/>
-                        <outlet property="lblProgressValue" destination="u04-WN-qCK" id="AbZ-1m-nAo"/>
-                        <outlet property="progress" destination="NLk-U8-qMf" id="x5M-FO-6PF"/>
-                        <outlet property="txtTime" destination="R3s-4v-VY6" id="HVG-rD-qlj"/>
+                        <outlet property="btnEnd" destination="tEP-76-POp" id="pgM-Vs-MfH"/>
+                        <outlet property="btnStart" destination="xhn-fr-e6Q" id="lBW-bh-FkN"/>
+                        <outlet property="lblProgressValue" destination="ugb-ou-W8D" id="uOD-yF-WY2"/>
+                        <outlet property="progress" destination="zar-7g-xPt" id="XDy-lK-BUg"/>
+                        <outlet property="timerWindow" destination="Qt9-e4-J6F" id="Hnm-X1-zfD"/>
+                        <outlet property="txtTime" destination="OOb-uR-O2b" id="KEV-Kk-bNZ"/>
                     </connections>
                 </viewController>
                 <customObject id="63i-gh-iIC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.5" y="-3.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="weg-7G-jYh">
-            <objects>
-                <viewController id="eVn-69-uyw" sceneMemberID="viewController">
-                    <view key="view" id="FR5-Gv-6Wl">
-                        <rect key="frame" x="0.0" y="0.0" width="235" height="79"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ga7-tb-LHK">
-                                <rect key="frame" x="35" y="39" width="164" height="22"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Made in 🇷🇸 with ❤️" id="eZU-2B-R37">
-                                    <font key="font" metaFont="system" size="18"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zMu-Aw-p4M">
-                                <rect key="frame" x="100" y="8" width="35" height="28"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="🤗" id="Ryr-Te-bJM">
-                                    <font key="font" metaFont="system" size="23"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                    </view>
-                </viewController>
-                <customObject id="Lco-t8-RaO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="402" y="-4"/>
+            <point key="canvasLocation" x="-289.5" y="108.5"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-play_round" width="75" height="75"/>
-        <image name="icons8-sleep_mode" width="75" height="75"/>
+        <image name="icons8-play_round" width="48" height="48"/>
+        <image name="icons8-sleep_mode" width="48" height="48"/>
     </resources>
 </document>

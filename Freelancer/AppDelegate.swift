@@ -19,23 +19,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        if let button = statusItem.button {
-            button.image = NSImage(named: NSImage.Name("icons8-time_card"))
-            button.action = #selector(togglePopover(_:))
-            
-        }
-        popover.contentViewController = TimerController.freshController()
+        NSUserNotificationCenter.default.delegate = self
         
-        eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
-            if let strongSelf = self, strongSelf.popover.isShown {
-                strongSelf.closePopover(sender: event)
+            if let button = statusItem.button {
+                button.image = NSImage(named: NSImage.Name("icons8-stopwatch"))
+                button.action = #selector(togglePopover(_:))
+                
             }
-        }
+            popover.contentViewController = TimerController.freshController()
+            
+            eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [weak self] event in
+                if let strongSelf = self, strongSelf.popover.isShown {
+                    strongSelf.closePopover(sender: event)
+                }
+            }
         
-        supportFolderCreate()
-        dbCreateIfMissing()
+        
+        
+            supportFolderCreate()
+            dbCreateIfMissing()
     }
-
+    
+//    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+//        return true
+//    }
+    
     @objc func togglePopover(_ sender: Any?) {
         if popover.isShown {
             closePopover(sender: sender)
@@ -45,6 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func showPopover(sender: Any?) {
+        NSApplication.shared.activate(ignoringOtherApps: true)
         if let button = statusItem.button {
             popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
             popover.contentViewController?.viewDidLoad()
@@ -189,5 +198,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             NSAlert.showAlert(title: "ERROR", message: "Unable to create Application Support Directory due to:\n\(error)", style: .critical )
         }
     }
+    func userNotificationCenter(center: NSUserNotificationCenter, didActivateNotification notification: NSUserNotification) {
+        switch (notification.activationType) {
+        case .actionButtonClicked:
+            NSAlert.showAlert(title: "test", message: "aaaa")
+        default:
+            break;
+        }
+    }
+
 }
 
+extension AppDelegate:NSUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+}

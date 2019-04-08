@@ -43,6 +43,7 @@ class FLTimer {
         } else {
             delegate?.timeElapsedOnTimer(self, timeElapsed: secondsElapsed)
         }
+        NotificationCenter.default.post(name: .hoursUpdated, object: nil)
     }
     
     func startTimer() {
