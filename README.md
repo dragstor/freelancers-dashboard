@@ -5,6 +5,7 @@ This app is a work in progress and it's made for freelancers who need to keep a 
 ![](https://img.shields.io/github/issues/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/license/dragstor/freelancers-dashboard.svg?style=flat)  
 
 ![](https://img.shields.io/github/languages/top/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/commit-activity/m/dragstor/freelancers-dashboard.svg?style=flat) ![](https://img.shields.io/github/languages/code-size/dragstor/freelancers-dashboard.svg?style=flat)
+[![Build Status](https://travis-ci.org/vexy/freelancers-dashboard.svg?branch=master)](https://travis-ci.org/vexy/freelancers-dashboard)
 
 ## Features
 
@@ -24,7 +25,7 @@ App consists of the popover timer (sits in the status bar) and a main window wit
 
 ![main window](https://i.imgur.com/LvRVhjH.png)
 
-The app itslef consists of a main window with (currently) just a few available features, such as:
+Main window with (currently) just a few available features, contains:
 
 - Time sheets
   - for today

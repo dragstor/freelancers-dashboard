@@ -8,38 +8,44 @@
 import Cocoa
 
 struct Preferences {
+    private let defaults = UserDefaults.standard
+    
+    private struct KeyNames {
+        static let autoStart = "autoStart"
+        static let maxHoursKey = "maxWeeklyHours"
+        static let rateKey = "ratePerHour"
+        static let ratePerHour = "ratePerHour"
+        static let weekKeys = "weekHours"
+        static let weekEarnings = "weekEarnings"
+    }
+    
     var autoStart: Bool {
         get {
-            let savedAutoStart = UserDefaults.standard.bool(forKey: "autoStart")
-            if savedAutoStart == true {
-                return true
-            }
-            
-            return false
+            defaults.bool(forKey: KeyNames.autoStart)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "autoStart")
+            defaults.set(newValue, forKey: KeyNames.autoStart)
         }
     }
     
     var maxWeeklyHours: Int16 {
         get {
-            let maxWHours = UserDefaults.standard.integer(forKey: "maxWeeklyHours")
-            if maxWHours > 0 {
-                return Int16(maxWHours)
+            let value = defaults.integer(forKey: KeyNames.maxHoursKey)
+            if value > 0 {
+                return Int16(value)
             }
             
             return 0
         }
         
         set {
-            UserDefaults.standard.set(newValue, forKey: "maxWeeklyHours")
+            defaults.set(newValue, forKey: KeyNames.maxHoursKey)
         }
     }
     
     var ratePerHour: Double {
         get {
-            let ratePH = UserDefaults.standard.double(forKey: "ratePerHour")
+            let ratePH = defaults.double(forKey: KeyNames.ratePerHour)
             
             if ratePH != 0.00 {
                 return Double(ratePH)
@@ -49,13 +55,13 @@ struct Preferences {
         }
         
         set {
-            UserDefaults.standard.set(newValue, forKey: "ratePerHour")
+            defaults.set(newValue, forKey: KeyNames.ratePerHour)
         }
     }
     
     var weekHours: TimeInterval {
         get {
-            let weekHours = UserDefaults.standard.double(forKey: "weekHours")
+            let weekHours = defaults.double(forKey: KeyNames.weekKeys)
             
             if weekHours != 0.0 {
                 return TimeInterval(weekHours)
@@ -65,13 +71,13 @@ struct Preferences {
         }
         
         set {
-            UserDefaults.standard.set(newValue, forKey: "weekHours")
+            defaults.set(newValue, forKey: KeyNames.weekKeys)
         }
     }
     
     var weekEarnings: Double {
         get {
-            let weekEarnings = UserDefaults.standard.double(forKey: "weekEarnings")
+            let weekEarnings = defaults.double(forKey: KeyNames.weekEarnings)
             
             if weekEarnings != 0.0 {
                 return Double(weekEarnings)
@@ -81,7 +87,7 @@ struct Preferences {
         }
         
         set {
-            UserDefaults.standard.set(newValue, forKey: "weekEarnings")
+            defaults.set(newValue, forKey: KeyNames.weekEarnings)
         }
     }
 }

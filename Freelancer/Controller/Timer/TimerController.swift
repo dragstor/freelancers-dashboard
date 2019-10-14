@@ -39,7 +39,6 @@ class TimerController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         flTimer.delegate = self
     }
     
@@ -60,8 +59,8 @@ class TimerController: NSViewController {
     }
     
     @IBAction func timerStop(_ sender: Any?) {
-        let stop = dialogOKCancel(question: "Stop the timer?", text: "Stopping the timer will add currently worked time to today's time sheet.", btnTrue: "Yes", btnFalse: "Continue working")
-        if stop {
+        let timerStopped = confirmationDialog()
+        if timerStopped {
             fmt.dateFormat = format
 
             t_to = DateInRegion().timeIntervalSince1970
@@ -84,7 +83,7 @@ class TimerController: NSViewController {
                         ts_total_time <- t_total!,
                         ts_approved <- false
                     )
-                )
+                )       //extract method
             } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
                 NSAlert.showAlert(title: "\(message)", message: "Error with statement: \(String(describing: statement))")
             } catch let error {
@@ -98,14 +97,17 @@ class TimerController: NSViewController {
         }
     }
     
-    func dialogOKCancel(question: String, text: String, btnTrue: String, btnFalse: String) -> Bool {
+    func confirmationDialog() -> Bool {
         let alert = NSAlert()
-        alert.messageText = question
-        alert.informativeText = text
+        
+        alert.messageText = "Stop the timer?"
+        alert.informativeText = "Stopping the timer will add currently worked time to today's time sheet."
         alert.alertStyle = .warning
-        alert.addButton(withTitle: btnTrue)
-        alert.addButton(withTitle: btnFalse)
-        return alert.runModal() == .alertFirstButtonReturn
+        alert.addButton(withTitle: "Yes")
+        alert.addButton(withTitle: "Continue working")
+        
+        let dialogResult = alert.runModal()
+        return dialogResult == .alertFirstButtonReturn
     }
 
 }

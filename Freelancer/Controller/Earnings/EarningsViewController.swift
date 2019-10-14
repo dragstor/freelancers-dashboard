@@ -43,8 +43,5 @@ class EarningsViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
         SwiftDate.defaultRegion = Region.current
-        
-
-        
     }    
 }

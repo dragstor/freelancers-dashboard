@@ -6,10 +6,9 @@
 //  Copyright © 2019 Stojković. All rights reserved.
 //
 
-//  Used to hangle dismissing the timer popover (status bar)
-
 import Cocoa
 
+///  Used to hangle dismissing the timer popover (status bar)
 public class EventMonitor {
     private var monitor: Any?
     private let mask: NSEvent.EventTypeMask

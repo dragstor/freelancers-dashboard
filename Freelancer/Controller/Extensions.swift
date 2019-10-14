@@ -97,7 +97,7 @@ extension TimeInterval {
         dateFormatter.dateFormat = "H:m:s"
         
         var earnings = 0.0
-        var prefs = Preferences()
+        let prefs = Preferences()
         let rph = prefs.ratePerHour
         
         let time = DateInRegion(seconds: self)
@@ -134,9 +134,3 @@ extension NSAlert {
         alert.runModal()
     }
 }
-
-
-
-
-
-

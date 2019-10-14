@@ -9,16 +9,5 @@
 import Cocoa
 
 class AcknowledgmentsViewController: NSViewController {
-
     @IBOutlet weak var linkIcon8: NSTextField!
-
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
-        
-    }
-    
-    
-    
 }

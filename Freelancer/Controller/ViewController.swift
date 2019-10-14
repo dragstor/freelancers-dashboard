@@ -12,9 +12,7 @@ class ViewController: NSViewController {
 
     @IBOutlet weak var lblTimerRunningStatus: NSTextField!
     var prefs = Preferences()
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,10 +20,8 @@ class ViewController: NSViewController {
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // ?
         }
     }
-
-
 }
 
