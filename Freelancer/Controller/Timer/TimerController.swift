@@ -84,10 +84,18 @@ class TimerController: NSViewController {
                         ts_approved <- false
                     )
                 )       //extract method
-            } catch let Result.error(message, code, statement) where code == SQLITE_ANY {
-                NSAlert.showAlert(title: "\(message)", message: "Error with statement: \(String(describing: statement))")
+            } catch let Result.error(message, code, statement) {
+                let alertMessage: String
+                if let statement: Statement = statement {
+                    alertMessage = "Message: \(message)\nCode: \(code)\nStatement: \(statement.description)"
+                } else {
+                    alertMessage = "Message: \(message)\nCode: \(code)"
+                }
+                NSAlert.showAlert(title: "ERROR",
+                                  message: alertMessage)
             } catch let error {
-                NSAlert.showAlert(title: "ERROR", message: "\(error)")
+                NSAlert.showAlert(title: "ERROR",
+                                  message: "\(error)")
             }
         
             txtTime.stringValue = "00:00:00"

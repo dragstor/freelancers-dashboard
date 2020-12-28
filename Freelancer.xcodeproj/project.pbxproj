@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,11 +18,7 @@
 		933204532207C6370098632C /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933204522207C6370098632C /* EventMonitor.swift */; };
 		933204552207C6B40098632C /* TimerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 933204542207C6B40098632C /* TimerController.swift */; };
 		9332045D2207FA100098632C /* TodayTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9332045C2207FA100098632C /* TodayTimeSheetViewController.swift */; };
-		93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; };
-		93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93F38B91220A28F300F099A2 /* LaunchAtLogin.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93449F7E220A2F3E008BCC01 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93449F7D220A2F3E008BCC01 /* AboutViewController.swift */; };
-		93449F80220A8D78008BCC01 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93449F7F220A8D78008BCC01 /* SQLite.framework */; };
-		93449F81220A8D78008BCC01 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93449F7F220A8D78008BCC01 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		934AEB3C2207FECA005CCEBD /* WeekTimeSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB3B2207FECA005CCEBD /* WeekTimeSheetViewController.swift */; };
 		934AEB43220804BF005CCEBD /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB42220804BF005CCEBD /* GeneralPreferenceViewController.swift */; };
 		934AEB5522081057005CCEBD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5422081057005CCEBD /* Preferences.swift */; };
@@ -30,8 +26,10 @@
 		934AEB592208D5CC005CCEBD /* HyperlinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB582208D5CC005CCEBD /* HyperlinkTextField.swift */; };
 		934AEB5C220905E6005CCEBD /* FLTimerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934AEB5B220905E6005CCEBD /* FLTimerProtocol.swift */; };
 		93908AC122198AE900CC4E11 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93908AC022198AE900CC4E11 /* EarningsViewController.swift */; };
-		93E71E1A220E1E2E00361944 /* SwiftDate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E71E19220E1E2E00361944 /* SwiftDate.framework */; };
-		93E71E1B220E1E2E00361944 /* SwiftDate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93E71E19220E1E2E00361944 /* SwiftDate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E1CF833D259A205C0013E72A /* LaunchAtLogin in Frameworks */ = {isa = PBXBuildFile; productRef = E1CF833C259A205C0013E72A /* LaunchAtLogin */; };
+		E1CF8340259A20A10013E72A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E1CF833F259A20A10013E72A /* SQLite */; };
+		E1CF8349259A22580013E72A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = E1CF8348259A22580013E72A /* SwiftDate */; };
+		E1CF834B259A22580013E72A /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = E1CF834A259A22580013E72A /* SwiftDateStatic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -55,9 +53,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				93449F81220A8D78008BCC01 /* SQLite.framework in Embed Frameworks */,
-				93E71E1B220E1E2E00361944 /* SwiftDate.framework in Embed Frameworks */,
-				93449F7B220A29FD008BCC01 /* LaunchAtLogin.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,9 +102,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93449F80220A8D78008BCC01 /* SQLite.framework in Frameworks */,
-				93E71E1A220E1E2E00361944 /* SwiftDate.framework in Frameworks */,
-				93449F7A220A29FD008BCC01 /* LaunchAtLogin.framework in Frameworks */,
+				E1CF8340259A20A10013E72A /* SQLite in Frameworks */,
+				E1CF833D259A205C0013E72A /* LaunchAtLogin in Frameworks */,
+				E1CF834B259A22580013E72A /* SwiftDateStatic in Frameworks */,
+				E1CF8349259A22580013E72A /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +134,6 @@
 		933204362207C1DF0098632C /* Freelancer */ = {
 			isa = PBXGroup;
 			children = (
-				93E71E1C220E767400361944 /* Helpers */,
 				934AEB5322081043005CCEBD /* Model */,
 				933204572207E6090098632C /* Storyboard */,
 				933204562207E5E40098632C /* Controller */,
@@ -219,13 +214,6 @@
 			path = Earnings;
 			sourceTree = "<group>";
 		};
-		93E71E1C220E767400361944 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		93F38B90220A28F300F099A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +244,12 @@
 			dependencies = (
 			);
 			name = Freelancer;
+			packageProductDependencies = (
+				E1CF833C259A205C0013E72A /* LaunchAtLogin */,
+				E1CF833F259A20A10013E72A /* SQLite */,
+				E1CF8348259A22580013E72A /* SwiftDate */,
+				E1CF834A259A22580013E72A /* SwiftDateStatic */,
+			);
 			productName = Freelancer;
 			productReference = 933204342207C1DF0098632C /* Freelancer.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +289,11 @@
 				Base,
 			);
 			mainGroup = 9332042B2207C1DF0098632C;
+			packageReferences = (
+				E1CF833B259A205C0013E72A /* XCRemoteSwiftPackageReference "LaunchAtLogin" */,
+				E1CF833E259A20A10013E72A /* XCRemoteSwiftPackageReference "SQLite" */,
+				E1CF8347259A22580013E72A /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = 933204352207C1DF0098632C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -334,7 +333,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nzsh \"${SRCROOT}/build_number.sh\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\nzsh \"${PROJECT_DIR}/Carthage/Build/Mac/LaunchAtLogin.framework/Resources/copy-helper.sh\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nzsh \"${SRCROOT}/build_number.sh\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -502,7 +501,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Freelancer",
 				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
@@ -532,7 +530,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Freelancer",
 				);
 				INFOPLIST_FILE = Freelancer/Info.plist;
@@ -571,6 +568,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E1CF833B259A205C0013E72A /* XCRemoteSwiftPackageReference "LaunchAtLogin" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/LaunchAtLogin";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		E1CF833E259A20A10013E72A /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.12.2;
+			};
+		};
+		E1CF8347259A22580013E72A /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E1CF833C259A205C0013E72A /* LaunchAtLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1CF833B259A205C0013E72A /* XCRemoteSwiftPackageReference "LaunchAtLogin" */;
+			productName = LaunchAtLogin;
+		};
+		E1CF833F259A20A10013E72A /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1CF833E259A20A10013E72A /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+		E1CF8348259A22580013E72A /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1CF8347259A22580013E72A /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+		E1CF834A259A22580013E72A /* SwiftDateStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1CF8347259A22580013E72A /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDateStatic;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9332043B2207C1DF0098632C /* Freelancer.xcdatamodeld */ = {
